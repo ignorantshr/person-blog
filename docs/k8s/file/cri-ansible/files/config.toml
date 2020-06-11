@@ -1,0 +1,46 @@
+[plugins]
+  [plugins.cri]
+    sandbox_image = "registry.aliyuncs.com/google_containers/pause:3.2"
+    [plugins.cri.registry]
+      [plugins.cri.registry.mirrors]
+        [plugins.cri.registry.mirrors."docker.io"]
+          endpoint = ["http://hub-mirror.c.163.com", ]
+    [plugins.cri.containerd]
+      no_pivot = false
+    [plugins.cri.containerd.default_runtime]
+      #runtime_type = "io.containerd.runtime.v1.linux"
+      runtime_type = "io.containerd.kata.v2"
+    [plugins.cri.containerd.untrusted_workload_runtime]
+      # runtime_type is the runtime type to use in containerd e.g. io.containerd.runtime.v1.linux
+      runtime_type = "io.containerd.kata.v2"
+    [plugins.cri.containerd.runtimes]
+      [plugins.cri.containerd.runtimes.runc]
+         runtime_type = "io.containerd.runc.v1"
+         [plugins.cri.containerd.runtimes.runc.options]
+           NoPivotRoot = false
+           NoNewKeyring = false
+           ShimCgroup = ""
+           IoUid = 0
+           IoGid = 0
+           BinaryName = "runc"
+           Root = ""
+           CriuPath = ""
+           SystemdCgroup = false
+      [plugins.cri.containerd.runtimes.kata]
+         runtime_type = "io.containerd.kata.v2"
+      [plugins.cri.containerd.runtimes.katacli]
+         runtime_type = "io.containerd.runc.v1"
+         [plugins.cri.containerd.runtimes.katacli.options]
+           NoPivotRoot = false
+           NoNewKeyring = false
+           ShimCgroup = ""
+           IoUid = 0
+           IoGid = 0
+           BinaryName = "/usr/bin/kata-runtime"
+           Root = ""
+           CriuPath = ""
+           SystemdCgroup = false
+
+    [plugins.cri.cni]
+      # conf_dir is the directory in which the admin places a CNI conf.
+      conf_dir = "/etc/cni/net.d"

@@ -1,0 +1,317 @@
+site_name: Person Sink
+site_author: ignorantshr
+repo_url: https://github.com/ignorantshr/question
+nav:
+    - Home: index.md
+    - Linux:
+        - linux/epel源.md
+        - linux/主机不能连接mariadb.md
+        - linux/修改centos7语言.md
+        - linux/修改mariadb编码类型.md
+        - linux/关闭selinux.md
+        - linux/开启图形界面.md
+        - linux/文本安装时磁盘可选.md
+        - linux/改变系统时区.md
+        - linux/磁盘容量扩充.md
+        - linux/网卡不存在.md
+        - linux/删除网桥.md
+        - linux/Linux逻辑卷划分示意图.md
+        - linux/软链接与硬链接.md
+        - linux/Linux下查看文件类型.md
+        - linux/Linux文件系统层次结构标准FHS.md
+        - linux/centos重启卡死.md
+        - linux/Windows、Mac与Unix的换行符与编码转换.md
+        - linux/sanlock.md
+        - linux/查看端口占用情况.md
+    - 鸟哥的linux私房菜:
+        - 鸟哥的linux私房菜/00 linux帮助文档.md
+        - 鸟哥的linux私房菜/01 正确的关机方法.md
+        - 鸟哥的linux私房菜/03 文件类型与目录权限.md
+        - 鸟哥的linux私房菜/04 文件内容查阅与文件属性.md
+        - 鸟哥的linux私房菜/05 文件系统.md
+        - 鸟哥的linux私房菜/06 磁盘.md
+        - 鸟哥的linux私房菜/07 打包、压缩与备份.md
+        - 鸟哥的linux私房菜/08 bash.md
+        - 鸟哥的linux私房菜/09 shell脚本.md
+        - 鸟哥的linux私房菜/10 linux账号与群组.md
+        - 鸟哥的linux私房菜/11 ACL.md
+        - 鸟哥的linux私房菜/12 身份切换.md
+        - 鸟哥的linux私房菜/13 密码检查更新与批量创建账号.md
+        - 鸟哥的linux私房菜/14 quota.md
+        - 鸟哥的linux私房菜/15 磁盘阵列.md
+        - 鸟哥的linux私房菜/16 LVM.md
+        - 鸟哥的linux私房菜/17 crontab.md
+        - 鸟哥的linux私房菜/18 进程.md
+        - 鸟哥的linux私房菜/19 查看系统资源.md
+        - 鸟哥的linux私房菜/20 SELinux.md
+        - 鸟哥的linux私房菜/21 系统服务.md
+        - 鸟哥的linux私房菜/22 日志文件.md
+        - 鸟哥的linux私房菜/23 开机流程.md
+        - 鸟哥的linux私房菜/24 grub2.md
+        - 鸟哥的linux私房菜/25 开机过程的问题解决.md
+        - 鸟哥的linux私房菜/26 系统基本设定.md
+        - 鸟哥的linux私房菜/27 硬件数据的收集.md
+        - 鸟哥的linux私房菜/28 备份.md
+        - 鸟哥的linux私房菜/29 Tarball 的管理与建议.md
+        - 鸟哥的linux私房菜/30 库文件的管理与文件正确性检查.md
+        - 鸟哥的linux私房菜/31 RPM 与 YUM.md
+        - 鸟哥的linux私房菜/32 内核编译.md
+    - 鸟哥的linux私房菜-服务器篇:
+        - 鸟哥的linux私房菜-服务器篇/00 搭建服务器考虑事项.md
+        - 鸟哥的linux私房菜-服务器篇/01 基础网络概念.md
+        - 鸟哥的linux私房菜-服务器篇/02 局域网架构简介.md
+        - 鸟哥的linux私房菜-服务器篇/03 连接 Internet.md
+        - 鸟哥的linux私房菜-服务器篇/04 常用网络命令.md
+        - 鸟哥的linux私房菜-服务器篇/05 网络侦错.md
+        - 鸟哥的linux私房菜-服务器篇/06 网络安全于主机基本防护.md
+        - 鸟哥的linux私房菜-服务器篇/07 路由与路由器.md 
+        - 鸟哥的linux私房菜-服务器篇/08 防火墙与 NAT 服务器.md
+        - 鸟哥的linux私房菜-服务器篇/09 firewall.md
+    - 命令:
+        - 命令/linux挂载windows共享文件夹.md
+        - 命令/sed.md
+        - 命令/gawk.md
+        - 命令/ssh免密登录.md
+        - 命令/创建文件自动添加执行权限.md
+        - 命令/tar命令打包去掉路径前缀.md
+        - 命令/wget用法.md
+        - 命令/显示文件夹大小.md
+        - 命令/更新、禁用yum仓库、只下载rpm.md
+        - 命令/locate初始化.md
+        - 命令/rsync.md
+        - 命令/echo的颜色输出与光标定位.md
+        - 命令/xargs与管道.md
+        - 命令/trap.md
+        - 命令/字符转换命令.md
+        - 命令/split.md
+        - 命令/文件对比.md
+        - 命令/gpg.md
+        - 命令/解析命令行的选项和参数.md
+    - Shell:
+        - shell/shell脚本自动输入.md
+        - shell/命令行编写循环体.md
+        - shell/在后台执行命令.md
+        - shell/通过shell命令写文件.md
+        - shell/变量的截取与替换.md
+        - shell/编写高可靠性脚本.md
+    - Python:
+        - event线程: python/event线程.md
+        - json格式处理: python/json格式处理.md
+        - 执行shell命令: python/执行shell命令.md
+        - 超时装饰器: python/超时装饰器.md
+        - python/@Property.md
+        - python/类属性和实例属性.md
+        - python/高阶函数.md
+        - python/获取命令行参数.md
+        - python/asyncore模块.md
+        - python/select模块.md
+        - python/subprocess模块.md
+        - python/上下文管理器.md
+        - python/网络编程.md
+    - 其它:
+        - CSDN语法: 其它/CSDN语法.md
+        - h5ai美化目录: 其它/h5ai美化目录.md
+        - vdsm启动失败: 其它/vdsm启动失败.md
+        - 制作iso镜像: 其它/制作iso镜像.md
+        - 没有打印日志: 其它/没有打印日志.md
+        - 编译安装vdsm之后主机安装失败: 其它/编译安装vdsm之后主机安装失败.md
+        - 其它/Stomp协议.md
+        - 其它/Windows格式化磁盘.md
+    - Ansible:
+        - ansible/01. 简介.md
+        - ansible/02. inventory.md
+        - ansible/03. playbooks.md
+        - 04. 可重用 playbooks:
+            - ansible/04.0 可重用 playbooks.md
+            - ansible/04.1 playbooks_includes_imports.md
+            - ansible/04.2 playbooks_roles.md
+        - ansible/05. 变量.md
+        - ansible/06. 条件.md
+    - RPM:
+        - rpm/00 示例.md
+        - rpm/01 打包前的准备工作.md
+        - rpm/02 打包软件.md
+        - rpm/03 高级话题.md
+    - Nginx:
+        - nginx/01 简介.md
+        - nginx/02 配置文件.md
+        - nginx/03 HTTP 负载均衡.md
+        - nginx/04 TCP 和 UDP 负载均衡.md
+    - Docker:
+        - docker/01. 入门-安装.md
+        - docker/02. 入门-容器.md
+        - docker/03. 入门-服务.md
+        - docker/04. 入门-集群.md
+        - docker/05. 入门-栈.md
+        - docker/06. 使用docker镜像.md
+        - docker/07. 容器操作.md
+        - docker/08. docker仓库.md
+        - docker/09. Docker数据管理.md
+        - docker/10. 端口映射与容器互联.md
+        - docker/11. Dockerfile.md
+    - k8s:
+        - k8s/CRI.md
+        - k8s/OCI.md
+        - k8s/k8s-containerd-kata-containers 安装.md
+        - k8s/kata-containers.md
+    - MySQL:
+        - mysql/1. 简介.md
+        - mysql/2. 关系模型.md
+        - mysql/3. 管理数据库.md
+        - mysql/4. 查询数据.md
+        - mysql/5. 修改数据.md
+        - mysql/6. 事务.md
+        - mysql/7. 实用SQL语句.md
+        - mysql/8. MySQL数据类型.md
+        - mysql/9. MySQL的运算符.md
+        - mysql/10. MySQL常用函数.md
+        - mysql/11. MySQL存储引擎.md
+        - mysql/12. MySQL数据类型的选择.md
+        - mysql/13. MySQL字符集.md
+        - mysql/14. MySQL索引的设计和使用.md
+        - mysql/15. MySQL视图.md
+        - mysql/16. MySQL存储过程和函数.md
+        - 17. MySQL复合语句:
+            - mysql/17.0 MySQL复合语句.md
+            - mysql/17.1 BEGIN...END复合语句.md
+            - mysql/17.2 语句标签.md
+            - mysql/17.3 声明语法.md
+            - mysql/17.4 变量.md
+            - mysql/17.5 流程控制.md
+            - mysql/17.6 游标.md
+            - mysql/17.7 错误状况及处理.md
+            - mysql/17.8 SIGNAL.md
+            - mysql/17.9 RESIGNAL.md
+        - mysql/18. MySQL触发器.md
+        - mysql/19. MySQL事务与锁定语句.md
+        - mysql/20. SQL中的安全问题.md
+        - mysql/21. SQL Mode.md
+        - mysql/22. 常用 SQL 技巧和常见问题.md
+        - mysql/23. MySQL分区.md
+        - mysql/24. MySQL分区限制.md
+        - mysql/25. SQL优化.md
+        - mysql/26. 优化数据库对象.md
+        - mysql/27. 锁.md
+        - mysql/28. MySQL Server的优化.md
+        - mysql/29. MySQL磁盘 IO 问题.md
+        - mysql/30. MySQL 常用工具.md
+        - mysql/31. MySQL 日志.md
+        - mysql/32. MySQL备份与恢复.md
+        - mysql/33. MySQL 权限与安全.md
+        - mysql/34. MySQL 监控.md
+        - mysql/35. MySQL 常见问题和应用技巧.md
+        - mysql/36. MySQL 复制.md
+        - mysql/37. MySQL Cluster.md
+        - mysql/38. 高可用架构.md
+    - MyBatis:
+        - 简介.md: mybatis/简介.md
+        - XML配置.md: mybatis/XML配置.md
+        - 注意事项.md: mybatis/注意事项.md
+    - HTTP协议:
+        - http协议/简介.md
+        - http协议/HTTP 报文内的 HTTP 信息.md
+        - http协议/返回结果的 HTTP 状态码.md
+        - http协议/与 HTTP 协作的 Web 服务器.md
+        - http协议/HTTP 首部.md
+        - http协议/HTTPS.md
+    - CS50:
+        - CS50/1. 简介.md
+        - CS50/2. 编译器.md
+    - Linux网络编程:
+        - 函数: linux网络编程/函数.md
+        - socket通信流程: linux网络编程/socket通信流程.md
+        - 简单tcp通信实现: linux网络编程/简单tcp通信实现.md
+    - GlusterFS:
+        - gluster安装: gluster/gluster安装.md
+        - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
+        - 清理不可用的brick: gluster/清理不可用的brick.md
+        - 结点故障: gluster/结点故障.md
+    - Git:
+        - git/拉取与推送.md
+        - git rebase(修改历史提交): git/git rebase(修改历史提交).md
+        - windows无法使用git克隆: git/windows无法使用git克隆.md
+        - git/修改历史.md
+        - git/修改历史提交者的邮箱.md
+        - git/git bash 中文乱码.md
+        - git/回滚.md
+        - git/远程相关.md
+    - Gerrit:
+        - Apache代理添加新用户: gerrit/Apache代理添加新用户.md
+        - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
+        - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
+        - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
+    - 小玩具:
+        - little toys/摩斯转换.md
+        - little toys/shell-小于等于十六进制数转十进制和二进制.md
+    - Java:
+        - IO: java/IO.md
+        - 作用范围级别: java/作用范围级别.md
+        - synchronized关键字: java/synchronized关键字.md
+    - servlet:
+        - 1.简介: servlet/1.简介.md
+        - 2.生命周期: servlet/2.生命周期.md
+        - 3.示例: servlet/3.示例.md
+        - 4.过滤器: servlet/4.过滤器.md
+        - 5.异常处理: servlet/5.异常处理.md
+        - 6.Cookie: servlet/6.Cookie.md
+        - 7.Session 跟踪: servlet/7.Session 跟踪.md
+        - 8.文件上传: servlet/8.文件上传.md
+        - servlet/8.1文件下载.md
+        - servlet/9.重定向.md
+        - 10.作用域: servlet/10.作用域.md
+        - servlet/11.监听器.md
+    - Spring:
+        - 文件上传: spring/文件上传.md
+        - spring/文件下载.md
+    - Spring Boot:
+        - 1.说明: springboot/1.说明.md
+        - 2.Maven: springboot/2.Maven.md
+        - 24.Application 属性文件: springboot/24.Application 属性文件.md
+        - 25.Profiles: springboot/25.Profiles.md
+        - 26.日志: springboot/26.日志.md
+        - 29.开发web应用: springboot/29.开发web应用.md
+    - 设计模式:
+        - 设计原则: 设计模式/设计原则.md
+        - 模式: 设计模式/模式.md
+    - Datastruct:
+        - 二叉树: datastruct/二叉树.md
+        - 散列表: datastruct/散列表.md
+        - 红黑树: datastruct/红黑树.md
+    - C:
+        - 动态编译: c/动态编译.md
+        - 程序运行时间: c/程序运行时间.md
+        - c/结构体中的函数指针.md
+        - c/mutiple definition of xxx.md
+    - Algorithm:
+        - 复杂度分析: algorithm/复杂度分析.md
+        - 选择排序: algorithm/选择排序.md
+    - 奇技淫巧:
+        - 奇技淫巧/位运算.md
+# theme: readthedocs
+# theme: windmill
+        
+# pip install mkdocs-material
+theme:
+    name: 'material'
+
+# admonition开启警告之类的提示框语法
+# codehilite代码高亮
+markdown_extensions:
+    - admonition
+    - codehilite
+    - footnotes
+    - toc:
+        permalink: true
+
+plugins: 
+    - search
+    - mkdocs-add-number-plugin:
+        strict_mode: False # 模式选项
+        increment_pages: false
+        increment_topnav: false
+        # excludes: 
+        #     - '*'
+        # includes: 
+        #     - sql/
+        #     - mybatis\
+        # order: 1
