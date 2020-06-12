@@ -54,7 +54,7 @@ Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
 
 #### 本地安装
 
-可选的，你可以创建本地 yum 仓库（所需要的 RPM 包在 `rpms/kata/` 下面），然后修改 `install-kata.yml` 的变量为 `use_local_repo: true` ，在`roles/install-kata/defaults/main.yml`中修改 `baseurl` 成你自己的网址，然后执行上述命令。
+可选的，你可以创建本地 yum 仓库（所需要的 RPM 包在 `rpms/kata/` 下面，或从[此页面](https://ftp.gwdg.de/pub/opensuse/repositories/home:/katacontainers:/releases:/x86_64:/master/CentOS_7/x86_64/)下载），然后修改 `install-kata.yml` 的变量为 `use_local_repo: true` ，在`roles/install-kata/defaults/main.yml`中修改 `baseurl` 成你自己的网址，然后执行上述命令。
 
 **注意**：若你已经执行过了联网安装步骤，那么你还需要在k8s节点上面删除类似于`/etc/yum.repos.d/home:katacontainers:releases:x86_64:master.repo`的文件，再继续执行安装指令，否则仍会从互联网上下载。
 

@@ -1,6 +1,6 @@
 site_name: Person Sink
 site_author: ignorantshr
-repo_url: https://github.com/ignorantshr/question
+repo_url: https://github.com/ignorantshr/person-blog
 nav:
     - Home: index.md
     - Linux:
@@ -149,11 +149,12 @@ nav:
         - docker/09. Docker数据管理.md
         - docker/10. 端口映射与容器互联.md
         - docker/11. Dockerfile.md
-    - k8s:
-        - k8s/CRI.md
-        - k8s/OCI.md
-        - k8s/k8s-containerd-kata-containers 安装.md
-        - k8s/kata-containers.md
+    - kata-containers:
+        - kata-containers/OCI.md
+        - kata-containers/CRI.md
+        - kata-containers/k8s+containerd+kata-containers 安装.md
+        - kata-containers/架构.md
+        - kata-containers/设计要求.md
     - MySQL:
         - mysql/1. 简介.md
         - mysql/2. 关系模型.md
@@ -243,6 +244,7 @@ nav:
     - 小玩具:
         - little toys/摩斯转换.md
         - little toys/shell-小于等于十六进制数转十进制和二进制.md
+        - little toys/Linux 剪贴板.md
     - Java:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
