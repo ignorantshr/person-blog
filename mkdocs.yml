@@ -155,6 +155,9 @@ nav:
         - kata-containers/k8s+containerd+kata-containers 安装.md
         - kata-containers/架构.md
         - kata-containers/设计要求.md
+        - kata-containers/VSOCKs.md
+    - k8s:
+        - k8s/Pod.md
     - MySQL:
         - mysql/1. 简介.md
         - mysql/2. 关系模型.md

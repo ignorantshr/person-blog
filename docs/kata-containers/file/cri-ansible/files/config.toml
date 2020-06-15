@@ -7,6 +7,7 @@
           endpoint = ["http://hub-mirror.c.163.com", ]
     [plugins.cri.containerd]
       no_pivot = false
+      default_runtime_name = "kata"
     [plugins.cri.containerd.default_runtime]
       #runtime_type = "io.containerd.runtime.v1.linux"
       runtime_type = "io.containerd.kata.v2"

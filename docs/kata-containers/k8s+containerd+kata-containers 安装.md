@@ -1,3 +1,5 @@
+更新时间：2020-6-12
+
 k8s+containerd+kata-containers 安装。
 
 ![](img/cri.png)
@@ -33,7 +35,7 @@ Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
 
 ## 安装
 
-所有的文件都可以在 `file` 目录下找到。
+所有的文件都可以在 [`file`](https://github.com/ignorantshr/person-blog/tree/master/docs/kata-containers/file) 目录下找到。
 
 ### kata
 
