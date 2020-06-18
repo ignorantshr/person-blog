@@ -180,6 +180,7 @@ kube-system   pod/kube-scheduler-manager.k8s            1/1     Running   0     
 k8s 使用教程可以参考：
 
 - https://kuboard.cn/learning/
+- https://kubernetes.io/zh/docs/home/
 - https://kubernetes.io/docs/home/
 
 #### 安装 dashboard （可选）
@@ -297,6 +298,10 @@ spec:
       containers:
       - name: nginx
         image: nginx
+```
+
+```
+[root@manager yml]# kubectl apply -f nginx-deployment.yml
 ```
 
 打开一个 pod 看看是否使用了 kata：
