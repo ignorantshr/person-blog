@@ -108,6 +108,7 @@ nav:
         - python/subprocess模块.md
         - python/上下文管理器.md
         - python/网络编程.md
+        - python/造轮子.md
     - 其它:
         - CSDN语法: 其它/CSDN语法.md
         - h5ai美化目录: 其它/h5ai美化目录.md
@@ -157,7 +158,20 @@ nav:
         - kata-containers/设计要求.md
         - kata-containers/VSOCKs.md
     - k8s:
-        - k8s/Pod.md
+        - k8s/组件.md
+        - k8s/命名规则.md
+        - WorkLoad:
+            - k8s/WorkLoad/Pod.md
+            - Controller:
+                - k8s/WorkLoad/Controller/StatefuleSet.md
+                - k8s/WorkLoad/Controller/DaemonSet.md
+                - k8s/WorkLoad/Controller/Job.md
+                - k8s/WorkLoad/Controller/CronJob.md
+        - Storage:
+            - k8s/storage/volume.md
+            - k8s/storage/Persistent Volumes.md
+        - 服务、负载均衡和联网:
+            - k8s/Service.md
     - MySQL:
         - mysql/1. 简介.md
         - mysql/2. 关系模型.md
