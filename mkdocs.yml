@@ -161,15 +161,20 @@ nav:
         - k8s/组件.md
         - k8s/命名规则.md
         - WorkLoad:
-            - k8s/WorkLoad/Pod.md
+            - k8s/workLoad/Pod.md
             - Controller:
-                - k8s/WorkLoad/Controller/StatefuleSet.md
-                - k8s/WorkLoad/Controller/DaemonSet.md
-                - k8s/WorkLoad/Controller/Job.md
-                - k8s/WorkLoad/Controller/CronJob.md
+                - k8s/workLoad/Controller/StatefuleSet.md
+                - k8s/workLoad/Controller/DaemonSet.md
+                - k8s/workLoad/Controller/Job.md
+                - k8s/workLoad/Controller/CronJob.md
         - Storage:
             - k8s/storage/volume.md
             - k8s/storage/Persistent Volumes.md
+            - k8s/storage/Storage Classes.md
+        - Configuration:
+            - k8s/configuration/配置最佳实践.md
+            - k8s/configuration/ConfigMap.md
+            - k8s/configuration/Secret.md
         - 服务、负载均衡和联网:
             - k8s/Service.md
     - MySQL:
