@@ -45,9 +45,95 @@ data:
 
 这些不同的方法适用于不同的数据使用方式。对前三个方法，[kubelet](https://kubernetes.io/docs/reference/generated/kubelet) 使用 ConfigMap 中的数据在 Pod 中启动容器。
 
+### 作为容器的环境变量
+
 这是一个 Pod 的示例，它通过使用 `game-demo` 中的值来配置一个 Pod：
 
 ```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-demo-pod
+spec:
+  containers:
+    - name: demo
+      image: game.example/demo-game
+      env:
+        # 定义环境变量
+        - name: PLAYER_INITIAL_LIVES # 请注意这里和 ConfigMap 中的键名是不一样的
+          valueFrom:
+            configMapKeyRef:
+              name: game-demo           # 这个值来自 ConfigMap
+              key: player_initial_lives # 需要取值的键
+        - name: UI_PROPERTIES_FILE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: game-demo
+              key: ui_properties_file_name
+```
+
+### 将所有的键值对作为容器的环境变量
+
+`configmap/configmap-multikeys.yaml` 
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: special-config
+  namespace: default
+data:
+  SPECIAL_LEVEL: very
+  SPECIAL_TYPE: charm
+```
+
+`pods/pod-configmap-envFrom.yaml`
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "env" ]
+      envFrom:
+      - configMapRef:
+          name: special-config
+  restartPolicy: Never
+```
+
+### 在命令行中使用
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)" ]
+      env:
+        - name: SPECIAL_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_LEVEL
+        - name: SPECIAL_TYPE_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_TYPE
+  restartPolicy: Never
+```
+
+### 作为卷挂载
+
+```yml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -86,4 +172,39 @@ ConfigMap 不会区分单行属性值和多行类似文件的值，重要的是 
 - `/config/ui_properties_file_name`
 - `/config/game.properties`
 - `/config/user-interface.properties`
+
+
+
+!!! warning
+	如果在目录下`/config/`有文件存在，那么会被删除。
+
+### 指定路径
+
+使用 `path` 字段可以为特定的 ConfigMap 项目指定所需的文件路径。
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh","-c","cat /etc/config/keys" ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: special-config
+        items:
+        - key: SPECIAL_LEVEL
+          path: keys
+  restartPolicy: Never
+```
+
+!!! warning
+	如果在目录下`/etc/config/`有文件存在，那么会被删除。
 
