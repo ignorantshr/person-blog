@@ -67,6 +67,8 @@ nav:
         - 鸟哥的linux私房菜-服务器篇/07 路由与路由器.md 
         - 鸟哥的linux私房菜-服务器篇/08 防火墙与 NAT 服务器.md
         - 鸟哥的linux私房菜-服务器篇/09 firewall.md
+        - 鸟哥的linux私房菜-服务器篇/10 NFS 服务器.md
+        - 鸟哥的linux私房菜-服务器篇/11 NIS 服务器.md
     - 命令:
         - 命令/linux挂载windows共享文件夹.md
         - 命令/sed.md
@@ -175,6 +177,7 @@ nav:
             - k8s/configuration/配置最佳实践.md
             - k8s/configuration/ConfigMap.md
             - k8s/configuration/Secret.md
+            #- k8s/configuration/Taint 和 Toleration.md
         - 服务、负载均衡和联网:
             - k8s/Service.md
     - MySQL:
