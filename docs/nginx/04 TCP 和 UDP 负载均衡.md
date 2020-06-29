@@ -8,6 +8,8 @@ stream {
 }
 ```
 
+对于旧版本的 nginx，还需要在该文件的头部引用模块：`load_module /usr/lib64/nginx/modules/ngx_stream_module.so;`。
+
 在 stream 中写入一些包含  [`listen`](https://nginx.org/en/docs/stream/ngx_stream_core_module.html#listen) 指令的 [`server {}`](https://nginx.org/en/docs/stream/ngx_stream_core_module.html#server) 虚拟服务块，并使用代理指令  [`proxy_pass`](https://nginx.org/en/docs/stream/ngx_stream_proxy_module.html#proxy_pass) （不要在该指令中指定协议 http/https）：
 
 ```nginx
