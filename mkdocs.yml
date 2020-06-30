@@ -69,6 +69,7 @@ nav:
         - 鸟哥的linux私房菜-服务器篇/09 firewall.md
         - 鸟哥的linux私房菜-服务器篇/10 NFS 服务器.md
         - 鸟哥的linux私房菜-服务器篇/11 NIS 服务器.md
+        - 鸟哥的linux私房菜-服务器篇/12 LDAP 服务器.md
     - 命令:
         - 命令/linux挂载windows共享文件夹.md
         - 命令/sed.md
