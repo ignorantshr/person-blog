@@ -178,7 +178,7 @@ nav:
             - k8s/configuration/配置最佳实践.md
             - k8s/configuration/ConfigMap.md
             - k8s/configuration/Secret.md
-            #- k8s/configuration/Taint 和 Toleration.md
+            - k8s/configuration/Taint 和 Toleration.md
         - 服务、负载均衡和联网:
             - k8s/Service.md
     - MySQL:
