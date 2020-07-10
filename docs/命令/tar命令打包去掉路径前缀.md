@@ -2,7 +2,7 @@
 ```bash
 $ tar -cpvf <tar-name> -C <dir> <files>
 ```
-<files>不能使用通配符，比如这样是**不行**的：
+**<files>参考的是当前目录**，而不是你要切换的目录，比如这样是**不行**的：
 
 ```bash
 $ tar -Jpc -f compress.tar.xz -C compress/ services*

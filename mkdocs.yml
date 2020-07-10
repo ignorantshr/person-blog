@@ -181,6 +181,7 @@ nav:
             - k8s/configuration/Secret.md
             - k8s/configuration/亲和性.md
             - k8s/configuration/Taint 和 Toleration.md
+            - k8s/configuration/Pod 优先级和抢占.md
         - 服务、负载均衡和联网:
             - k8s/Service.md
     - MySQL:
