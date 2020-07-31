@@ -24,6 +24,7 @@ nav:
         - linux/sanlock.md
         - linux/查看端口占用情况.md
         - linux/自编译安装的命令无效.md
+        - linux/PXE 安装.md
     - 鸟哥的linux私房菜:
         - 鸟哥的linux私房菜/00 linux帮助文档.md
         - 鸟哥的linux私房菜/01 正确的关机方法.md
