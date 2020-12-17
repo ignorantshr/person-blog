@@ -1,4 +1,8 @@
+- [Redhat Gluster 文档](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5/html/administration_guide/about_glusterfs)
+- [Gluster 文档](https://gluster.readthedocs.io/en/latest/Administrator-Guide/overview/)
+
 ### 安装
+
 先安装yum源，这是最新版本；centos的库不是最新版，如果版本不匹配会造成挂载失败
 
 ```shell

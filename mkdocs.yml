@@ -3,6 +3,9 @@ site_author: ignorantshr
 repo_url: https://github.com/ignorantshr/person-blog
 nav:
     - Home: index.md
+    - Windows:
+        - windows/Windows格式化磁盘.md
+        - windows/重置网络.md
     - Linux:
         - linux/epel源.md
         - linux/主机不能连接mariadb.md
@@ -122,7 +125,6 @@ nav:
         - 没有打印日志: 其它/没有打印日志.md
         - 编译安装vdsm之后主机安装失败: 其它/编译安装vdsm之后主机安装失败.md
         - 其它/Stomp协议.md
-        - 其它/Windows格式化磁盘.md
     - Ansible:
         - ansible/01. 简介.md
         - ansible/02. inventory.md
@@ -255,7 +257,7 @@ nav:
     - GlusterFS:
         - gluster安装: gluster/gluster安装.md
         - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
-        - 清理不可用的brick: gluster/清理不可用的brick.md
+        - 重用 brick: gluster/重用 brick.md
         - 结点故障: gluster/结点故障.md
     - Git:
         - git/拉取与推送.md
