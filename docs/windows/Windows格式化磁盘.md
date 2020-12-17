@@ -14,3 +14,4 @@
 - `clean`：清除磁盘内容
 - `create partition primary`：创建主分区
 - `format fs=ntfs quick label="I:"`：使用NTFS格式快速格式化磁盘，分配 *I:* 标签（卷标）
+
