@@ -323,6 +323,7 @@ nav:
         - 选择排序: algorithm/选择排序.md
     - 奇技淫巧:
         - 奇技淫巧/位运算.md
+        - 奇技淫巧/平方根.md
 # theme: readthedocs
 # theme: windmill
         
