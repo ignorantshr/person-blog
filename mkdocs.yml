@@ -285,6 +285,7 @@ nav:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
         - synchronized关键字: java/synchronized关键字.md
+        - java/maven 手动安装 jar 包.md
     - servlet:
         - 1.简介: servlet/1.简介.md
         - 2.生命周期: servlet/2.生命周期.md
