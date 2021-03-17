@@ -103,7 +103,6 @@ nav:
         - shell/变量的截取与替换.md
         - shell/编写高可靠性脚本.md
     - Python:
-        - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
         - 执行shell命令: python/执行shell命令.md
         - 超时装饰器: python/超时装饰器.md
@@ -114,6 +113,7 @@ nav:
         - python/asyncore模块.md
         - python/select模块.md
         - python/subprocess模块.md
+        - python/线程模块.md
         - python/上下文管理器.md
         - python/网络编程.md
         - python/造轮子.md
