@@ -262,14 +262,16 @@ nav:
         - 重用 brick: gluster/重用 brick.md
         - 结点故障: gluster/结点故障.md
     - Git:
+        - git/配置.md
         - git/拉取与推送.md
-        - git rebase(修改历史提交): git/git rebase(修改历史提交).md
-        - windows无法使用git克隆: git/windows无法使用git克隆.md
+        - git/git rebase(修改历史提交).md
+        - git/windows无法使用git克隆.md
         - git/修改历史.md
         - git/修改历史提交者的邮箱.md
         - git/git bash 中文乱码.md
         - git/回滚.md
         - git/远程相关.md
+        - git/子模块的使用.md
     - Gerrit:
         - Apache代理添加新用户: gerrit/Apache代理添加新用户.md
         - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
