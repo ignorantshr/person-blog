@@ -138,7 +138,7 @@ nav:
         - ansible/05. 变量.md
         - ansible/06. 条件.md
     - RPM:
-        - rpm/00 示例.md
+        - rpm/00 简介.md
         - rpm/01 打包前的准备工作.md
         - rpm/02 打包软件.md
         - rpm/03 高级话题.md
@@ -281,6 +281,8 @@ nav:
         - little toys/摩斯转换.md
         - little toys/shell-小于等于十六进制数转十进制和二进制.md
         - little toys/Linux 剪贴板.md
+        - little toys/抽奖系统的数据库设计.md
+        - little toys/拙作.md
     - Java:
         - GWT:
               - java/GWT/常见问题.md
@@ -331,6 +333,8 @@ nav:
         - 奇技淫巧/平方根.md
     - 读书笔记:
         - 读书笔记/30天自制操作系统.md
+    - 简历: 个人简历.md
+
 # theme: readthedocs
 # theme: windmill
         
