@@ -35,7 +35,7 @@ Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
 
 ## 安装
 
-所有的文件都可以在 [`file`](https://github.com/ignorantshr/person-blog/tree/master/docs/kata-containers/file) 目录下找到。
+所有的非安装包文件都可以在 [`file`](https://github.com/ignorantshr/person-blog/tree/master/docs/kata-containers/file) 目录下找到。安装包需自行下载，所要放置的位置及文件已做标记。
 
 ### kata
 
