@@ -119,6 +119,10 @@ nav:
         - python/造轮子.md
     - Go:
         - go/00 备忘.md
+        - go/字符串、字符、字节.md
+        - go/trick.md
+        - 源码分析:
+            - go/源码分析/uber-zap.md
     - 其它:
         - CSDN语法: 其它/CSDN语法.md
         - h5ai美化目录: 其它/h5ai美化目录.md
