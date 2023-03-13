@@ -1,0 +1,19 @@
+name: person blog CI
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: write
+jobs:
+  deploy-blog:
+    name: deploy the blog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - run: pip install mkdocs-material
+      - run: pip install mkdocs-add-number-plugin
+      - run: mkdocs gh-deploy --force
