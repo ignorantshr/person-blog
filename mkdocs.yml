@@ -1,6 +1,7 @@
-site_name: Person Sink
+site_name: ignorantshr blog
 site_author: ignorantshr
 repo_url: https://github.com/ignorantshr/person-blog
+
 nav:
     - Home: index.md
     - Windows:
@@ -320,6 +321,11 @@ nav:
     - 设计模式:
         - 设计原则: 设计模式/设计原则.md
         - 模式: 设计模式/模式.md
+    - 软件设计模式:
+        - 软件设计模式/简介.md
+        - 软件设计模式/单边缓存模式.md
+        - 软件设计模式/断路器模式.md
+        - 软件设计模式/补偿事务模式.md
     - Datastruct:
         - 二叉树: datastruct/二叉树.md
         - 散列表: datastruct/散列表.md
@@ -345,6 +351,15 @@ nav:
 # pip install mkdocs-material
 theme:
     name: 'material'
+    features:
+      - content.action.edit
+      - content.action.view
+      - content.code.copy
+      - navigation.footer
+      - navigation.tracking
+      - navigation.top
+      - toc.follow
+
 
 # admonition开启警告之类的提示框语法
 # codehilite代码高亮
