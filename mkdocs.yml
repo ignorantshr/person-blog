@@ -3,7 +3,7 @@ site_author: ignorantshr
 repo_url: https://github.com/ignorantshr/person-blog
 
 nav:
-    - Home: index.md
+    - 首页: index.md
     - Windows:
         - windows/Windows格式化磁盘.md
         - windows/重置网络.md
@@ -132,6 +132,7 @@ nav:
         - 没有打印日志: 其它/没有打印日志.md
         - 编译安装vdsm之后主机安装失败: 其它/编译安装vdsm之后主机安装失败.md
         - 其它/Stomp协议.md
+        - 其它/北京-其它地区时间转换.md
     - Ansible:
         - ansible/01. 简介.md
         - ansible/02. inventory.md
