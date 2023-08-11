@@ -342,8 +342,6 @@ nav:
     - 奇技淫巧:
         - 奇技淫巧/位运算.md
         - 奇技淫巧/平方根.md
-    - 读书笔记:
-        - 读书笔记/30天自制操作系统.md
     - 简历: 个人简历.md
 
 # theme: readthedocs
@@ -370,6 +368,7 @@ markdown_extensions:
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.tabbed
+    - pymdownx.arithmatex:
     - admonition
     - footnotes
     - toc:
@@ -387,3 +386,8 @@ plugins:
         #     - sql/
         #     - mybatis\
         # order: 1
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
