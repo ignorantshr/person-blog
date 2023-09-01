@@ -1,0 +1,106 @@
+{
+    "root": {
+        "data": {
+            "id": "cuzwzoh9e740",
+            "created": 1692792869341,
+            "text": "count"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cuzx2neawrc0",
+                    "created": 1692793102078,
+                    "text": "性能比较",
+                    "note": "对于 Innodb 存储引擎 来说，性能排序:\n\n```\ncount(*) = count(1) > count(主键字段) > count(字段)\n```\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cuzx2sfodbs0",
+                            "created": 1692793113045,
+                            "text": "count() 是什么",
+                            "note": "count() 是一个聚合函数，函数的参数不仅可以是字段名，也可以是其他任意表达式。该函数作用是**统计符合查询条件的记录中，函数指定的参数不为 NULL 的记录有多少个**。\n\n在通过 count 函数统计有多少个记录时，MySQL 的 server 层会维护一个名叫 count 的变量。\n\nserver 层会循环向 InnoDB 读取一条记录，**如果 count 函数指定的参数不为 NULL，那么就会将变量 count 加 1**，直到符合查询的全部记录被读完，就退出循环。最后将 count 变量的值发送给客户端。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cuzx5ijd5ko0",
+                            "created": 1692793326593,
+                            "text": "count(主键字段) 执行过程",
+                            "note": "- 如果表里只有主键索引，没有二级索引时，那么，InnoDB 循环遍历聚簇索引，将读取到的记录返回给 server 层，然后读取记录中的 id 值，就会 id 值判断是否为 NULL，如果不为 NULL，就将 count 变量加 1。\n\n- 但是，如果表里有二级索引时，InnoDB 循环遍历的对象就不是聚簇索引，而是二级索引。\n\n这是因为相同数量的二级索引记录可以比聚簇索引记录占用更少的存储空间，所以二级索引树比聚簇索引树小，这样遍历二级索引的 I/O 成本比遍历聚簇索引的 I/O 成本小，因此「优化器」优先选择的是二级索引。\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cuzx741y8f40",
+                            "created": 1692793451793,
+                            "text": "count(1) 执行过程",
+                            "note": "- 如果表里只有主键索引，没有二级索引时。那么，InnoDB 循环遍历聚簇索引（主键索引），**将读取到的记录返回给 server 层，但是不会读取记录中的任何字段的值**，因为 count 函数的参数是 1，不是字段，所以不需要读取记录中的字段值。参数 1 很明显并不是 NULL，因此 server 层每从 InnoDB 读取到一条记录，就将 count 变量加 1。\n- 但是，如果表里有二级索引时，InnoDB 循环遍历的对象就二级索引了。\n\ncount(1) 相比 count(主键字段) 少一个步骤，就是不需要读取记录中的字段值，所以通常会说 count(1) 执行效率会比 count(主键字段) 高一点。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cuzx8xq37zs0",
+                            "created": 1692793594744,
+                            "text": "count(*) 执行过程",
+                            "note": "对于 select * 这条语句来说是读取记录中的所有字段值，但是在 count(\\*) 中并不是这个意思。\n\n**count(\\*) 其实等于 count(0)**，也就是说，当你使用 count(\\*) 时，MySQL 会将 * 参数转化为参数 0 来处理。\n\n所以，count(\\*) 执行过程跟 count(1) 执行过程基本一样的，性能没有什么差异。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cuzxawbsvgw0",
+                            "created": 1692793748431,
+                            "text": "count(字段) 执行过程",
+                            "note": "对于非索引字段来说，查询时会采用全表扫描的方式来计数，所以它的执行效率是比较差的。"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cuzxc5dna540",
+                    "created": 1692793846498,
+                    "text": "为什么要通过遍历的方式来计数",
+                    "note": "使用 MyISAM 引擎时，执行 count 函数只需要 O(1 ) 复杂度，这是因为每张 MyISAM 的数据表都有一个 meta 信息有存储了 `row_count` 值，由表级锁保证一致性，所以直接读取 row_count 值就是 count 函数的执行结果。\n\n而 InnoDB 存储引擎是支持事务的，同一个时刻的多个查询，由于多版本并发控制（MVCC）的原因，InnoDB 表“应该返回多少行”也是不确定的，所以无法像 MyISAM 一样，只维护一个 row_count 变量。\n\n而当带上 where 条件语句之后，MyISAM 跟 InnoDB 就没有区别了，它们都需要扫描表来进行记录个数的统计。"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cuzxdqj0vgo0",
+                    "created": 1692793970900,
+                    "text": "优化 count(*)",
+                    "note": "如果对一张大表经常用 count(\\*) 来做统计，其实是很不好的。"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cuzxedckepk0",
+                            "created": 1692794020575,
+                            "text": "近似值",
+                            "note": "可以使用 show table status 或者 explain 命令来表进行估算。\n\n执行 explain 命令效率是很高的，因为它并不会真正的去查询。\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cuzxeylb6000",
+                            "created": 1692794066816,
+                            "text": "额外表保存计数值",
+                            "note": "可以将这个计数值保存到单独的一张计数表中。\n\n当我们在数据表插入一条记录的同时，将计数表中的计数字段 + 1。也就是说，在新增和删除操作时，我们需要额外维护这个计数表。"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}
