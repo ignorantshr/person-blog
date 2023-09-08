@@ -365,6 +365,22 @@ nav:
                 - interview/mysql/锁/MySQL 如何加锁.md
                 - interview/mysql/锁/MySQL 死锁.md
                 - interview/mysql/锁/MySQL 锁类型.md
+        - 操作系统:
+            - 硬件结构:
+                - interview/操作系统/硬件结构/01. 冯诺依曼模型.md
+                - interview/操作系统/硬件结构/02. CPU 执行程序的基本过程.md
+                - interview/操作系统/硬件结构/03. 存储器.md
+                - interview/操作系统/硬件结构/04. CPU Cache.md
+                - interview/操作系统/硬件结构/05. CPU 是如何执行任务的.md
+                - interview/操作系统/硬件结构/06. 软中断.md
+                - interview/操作系统/硬件结构/07. 浮点数.md
+            - 操作系统结构:
+                - interview/操作系统/操作系统结构/Linux 内核 vs Windows 内核.md
+            - 内存管理:
+                - interview/操作系统/内存管理/01. 虚拟内存.md
+                - interview/操作系统/内存管理/02. 内存分配.md
+                - interview/操作系统/内存管理/03. 内存回收.md
+                - interview/操作系统/内存管理/04. 预读失效和缓存污染.md
         - 网络:
             - http:
                 - interview/网络/http/HTTPS优化.md
