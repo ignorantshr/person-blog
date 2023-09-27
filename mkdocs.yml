@@ -290,6 +290,7 @@ nav:
         - little toys/抽奖系统的数据库设计.md
         - little toys/脑图km文件转mkdown.md
         - little toys/拙作.md
+        - little toys/ChatGPT专家.md
     - Java:
         - GWT:
               - java/GWT/常见问题.md
@@ -345,42 +346,6 @@ nav:
         - 奇技淫巧/平方根.md
     - interview:
         - interview/README.md
-        - mysql:
-            - interview/mysql/MySQL 基础.md
-            - 事务:
-                - interview/mysql/事务/MySQL 事务.md
-                - interview/mysql/事务/MySQL 可重复读隔离级别 与 幻读.md
-            - 内存:
-                - interview/mysql/内存/Buffer Pool.md
-            - 日志:
-                - interview/mysql/日志/MySQL 日志.md
-            - 索引:
-                - interview/mysql/索引/MySQL 单表不要超过 2000W 行？.md
-                - interview/mysql/索引/MySQL 索引.md
-                - interview/mysql/索引/MySQL 索引失效.md
-                - interview/mysql/索引/count(*) 和 count(1).md
-                - interview/mysql/索引/为什么 MySQL 采用 B+ 树作为索引.md
-                - interview/mysql/索引/从数据页的角度看 B+ 树.md
-            - 锁:
-                - interview/mysql/锁/MySQL 如何加锁.md
-                - interview/mysql/锁/MySQL 死锁.md
-                - interview/mysql/锁/MySQL 锁类型.md
-        - 操作系统:
-            - 硬件结构:
-                - interview/操作系统/硬件结构/01. 冯诺依曼模型.md
-                - interview/操作系统/硬件结构/02. CPU 执行程序的基本过程.md
-                - interview/操作系统/硬件结构/03. 存储器.md
-                - interview/操作系统/硬件结构/04. CPU Cache.md
-                - interview/操作系统/硬件结构/05. CPU 是如何执行任务的.md
-                - interview/操作系统/硬件结构/06. 软中断.md
-                - interview/操作系统/硬件结构/07. 浮点数.md
-            - 操作系统结构:
-                - interview/操作系统/操作系统结构/Linux 内核 vs Windows 内核.md
-            - 内存管理:
-                - interview/操作系统/内存管理/01. 虚拟内存.md
-                - interview/操作系统/内存管理/02. 内存分配.md
-                - interview/操作系统/内存管理/03. 内存回收.md
-                - interview/操作系统/内存管理/04. 预读失效和缓存污染.md
         - 网络:
             - http:
                 - interview/网络/http/HTTPS优化.md
@@ -397,6 +362,64 @@ nav:
                 - interview/网络/tcp/TCP特性.md
                 - interview/网络/tcp/TCP连接.md
             - interview/网络/其他问题.md
+        - 操作系统:
+            - 硬件结构:
+                - interview/操作系统/硬件结构/01. 冯诺依曼模型.md
+                - interview/操作系统/硬件结构/02. CPU 执行程序的基本过程.md
+                - interview/操作系统/硬件结构/03. 存储器.md
+                - interview/操作系统/硬件结构/04. CPU Cache.md
+                - interview/操作系统/硬件结构/05. CPU 是如何执行任务的.md
+                - interview/操作系统/硬件结构/06. 软中断.md
+                - interview/操作系统/硬件结构/07. 浮点数.md
+            - 操作系统结构:
+                - interview/操作系统/操作系统结构/Linux 内核 vs Windows 内核.md
+            - 内存管理:
+                - interview/操作系统/内存管理/01. 虚拟内存.md
+                - interview/操作系统/内存管理/02. 内存分配.md
+                - interview/操作系统/内存管理/03. 内存回收.md
+                - interview/操作系统/内存管理/04. 预读失效和缓存污染.md
+                - interview/操作系统/内存管理/05. 深入理解 Linux 虚拟内存管理.md
+                - interview/操作系统/内存管理/06. 深入理解 Linux 物理内存管理.md
+            - 进程管理:
+                - interview/操作系统/进程管理/01. 进程和线程.md
+                - interview/操作系统/进程管理/02. 进程间的通信方式.md
+                - interview/操作系统/进程管理/03. 互斥与同步.md
+                - interview/操作系统/进程管理/04. 死锁.md
+                - interview/操作系统/进程管理/05. 锁的类型.md
+                - interview/操作系统/进程管理/其它问题.md
+            - 调度算法:
+                - interview/操作系统/调度算法/内存页面置换算法.md
+                - interview/操作系统/调度算法/磁盘调度算法.md
+                - interview/操作系统/调度算法/进程调度算法.md
+            - 文件系统:
+                - interview/操作系统/文件系统/01. 文件系统.md
+            - 设备管理:
+                - interview/操作系统/设备管理/01. 设备管理.md
+            - 网络系统:
+                - interview/操作系统/网络系统/01. 零拷贝.md
+                - interview/操作系统/网络系统/02. IO 多路复用.md
+                - interview/操作系统/网络系统/03. Reactor 和 Proactor.md
+                - interview/操作系统/网络系统/04. 一致性哈希.md
+        - mysql:
+            - interview/mysql/MySQL 基础.md
+            - 索引:
+                - interview/mysql/索引/MySQL 单表不要超过 2000W 行？.md
+                - interview/mysql/索引/MySQL 索引.md
+                - interview/mysql/索引/MySQL 索引失效.md
+                - interview/mysql/索引/count(*) 和 count(1).md
+                - interview/mysql/索引/为什么 MySQL 采用 B+ 树作为索引.md
+                - interview/mysql/索引/从数据页的角度看 B+ 树.md
+            - 事务:
+                - interview/mysql/事务/MySQL 事务.md
+                - interview/mysql/事务/MySQL 可重复读隔离级别 与 幻读.md
+            - 锁:
+                - interview/mysql/锁/MySQL 如何加锁.md
+                - interview/mysql/锁/MySQL 死锁.md
+                - interview/mysql/锁/MySQL 锁类型.md
+            - 日志:
+                - interview/mysql/日志/MySQL 日志.md
+            - 内存:
+                - interview/mysql/内存/Buffer Pool.md
     - 简历: 个人简历.md
 
 # theme: readthedocs
