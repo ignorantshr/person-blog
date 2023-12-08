@@ -1,0 +1,13 @@
+{
+    "root": {
+        "data": {
+            "id": "cw768py84m80",
+            "created": 1697186045947,
+            "text": "Redis Cluster todo"
+        },
+        "children": []
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}
