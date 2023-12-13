@@ -125,7 +125,6 @@ nav:
         - 源码分析:
             - go/源码分析/uber-zap.md
     - 其它:
-        - CSDN语法: 其它/CSDN语法.md
         - h5ai美化目录: 其它/h5ai美化目录.md
         - vdsm启动失败: 其它/vdsm启动失败.md
         - 制作iso镜像: 其它/制作iso镜像.md
@@ -255,9 +254,6 @@ nav:
         - http协议/与 HTTP 协作的 Web 服务器.md
         - http协议/HTTP 首部.md
         - http协议/HTTPS.md
-    - CS50:
-        - CS50/1. 简介.md
-        - CS50/2. 编译器.md
     - Linux网络编程:
         - 函数: linux网络编程/函数.md
         - socket通信流程: linux网络编程/socket通信流程.md
@@ -287,7 +283,6 @@ nav:
         - little toys/摩斯转换.md
         - little toys/shell-小于等于十六进制数转十进制和二进制.md
         - little toys/Linux 剪贴板.md
-        - little toys/抽奖系统的数据库设计.md
         - little toys/脑图km文件转mkdown.md
         - little toys/拙作.md
         - little toys/ChatGPT专家.md
@@ -329,18 +324,11 @@ nav:
         - 软件设计模式/单边缓存模式.md
         - 软件设计模式/断路器模式.md
         - 软件设计模式/补偿事务模式.md
-    - Datastruct:
-        - 二叉树: datastruct/二叉树.md
-        - 散列表: datastruct/散列表.md
-        - 红黑树: datastruct/红黑树.md
     - C:
         - 动态编译: c/动态编译.md
         - 程序运行时间: c/程序运行时间.md
         - c/结构体中的函数指针.md
         - c/mutiple definition of xxx.md
-    - Algorithm:
-        - 复杂度分析: algorithm/复杂度分析.md
-        - 选择排序: algorithm/选择排序.md
     - 奇技淫巧:
         - 奇技淫巧/位运算.md
         - 奇技淫巧/平方根.md
@@ -420,11 +408,30 @@ nav:
                 - interview/mysql/日志/MySQL 日志.md
             - 内存:
                 - interview/mysql/内存/Buffer Pool.md
+        - redis:
+            - 功能:
+                - interview/redis/功能/01. 过期删除策略和内存淘汰策略.md
+                - interview/redis/功能/02. redis 分布式锁.md
+            - 基础:
+                - interview/redis/基础/01. 面试.md
+            - 持久化:
+                - interview/redis/持久化/01. AOF.md
+                - interview/redis/持久化/02. RDB.md
+                - interview/redis/持久化/03. 大 Key 对持久化的影响.md
+            - 数据类型:
+                - interview/redis/数据类型/数据类型.md
+                - interview/redis/数据类型/数据结构.md
+            - 缓存:
+                - interview/redis/缓存/01. 缓存雪崩、击穿、穿透.md
+                - interview/redis/缓存/02. 数据库和缓存的一致性.md
+            - 高可用:
+                - interview/redis/高可用/01. 主从复制.md
+                - interview/redis/高可用/02. 哨兵机制.md
+                - interview/redis/高可用/03. Redis 切片集群.md
     - 简历: 个人简历.md
 
 # theme: readthedocs
-# theme: windmill
-        
+
 # pip install mkdocs-material
 theme:
     name: 'material'
