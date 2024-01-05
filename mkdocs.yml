@@ -470,7 +470,7 @@ plugins:
         increment_pages: false
         increment_topnav: false
         excludes: 
-            - '读书笔记/数据库系统概论'
+            - 读书笔记/数据库系统概论/
         # includes: 
         #     - sql/
         #     - mybatis\
