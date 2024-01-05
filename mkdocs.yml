@@ -264,6 +264,7 @@ nav:
         - 重用 brick: gluster/重用 brick.md
         - 结点故障: gluster/结点故障.md
     - Git:
+        - git/实现git核心功能.md
         - git/配置.md
         - git/拉取与推送.md
         - git/git rebase(修改历史提交).md
@@ -428,6 +429,9 @@ nav:
                 - interview/redis/高可用/01. 主从复制.md
                 - interview/redis/高可用/02. 哨兵机制.md
                 - interview/redis/高可用/03. Redis 切片集群.md
+    - 读书笔记:
+        - 数据库系统概论:
+            - 读书笔记/数据库系统概论/第一章 绪论.md
     - 简历: 个人简历.md
 
 # theme: readthedocs
