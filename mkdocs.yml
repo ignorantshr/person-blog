@@ -431,7 +431,7 @@ nav:
                 - interview/redis/高可用/03. Redis 切片集群.md
     - 读书笔记:
         - 数据库系统概论:
-            - 读书笔记/数据库系统概论/第一章 绪论.md
+            - 读书笔记/数据库系统概论/第1章 绪论.md
     - 简历: 个人简历.md
 
 # theme: readthedocs
@@ -469,8 +469,8 @@ plugins:
         strict_mode: False # 模式选项
         increment_pages: false
         increment_topnav: false
-        # excludes: 
-        #     - '*'
+        excludes: 
+            - '读书笔记/数据库系统概论'
         # includes: 
         #     - sql/
         #     - mybatis\

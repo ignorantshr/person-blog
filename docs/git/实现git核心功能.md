@@ -1,6 +1,4 @@
-
-# [MGit](https://github.com/ignorantshr/mgit)
-从零实现一个 git，参考来源：[Write yourself a Git!](https://wyag.thb.lt/)。
+[MGit](https://github.com/ignorantshr/mgit) 从零实现一个 git，参考来源：[Write yourself a Git!](https://wyag.thb.lt/)。
 为了与 `.git` 区分，本工具使用 `.mgit` 作为版本控制系统的目录。
 
 看源码之前建议先了解一下下面的相关概念。
