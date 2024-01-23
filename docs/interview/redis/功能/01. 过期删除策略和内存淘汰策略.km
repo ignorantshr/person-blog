@@ -20,7 +20,7 @@
                             "id": "cw5azygw0sw0",
                             "created": 1696996344849,
                             "text": "如何判定 key 已过期了",
-                            "note": "Redis 有一个**过期字典（expires dict）**，里面保存了所有 key 的过期时间。\n\n过期字典存储在 redisDb 结构中，如下：：\n```c\ntypedef struct redisDb {\n    dict *dict;    /* 数据库键空间，存放着所有的键值对 */\n    dict *expires; /* 键的过期时间 */\n    ....\n} redisDb;\n```\n\n过期字典数据结构结构如下：\n\n- 过期字典的 key 是一个指针，指向某个键对象；\n- 过期字典的 value 是一个 long long 类型的整数，这个整数保存了 key 的过期时间；\n\n![](https://camo.githubusercontent.com/f69e77de901006753bfdb08978b7e49b5fe6f95240e75710c01e9d1fc4870eec/68747470733a2f2f63646e2e7869616f6c696e636f64696e672e636f6d2f67682f7869616f6c696e636f6465722f72656469732f2545382542462538372545362539432539462545372541442539362545372539352541352f2545382542462538372545362539432539462545352541442539372545352538352542382545362539352542302545362538442541452545372542422539332545362539452538342e706e67)\n\n当我们查询一个 key 时，Redis 首先检查该 key 是否存在于过期字典中：\n\n1. 如果不在，则正常读取键值；\n1. 如果存在，则会获取该 key 的过期时间，然后与当前系统时间进行比对，如果比系统时间大，那就没有过期，否则判定该 key 已过期。\n\n\n"
+                            "note": "Redis 有一个**过期字典（expires dict）**，里面保存了所有 key 的过期时间。\n\n过期字典存储在 redisDb 结构中，如下：：\n```c\ntypedef struct redisDb {\n    dict *dict;    /* 数据库键空间，存放着所有的键值对 */\n    dict *expires; /* 键的过期时间 */\n    ....\n} redisDb;\n```\n\n过期字典数据结构结构如下：\n\n- 过期字典的 key 是一个指针，指向某个键对象；\n- 过期字典的 value 是一个 long long 类型的整数，这个整数保存了 key 的过期时间；\n\n![过期字典数据结构](img/过期字典数据结构.webp)\n\n当我们查询一个 key 时，Redis 首先检查该 key 是否存在于过期字典中：\n\n1. 如果不在，则正常读取键值；\n1. 如果存在，则会获取该 key 的过期时间，然后与当前系统时间进行比对，如果比系统时间大，那就没有过期，否则判定该 key 已过期。\n\n\n"
                         },
                         "children": []
                     },
@@ -46,7 +46,7 @@
                                     "id": "cw5dxawn2v40",
                                     "created": 1697004600160,
                                     "text": "惰性删除",
-                                    "note": "Redis 的惰性删除策略由 `db.c` 文件中的 `expireIfNeeded` 函数实现，代码如下：\n```c\nint expireIfNeeded(redisDb *db, robj *key) {\n    // 判断 key 是否过期\n    if (!keyIsExpired(db,key)) return 0;\n    ....\n    /* 删除过期键 */\n    ....\n    // 如果 server.lazyfree_lazy_expire 为 1 表示异步删除，反之同步删除；\n    return server.lazyfree_lazy_expire ? dbAsyncDelete(db,key) :\n                                         dbSyncDelete(db,key);\n}\n```\n\n惰性删除流程：\n![](https://camo.githubusercontent.com/6b7268a7cf6df28b3b48cc9a1e82a37c7beae6589a499596f3e4c9a5a0f8477d/68747470733a2f2f63646e2e7869616f6c696e636f64696e672e636f6d2f67682f7869616f6c696e636f6465722f72656469732f2545382542462538372545362539432539462545372541442539362545372539352541352f2545362538332542302545362538302541372545352538382541302545392539392541342e6a7067)\n"
+                                    "note": "Redis 的惰性删除策略由 `db.c` 文件中的 `expireIfNeeded` 函数实现，代码如下：\n```c\nint expireIfNeeded(redisDb *db, robj *key) {\n    // 判断 key 是否过期\n    if (!keyIsExpired(db,key)) return 0;\n    ....\n    /* 删除过期键 */\n    ....\n    // 如果 server.lazyfree_lazy_expire 为 1 表示异步删除，反之同步删除；\n    return server.lazyfree_lazy_expire ? dbAsyncDelete(db,key) :\n                                         dbSyncDelete(db,key);\n}\n```\n\n惰性删除流程：\n\n![惰性删除](img/惰性删除.webp)\n"
                                 },
                                 "children": []
                             },
@@ -55,7 +55,7 @@
                                     "id": "cw5dxnyc4y00",
                                     "created": 1697004628561,
                                     "text": "定期删除",
-                                    "note": "> 检查的时间间隔\n\n默认每秒进行 10 次过期检查一次数据库，此配置可通过 Redis 的配置文件 `redis.conf` 进行配置，配置键为 `hz`， 它的默认值是 `hz 10`。\n\n> 随机抽查的数量\n\n定期删除的实现在 `expire.c` 文件下的 `activeExpireCycle` 函数中，其中随机抽查的数量由 [`ACTIVE_EXPIRE_CYCLE_LOOKUPS_PER_LOOP`](https://github.com/redis/redis/blob/unstable/src/expire.c#L107) 定义的，它是写死在代码中的，数值是 `20`。\n\n定期删除的流程：\n\n1. 从过期字典中随机抽取 20 个 key；\n1. 检查这 20 个 key 是否过期，并删除已过期的 key；\n1. 如果本轮检查的已过期 key 的数量，超过 5 个（20/4），也就是「已过期 key 的数量」占比「随机抽取 key 的数量」大于 25%，则继续重复步骤 1；如果已过期的 key 比例小于 25%，则停止继续删除过期 key，然后等待下一轮再检查。\n1. 同时，Redis 为了保证定期删除不会出现循环过度，导致线程卡死现象，为此增加了定期删除循环流程的时间上限，默认不会超过 25ms。\n\n![](https://camo.githubusercontent.com/29a81b0ef248a2306ff38dc2020a416a87956de8db2f9c714dba9742936485a9/68747470733a2f2f63646e2e7869616f6c696e636f64696e672e636f6d2f67682f7869616f6c696e636f6465722f72656469732f2545382542462538372545362539432539462545372541442539362545372539352541352f2545352541452539412545362539372542362545352538382541302545392539392541342545362542352538312545372541382538422e6a7067)\n"
+                                    "note": "> 检查的时间间隔\n\n默认每秒进行 10 次过期检查一次数据库，此配置可通过 Redis 的配置文件 `redis.conf` 进行配置，配置键为 `hz`， 它的默认值是 `hz 10`。\n\n> 随机抽查的数量\n\n定期删除的实现在 `expire.c` 文件下的 `activeExpireCycle` 函数中，其中随机抽查的数量由 [`ACTIVE_EXPIRE_CYCLE_LOOKUPS_PER_LOOP`](https://github.com/redis/redis/blob/unstable/src/expire.c#L107) 定义的，它是写死在代码中的，数值是 `20`。\n\n定期删除的流程：\n\n1. 从过期字典中随机抽取 20 个 key；\n1. 检查这 20 个 key 是否过期，并删除已过期的 key；\n1. 如果本轮检查的已过期 key 的数量，超过 5 个（20/4），也就是「已过期 key 的数量」占比「随机抽取 key 的数量」大于 25%，则继续重复步骤 1；如果已过期的 key 比例小于 25%，则停止继续删除过期 key，然后等待下一轮再检查。\n1. 同时，Redis 为了保证定期删除不会出现循环过度，导致线程卡死现象，为此增加了定期删除循环流程的时间上限，默认不会超过 25ms。\n\n![定时删除流程](img/定时删除流程.webp)\n"
                                 },
                                 "children": []
                             }
