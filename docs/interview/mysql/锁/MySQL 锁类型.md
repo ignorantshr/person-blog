@@ -166,7 +166,7 @@ AUTO-INC 锁是特殊的表锁机制，**锁不是再一个事务提交后才释
 当 innodb_autoinc_lock_mode = 2 是性能最高的方式，但是当搭配 binlog 的日志格式是 statement 一起使用的时候，在「主从复制的场景」中会发生数据不一致的问题。
 
 > 例子：session A 往表 t 中插入了 4 行数据，然后创建了一个相同结构的表 t2，然后两个 session 同时执行向表 t2 中插入数据。
-![](https://camo.githubusercontent.com/b7e34b7fd082fd5a45c391cb32c0740141591014de4ca45eadc183885995384a/68747470733a2f2f63646e2e7869616f6c696e636f64696e672e636f6d2f67682f7869616f6c696e636f6465722f6d7973716c2f2545392539342538312f696e6e6f64625f6175746f696e635f6c6f636b5f6d6f64653d322e706e67)
+![innodb_autoinc_lock_mode=2](img/innodb_autoinc_lock_mode=2.webp)
 
 如果 `innodb_autoinc_lock_mode = 2`，意味着「申请自增主键后就释放锁，不必等插入语句执行完」。那么就可能出现这样的情况：
 
