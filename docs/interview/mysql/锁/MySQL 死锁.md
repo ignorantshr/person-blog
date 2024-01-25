@@ -46,7 +46,6 @@ commit; //锁释放
 **行锁的释放时机是在事务提交（commit）后，锁就会被释放，并不是一条语句执行完就释放行锁**。
 
 事务 A 在二级索引（INDEX_NAME : index_order）上加的是 X 型的 `next-key 锁`，锁范围是(1006, +∞]：
-
 ![1cf8614eba3b45b9874dc6204b4d0cd1](img/1cf8614eba3b45b9874dc6204b4d0cd1.webp)
 
 当事务 B 往事务 A next-key 锁的范围 (1006, +∞] 里插入 id = 1008 的记录就会被锁住。

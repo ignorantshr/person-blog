@@ -392,19 +392,19 @@ nav:
         - mysql:
             - interview/mysql/MySQL 基础.md
             - 索引:
-                - interview/mysql/索引/MySQL 单表不要超过 2000W 行？.md
                 - interview/mysql/索引/MySQL 索引.md
                 - interview/mysql/索引/MySQL 索引失效.md
-                - interview/mysql/索引/count(*) 和 count(1).md
-                - interview/mysql/索引/为什么 MySQL 采用 B+ 树作为索引.md
                 - interview/mysql/索引/从数据页的角度看 B+ 树.md
+                - interview/mysql/索引/为什么 MySQL 采用 B+ 树作为索引.md
+                - interview/mysql/索引/MySQL 单表不要超过 2000W 行？.md
+                - interview/mysql/索引/count(*) 和 count(1).md
             - 事务:
                 - interview/mysql/事务/MySQL 事务.md
                 - interview/mysql/事务/MySQL 可重复读隔离级别 与 幻读.md
             - 锁:
+                - interview/mysql/锁/MySQL 锁类型.md
                 - interview/mysql/锁/MySQL 如何加锁.md
                 - interview/mysql/锁/MySQL 死锁.md
-                - interview/mysql/锁/MySQL 锁类型.md
             - 日志:
                 - interview/mysql/日志/MySQL 日志.md
             - 内存:

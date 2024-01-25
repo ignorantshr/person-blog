@@ -1,6 +1,6 @@
-# Welcome to Person Sink
+# Welcome to ignorantshr's personal blog!
 
-This is a personal blog of shihr.
+This is a personal blog of ignorantshr.
 
 为mkdocs文档标题添加序号的小插件: [mkdocs-add-number-plugin](https://github.com/ignorantshr/mkdocs-add-number-plugin)
 
