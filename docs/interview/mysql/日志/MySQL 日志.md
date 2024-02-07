@@ -7,6 +7,11 @@
 我们在执行执行一条“增删改”语句的时候，虽然没有输入 begin 开启事务和 commit 提交事务，但是 **MySQL 会隐式开启事务来执行“增删改”语句的，执行完就自动提交事务的**，这样就保证了执行完“增删改”语句后，我们可以及时在数据库表看到“增删改”的结果了。
 
 执行一条语句是否自动提交事务，是由 `autocommit` 参数决定的，默认是开启。所以，执行一条 update 语句也是会使用事务的。
+
+- undo log（回滚日志）：是 Innodb 存储引擎层生成的日志，实现了事务中的原子性，主要用于事务回滚和 MVCC。
+- redo log（重做日志）：是 Innodb 存储引擎层生成的日志，实现了事务中的持久性，主要用于掉电等故障恢复；
+- binlog （归档日志）：是 Server 层生成的日志，主要用于数据备份和主从复制；
+
 ## undo log
 
 **undo log（回滚日志）**，它保证了事务的原子性（Atomicity）。
@@ -43,6 +48,18 @@
 
 所以，undo log 还有一个作用，就是通过 `ReadView + undo log` 实现 `MVCC`（多版本并发控制）。参考前文《MySQL 事务》-> 事务的隔离性 - > Read View 在 MVCC 里如何工作 小节。
 
+### undo log 什么时候删除
+
+系统判断在没有事务需要用到这些回滚日志的时候会将其删除。
+什么时候不需要了：**当系统里没有比这个回滚日志更早的 read view 的时候**。
+
+> 为什么建议你尽量不要使用长事务
+
+长事务意味着系统里面会存在很老的事务视图。由于这些事务随时可能访问数据库里面的任何数据，所以这个事务提交之前，数据库里面它可能用到的回滚记录都必须保留，这就会导致大量占用存储空间。
+
+在MySQL 5.5及以前的版本，回滚日志是跟数据字典一起放在ibdata文件里的，即使长事务最终提交，回滚段被清理，文件也不会变小。最终为了清理回滚段，需要重建整个库。
+
+除了对回滚段的影响，长事务还占用锁资源。
 ## Buffer Pool
 
 Innodb 存储引擎设计了一个缓冲池（Buffer Pool），来提高数据库的读写性能。
@@ -82,7 +99,7 @@ WAL 技术指的是，**MySQL 的写操作并不是立刻写到磁盘上，而�
 - undo log 记录的是**事务提交之前**的数据状态，记录的是数据**更新之前**的值
 - redo log 记录的是**事务提交之后**的数据状态，记录的是数据**更新之后**的值
 
-事务提交值发生了崩溃，MySQL 重启后通过 undo log 回滚事务，事务提交之后发生了崩溃，重启后通过 redo log 恢复事务。
+事务提交之前发生了崩溃，MySQL 重启后通过 undo log 回滚事务，事务提交之后发生了崩溃，重启后通过 redo log 恢复事务。
 
 ### redo log 要写到磁盘，数据也要写磁盘，为什么要多此一举
 
@@ -99,11 +116,11 @@ WAL 技术指的是，**MySQL 的写操作并不是立刻写到磁盘上，而�
 
 实际上，执行一个事务的过程中，产生的 redo log 也不是直接写入磁盘的，因为这样会产生大量的 I/O 操作，而且磁盘的运行速度远慢于内存。
 
-所以，redo log 也有自己的缓存—— **redo log buffer**，每当产生一条 redo log 时，会先写入到 redo log buffer，后续在持久化到磁盘如下图：
+所以，redo log 也有自己的缓存—— **redo log buffer**，每当产生一条 redo log 时，会先写入到 redo log buffer，后续再持久化到磁盘，如下图：
 
 ![redologbuf](img/redologbuf.webp)
 
-redo log buffer 默认大小 16 MB，可以通过 `innodb_log_Buffer_size` 参数动态的调整大小，增大它的大小可以让 MySQL 处理「大事务」是不必写入磁盘，进而提升写 IO 性能。
+redo log buffer 默认大小 16 MB，可以通过 `innodb_log_Buffer_size` 参数动态的调整大小，增大它的大小可以让 MySQL 处理「大事务」时不必写入磁盘，进而提升写 IO 性能。
 ### redo log 什么时候刷盘
 
 缓存在 redo log buffer 里的 redo log 还是在内存中，它会在以下几个时机刷新到磁盘中：
@@ -113,7 +130,7 @@ redo log buffer 默认大小 16 MB，可以通过 `innodb_log_Buffer_size` 参�
 - InnoDB 的后台线程每隔 1 秒，将 redo log buffer 持久化到磁盘。
 - 每次事务提交时都将缓存在 redo log buffer 里的 redo log 直接持久化到磁盘（这个策略可由 innodb_flush_log_at_trx_commit 参数控制）
 
-在执行更新语句的过程中，生成的 redo log 先写入到 redo log buffer 中，然后等事务提交的时候，再将缓存在 redo log buffer 中的 redo log 按组的方式「顺序写」到磁盘。 这个默认的行为。
+在执行更新语句的过程中，生成的 redo log 先写入到 redo log buffer 中，然后等事务提交的时候，再将缓存在 redo log buffer 中的 redo log 按组的方式「顺序写」到磁盘。 这个是默认的行为。
 
 这种刷盘策略是由  `innodb_flush_log_at_trx_commit` 参数控制的：
 
@@ -134,7 +151,7 @@ InnoDB 的后台线程每隔 1 秒：
 - 写入性能：参数 0 > 参数 2> 参数 1
 ### redo log 文件写满了怎么办
 
-默认情况下，InnoDB 存储引擎有 1 个`重做日志文件组` ( redo log Group），「重做日志文件组」由有 2 个 redo log 文件组成，这两个 redo 日志的文件名叫：`ib_logfile0` 和 `ib_logfile1` 。
+默认情况下，InnoDB 存储引擎有 1 个`重做日志文件组` ( redo log Group），「重做日志文件组」由 2 个 redo log 文件组成，这两个 redo 日志的文件名叫：`ib_logfile0` 和 `ib_logfile1` 。
 
 在重做日志组中，每个 redo log File 的大小是固定且一致的，假设每个 redo log File 设置的上限是 1 GB，那么总共就可以记录 2GB 的操作。
 
@@ -162,28 +179,28 @@ binlog 文件记录了所有**数据库表结构变更和表数据修改的日�
 
 1. 适用对象不同：
 
-  - binlog 是 MySQL 的 Server 层实现的日志，所有存储引擎都可以使用；
-  - redo log 是 Innodb 存储引擎实现的日志；
+	- binlog 是 MySQL 的 Server 层实现的日志，所有存储引擎都可以使用；
+	- redo log 是 Innodb 存储引擎实现的日志；
 
 2. 文件格式不同：
 
-  - binlog 有 3 种格式类型，分别是 STATEMENT（MySQL 5.7.7之前的默认值）、ROW（MySQL 5.7.7之后的默认值）、MIXED，区别如下：
+	- binlog 有 3 种格式类型，分别是 STATEMENT（MySQL 5.7.7之前的默认值）、ROW（MySQL 5.7.7之后的默认值）、MIXED，区别如下：
 
-    - STATEMENT：每一条修改数据的 SQL 都会被记录到 binlog 中（相当于记录了逻辑操作，所以针对这种格式，binlog 可以称为逻辑日志），主从复制中 slave 端再根据 SQL 语句重现。但 STATEMENT 有动态函数的问题，比如你用了 uuid 或者 now 这些函数，你在主库上执行的结果并不是你在从库执行的结果，这种随时在变的函数会导致复制的数据不一致；
-    - ROW：记录行数据最终被修改成什么样了（这种格式的日志，就不能称为逻辑日志了），不会出现 STATEMENT 下动态函数的问题。但 ROW 的缺点是每行数据的变化结果都会被记录，比如执行批量 update 语句，更新多少行数据就会产生多少条记录，使 binlog 文件过大，而在 STATEMENT 格式下只会记录一个 update 语句而已；
-    - MIXED：包含了 STATEMENT 和 ROW 模式，它会根据不同的情况自动使用 ROW 模式和 STATEMENT 模式；
+		- STATEMENT：每一条修改数据的 SQL 都会被记录到 binlog 中（相当于记录了逻辑操作，所以针对这种格式，binlog 可以称为逻辑日志），主从复制中 slave 端再根据 SQL 语句重现。但 STATEMENT 有动态函数的问题，比如你用了 uuid 或者 now 这些函数，你在主库上执行的结果并不是你在从库执行的结果，这种随时在变的函数会导致复制的数据不一致；
+		- ROW：记录行数据最终被修改成什么样了（这种格式的日志，就不能称为逻辑日志了），不会出现 STATEMENT 下动态函数的问题。但 ROW 的缺点是每行数据的变化结果都会被记录，比如执行批量 update 语句，更新多少行数据就会产生多少条记录，使 binlog 文件过大，而在 STATEMENT 格式下只会记录一个 update 语句而已；
+		- MIXED：包含了 STATEMENT 和 ROW 模式，它会根据不同的情况自动使用 ROW 模式和 STATEMENT 模式；
 
-  - redo log 是物理日志，记录的是在某个数据页做了什么修改
+	- redo log 是物理日志，记录的是在某个数据页做了什么修改
 
 3. 写入方式不同：
 
-  - binlog 是追加写，写满一个文件，就创建一个新的文件继续写，不会覆盖以前的日志，保存的是全量的日志。
-  - redo log 是循环写，日志空间大小是固定，全部写满就从头开始，保存未被刷入磁盘的脏页日志。
+	- binlog 是追加写，写满一个文件，就创建一个新的文件继续写，不会覆盖以前的日志，保存的是全量的日志。
+	- redo log 是循环写，日志空间大小是固定，全部写满就从头开始，保存未被刷入磁盘的脏页日志。
 
 4. 用途不同：
 
-  - binlog 用于备份恢复、主从复制；
-  - redo log 用于掉电等故障恢复。
+	- binlog 用于备份恢复、主从复制；
+	- redo log 用于掉电等故障恢复。
 ### 主从复制
 
 #### 主从复制是怎么实现
@@ -253,18 +270,16 @@ UPDATE t_user SET name = 'xiaolin' WHERE id = 1;
 
 1. 执行器负责具体的执行，会调用存储引擎的接口，通过聚簇索引获取 id=1 这一行记录：
 	- 若此行所在的数据页本来就在 buffer pool 中，就直接返回给执行器
-    - 否则将数据页从磁盘读入到 buffer pool 中，返回记录给执行器
+	- 否则将数据页从磁盘读入到 buffer pool 中，返回记录给执行器
 2. 执行器得到聚簇索引记录后，会看一下更新前的记录和更新后的记录是否一样：
 	- 一样就不进行后续的更新流程了
-    - 否则就把更新前后的记录当作参数传给 InnoDB ，让 InnoDB 执行真正的更新记录操作
+	- 否则就把更新前后的记录当作参数传给 InnoDB ，让 InnoDB 执行真正的更新记录操作
 3. 开启事务，InnoDB 更新前，首先记录相应的 undo log，undo log 会被写入到 buffer pool 中的 undo 页面，在内存修改 该 undo 页面后，需要记录对应的 redo log。
 4. InnoDB 开始更新记录，先更新内存（同时标记为脏页），然后将记录写入到 redo log。
-5. 此时一条记录就算更新完成了。
+5. 此时一条记录就算更新完成了。告知执行器执行完成了，随时可以提交事务。
 6. 在一条更新语句执行完成后，就开始记录对应的 binlog。
 7. 事务提交，剩下的就是【两阶段提交】的事情了。
 ## 两阶段提交
-
-事务提交后，redo log 和 binlog 都要持久化到磁盘，但是这两个是**独立的逻辑**，可能出现半成功的状态，这样就造成两份日志之间的逻辑不一致。
 
 ### 为什么需要两阶段提交
 
@@ -277,6 +292,7 @@ UPDATE t_user SET name = 'xiaolin' WHERE id = 1;
 
 可以看到，在持久化 redo log 和 binlog 这两份日志的时候，如果出现半成功的状态，就会造成主从环境的数据不一致性。这是**因为 redo log 影响主库的数据，binlog 影响从库的数据**，所以 redo log 和 binlog 必须保持一致才能保证主从数据一致。
 
+误操作后或需要扩容的时候，也就是需要再多搭建一些备库来增加系统的读能力的时候，常见的做法是用全量备份加上应用binlog来实现的。
 ### 什么是两阶段提交
 
 **两阶段提交就是把单个事务的提交分成两个阶段：准备（Prepare）阶段、提交（Commit）阶段。**
@@ -294,7 +310,7 @@ UPDATE t_user SET name = 'xiaolin' WHERE id = 1;
 从图可知，**两阶段提交就是把 redo log 的写入拆成了准备和提交两个步骤，中间穿插写入 binlog**：
 
 - prepare 阶段：将 XID（内部XA事务ID）写入到 redo log，同时将 redo log 对应的事务状态设置为 prepare，然后将 redo log 刷新到磁盘；
-- commit 阶段：把 XID 写入到binlog，然后将binlog刷新到磁盘，接着调用存储引擎的提交事务接口，将 redo log 状态设置为 commit。将事务设置为 commit 状态后，刷入到磁盘 redo log  文件，所以 commit 状态也是会刷盘的。
+- commit 阶段：把 XID 写入到binlog，然后将binlog刷新到磁盘，接着调用存储引擎的提交事务接口，将 redo log 状态设置为 commit，此时该状态并不需要持久化到磁盘，只需要 write 到文件系统的 page cache 中就够了，因为只要 binlog 写磁盘成功，就算 redo log 的状态还是 prepare 也没有关系，一样会被认为事务已经执行成功。
 ### 异常重启会出现什么现象
 
 ![两阶段提交崩溃点](img/两阶段提交崩溃点.drawio.webp)
@@ -307,6 +323,21 @@ UPDATE t_user SET name = 'xiaolin' WHERE id = 1;
 - 存在，说明 redo log 和 binlog 都已经完成了刷盘，提交事务；对应时刻 B 崩溃恢复的情况。
 
 所以，**两阶段提交是以 binlog 写成功为事务提交成功的标识**。
+
+ redo log 可以在事务没提交之前持久化到磁盘，但是 binlog 必须在事务提交之后，才可以持久化到磁盘。
+### 事务没提交的时候，redo log 会被持久化到磁盘吗
+
+会的。
+
+事务执行中间过程的 redo log 也是直接写在 redo log buffer 中的，这些缓存在 redo log buffer 里的 redo log 也会被「后台线程」每隔一秒一起持久化到磁盘。
+
+也就是说，事务没提交的时候，redo log 也是可能被持久化到磁盘的。
+
+有的同学可能会问，如果 mysql 崩溃了，还没提交事务的 redo log 已经被持久化磁盘了，mysql 重启后，数据不就不一致了？
+
+放心，这种情况 mysql 重启会进行回滚操作，因为事务没提交的时候，binlog 是还没持久化到磁盘的。
+
+所以， redo log 可以在事务没提交之前持久化到磁盘，但是 binlog 必须在事务提交之后，才可以持久化到磁盘。
 ### 两阶段提交有什么问题
 
 两阶段提交虽然保证了两个日志文件的数据一致性，但是性能很差，主要有两个方面的影响：
@@ -382,4 +413,4 @@ MySQL 引入了 binlog **组提交（group commit）**机制，当有多个事�
 
 - 设置组提交的两个参数： `binlog_group_commit_sync_delay` 和 `binlog_group_commit_sync_no_delay_count` 参数，延迟 binlog 刷盘的时机，从而减少 binlog 的刷盘次数。这个方法是基于“额外的故意等待”来实现的，因此**可能会增加语句的响应时间**，但即使 MySQL 进程中途挂了，也没有丢失数据的风险，因为 binlog 早被写入到 page cache 了，只要系统没有宕机，缓存在 page cache 里的 binlog 就会被持久化到磁盘。**主机掉电时可能会丢 N 个事务的 binlog 日志**。
 - 将 `sync_binlog` 设置为大于 1 的值（比较常见是 100~1000），表示每次提交事务都 write，但累积 N 个事务后才 fsync，相当于延迟了 binlog 刷盘的时机。但是这样做的风险是，**主机掉电时会丢 N 个事务的 binlog 日志**。
-- 将 `innodb_flush_log_at_trx_commit` 设置为 2。表示每次事务提交时，都只是缓存在 redo log buffer 里的 redo log 写到 redo log 文件，注意写入到「 redo log 文件」并不意味着写入到了磁盘，因为操作系统的文件系统中有个 Page Cache，专门用来缓存文件数据的，所以写入「 redo log文件」意味着写入到了操作系统的文件缓存，然后交由操作系统控制持久化到磁盘的时机。但是这样做的风险是，**主机掉电的时候会丢数据**。
+- 将 `innodb_flush_log_at_trx_commit` 设置为 2。表示每次事务提交时，都只是将缓存在 redo log buffer 里的 redo log 写到 redo log 文件，注意写入到「 redo log 文件」并不意味着写入到了磁盘，因为操作系统的文件系统中有个 Page Cache，专门用来缓存文件数据的，所以「写入 redo log文件」意味着写入到了操作系统的文件缓存，然后交由操作系统控制持久化到磁盘的时机。但是这样做的风险是，**主机掉电的时候会丢数据**。
