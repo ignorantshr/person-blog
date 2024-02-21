@@ -482,7 +482,10 @@ markdown_extensions:
         permalink: true
 
 plugins: 
-    - search
+    - search:
+        lang:
+            - en
+            - zh
     - mkdocs-add-number-plugin:
         strict_mode: False # 模式选项
         increment_pages: false
