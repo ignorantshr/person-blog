@@ -1,4 +1,5 @@
 site/
 desktop.ini
 .vscode/
-.Ds_Store
+*.Ds_Store
+*.ztr-directory
