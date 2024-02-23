@@ -59,9 +59,76 @@
                             "id": "cuy4h9rbjog0",
                             "created": 1692610875709,
                             "text": "按字段特性分类",
-                            "note": "主键索引、唯一索引、普通索引、前缀索引。\n\n- 主键索引就是建立在主键字段上的索引，通常在创建表的时候一起创建，一张表最多只有一个主键索引，索引列的值不允许有空值。\n\n```\nCREATE TABLE table_name  (\n  ....\n  PRIMARY KEY (index_column_1) USING BTREE\n);\n```\n\n- 唯一索引建立在 `UNIQUE` 字段上的索引，一张表可以有多个唯一索引，索引列的值必须唯一，但是允许有空值。\n\n```SQL\nCREATE TABLE table_name  (\n  ....\n  UNIQUE KEY(index_column_1,index_column_2,...) \n);\n\nCREATE UNIQUE INDEX index_name\nON table_name(index_column_1,index_column_2,...); \n```\n\n- 普通索引就是建立在普通字段上的索引，既不要求字段为主键，也不要求字段为 UNIQUE。\n\n```SQL\nCREATE TABLE table_name  (\n  ....\n  INDEX(index_column_1,index_column_2,...) \n);\n\nCREATE INDEX index_name\nON table_name(index_column_1,index_column_2,...); \n```\n\n- 前缀索引是指对字符类型字段的前几个字符建立的索引，而不是在整个字段上建立的索引，前缀索引可以建立在字段类型为 char、varchar、binary、varbinary 的列上。\n使用前缀索引的目的是为了减少索引占用的存储空间，提升查询效率。\n\n```SQL\nCREATE TABLE table_name(\n    column_list,\n    INDEX(column_name(length))\n); \n\nCREATE INDEX index_name\nON table_name(column_name(length)); \n```"
+                            "note": "主键索引、唯一索引、普通索引、前缀索引。\n\n- 主键索引就是建立在主键字段上的索引，通常在创建表的时候一起创建，一张表最多只有一个主键索引，索引列的值不允许有空值。\n\n```\nCREATE TABLE table_name  (\n  ....\n  PRIMARY KEY (index_column_1) USING BTREE\n);\n```\n\n- 唯一索引建立在 `UNIQUE` 字段上的索引，一张表可以有多个唯一索引，索引列的值必须唯一，但是允许有空值。\n\n```SQL\nCREATE TABLE table_name  (\n  ....\n  UNIQUE KEY(index_column_1,index_column_2,...) \n);\n\nCREATE UNIQUE INDEX index_name\nON table_name(index_column_1,index_column_2,...); \n```\n\n- 普通索引就是建立在普通字段上的索引，既不要求字段为主键，也不要求字段为 UNIQUE。\n\n```SQL\nCREATE TABLE table_name  (\n  ....\n  INDEX(index_column_1,index_column_2,...) \n);\n\nCREATE INDEX index_name\nON table_name(index_column_1,index_column_2,...); \n```\n\n- 前缀索引是指对字符类型字段的前几个字符建立的索引，而不是在整个字段上建立的索引，前缀索引可以建立在字段类型为 char、varchar、binary、varbinary 的列上。\n使用前缀索引的目的是为了减少索引占用的存储空间，提升查询效率。\n\n```SQL\nCREATE TABLE table_name(\n    column_list,\n    INDEX(column_name(length))\n); \n\nCREATE INDEX index_name\nON table_name(column_name(length)); \n```",
+                            "expandState": "expand"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czcervc1qjk0",
+                                    "created": 1708686390569,
+                                    "text": "前缀索引",
+                                    "note": "[MySQL 实战 45 讲](https://funnylog.gitee.io/mysql45/11%E8%AE%B2%E6%80%8E%E4%B9%88%E7%BB%99%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E6%AE%B5%E5%8A%A0%E7%B4%A2%E5%BC%95.html)\n\n前缀索引结构中每个被索引的字段都只取前 N 个字节，所以占用的空间会更小，这就是使用前缀索引的优势。\n\n但，这同时带来的损失是，可能会增加额外的记录扫描次数。下面是一个例子。\n\n![图1 email 索引结构](img/图1%20email%20索引结构.png)\n\n![图2 email(6) 索引结构](img/图2%20email(6)%20索引结构.png)\n\n 如果使用的是index1（即email整个字符串的索引结构），执行顺序是这样的：\n \n1. 从index1索引树找到满足索引值是’zhangssxyz@xxx.com’的这条记录，取得ID2的值；\n1. 到主键上查到主键值是ID2的行，判断email的值是正确的，将这行记录加入结果集；\n1. 取index1索引树上刚刚查到的位置的下一条记录，发现已经不满足email='zhangssxyz@xxx.com’的条件了，循环结束。\n1. 这个过程中，只需要回主键索引取一次数据，所以系统认为只扫描了一行。\n\n如果使用的是index2（即email(6)索引结构），执行顺序是这样的：\n\n1. 从index2索引树找到满足索引值是’zhangs’的记录，找到的第一个是ID1；\n1. 到主键上查到主键值是ID1的行，判断出email的值不是’zhangssxyz@xxx.com’，这行记录丢弃；\n1. 取index2上刚刚查到的位置的下一条记录，发现仍然是’zhangs’，取出ID2，再到ID索引上取整行然后判断，这次值对了，将这行记录加入结果集；\n1. 重复上一步，直到在idxe2上取到的值不是’zhangs’时，循环结束。\n\n在这个过程中，要回主键索引取4次数据，也就是扫描了4行。\n但是，对于这个查询语句来说，如果取email字段的前7个字节来构建索引的话，即满足前缀’zhangss’的记录只有一个，也能够直接查到ID2，只扫描一行就结束了。\n\n也就是说**使用前缀索引，定义好长度，就可以做到既节省空间，又不用额外增加太多的查询成本**。\n\n"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czcez60l7600",
+                                            "created": 1708686962370,
+                                            "text": "如何确定前缀的长度",
+                                            "note": "在建立索引时关注的是区分度，区分度越高越好。因此，我们可以通过统计索引上有多少个不同的值来判断要使用多长的前缀。\n\n首先，使用下面这个语句，算出这个列上总共有多少个不同的值：\n\n```sql\nmysql> select count(distinct email) as L from SUser;\n```\n\n然后，依次选取不同长度的前缀来看这个值，比如我们要看一下4~7个字节的前缀索引，可以用这个语句：\n\n```sql\nmysql> select \n  count(distinct left(email,4)）as L4,\n  count(distinct left(email,5)）as L5,\n  count(distinct left(email,6)）as L6,\n  count(distinct left(email,7)）as L7,\nfrom SUser;\n```\n\n使用前缀索引很可能会损失区分度，选择一个可以接受的损失比例，比如5%。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czcf24outwg0",
+                                            "created": 1708687194576,
+                                            "text": "对覆盖索引的影响",
+                                            "note": "下面这个语句只要求返回id和email字段：\n\n```sql\nselect id,email from SUser where email='zhangssxyz@xxx.com';\n```\n\n如果使用index1（即email整个字符串的索引结构）的话，可以利用覆盖索引，从index1查到结果后直接就返回了，不需要回到ID索引再去查一次。而如果使用index2（即email(6)索引结构）的话，就不得不回到ID索引再去判断email字段的值。\n\n即使你将index2的定义修改为email(18)的前缀索引，这时候虽然index2已经包含了所有的信息，但InnoDB还是要回到id索引再查一下，因为系统并不确定前缀索引的定义是否截断了完整信息。\n\n也就是说，使用前缀索引就用不上覆盖索引对查询性能的优化了。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czcf3v6s0tc0",
+                                            "created": 1708687330620,
+                                            "text": "其他方式",
+                                            "note": "对于类似于邮箱这样的字段来说，使用前缀索引的效果可能还不错。但是，遇到前缀的区分度不够好的情况时，就要另谋他法了。\n\n如果我们能够确定业务需求里面只有**等值查询**的需求，下面的两种方法既可以占用更小的空间，也能达到相同的查询效率。\n"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czcf9dqsho00",
+                                                    "created": 1708687762833,
+                                                    "text": "倒序存储",
+                                                    "note": "**第一种方式是使用倒序存储**。如果你存储身份证号的时候把它倒过来存，还是用的前缀索引的方式，每次查询的时候，可以这么写：\n\n```sql\nmysql> select field_list from t where id_card = reverse('input_id_card_string');\n```\n\n由于身份证号的最后6位没有地址码这样的重复逻辑，所以最后这6位很可能就提供了足够的区分度。当然了，实践中不要忘记使用`count(distinct)`方法去做个验证。\n"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czcf9hu8cw80",
+                                                    "created": 1708687771748,
+                                                    "text": "hash字段",
+                                                    "note": "**第二种方式是使用hash字段**。你可以在表上再创建一个整数字段，来保存身份证的校验码，同时在这个字段上创建索引。\n\n```sql\nmysql> alter table t add id_card_crc int unsigned, add index(id_card_crc);\n```\n\n然后每次插入新记录的时候，都同时用`crc32()`这个函数得到校验码填到这个新字段。由于校验码可能存在冲突，也就是说两个不同的身份证号通过 crc32() 函数得到的结果可能是相同的，所以你的查询语句 where 部分要判断 id_card 的值是否精确相同。\n\n```sql\nmysql> select field_list from t where id_card_crc=crc32('input_id_card_string') and id_card='input_id_card_string'\n```\n\n这样，索引的长度变成了4个字节，比原来小了很多。\n"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czcf999fdrk0",
+                                                    "created": 1708687753076,
+                                                    "text": "两种方法的异同点",
+                                                    "note": "相同点是，**都不支持范围查询**。\n\n区别主要体现在以下三个方面：\n\n1. 从占用的额外空间来看，倒序存储方式在主键索引上，不会消耗额外的存储空间，而hash字段方法需要增加一个字段。当然，倒序存储方式使用4个字节的前缀长度应该是不够的，如果再长一点，这个消耗跟额外这个hash字段也差不多抵消了。\n1. 在CPU消耗方面，倒序方式每次写和读的时候，都需要额外调用一次reverse函数，而hash字段的方式需要额外调用一次crc32()函数。如果只从这两个函数的计算复杂度来看的话，reverse函数额外消耗的CPU资源会更小些。\n1. 从查询效率上看，使用hash字段方式的查询性能相对更稳定一些。因为crc32算出来的值虽然有冲突的概率，但是概率非常小，可以认为每次查询的平均扫描行数接近1。而**倒序存储方式毕竟还是用的前缀索引的方式，也就是说还是会增加扫描行数**。\n"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         "data": {
