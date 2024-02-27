@@ -75,19 +75,19 @@
                     },
                     {
                         "data": {
-                            "id": "cv3umm8j57k0",
-                            "created": 1693192443333,
-                            "text": "redo log 要写到磁盘，数据也要写磁盘，为什么要多此一举",
-                            "note": "写入 redo log 的方式使用了追加操作，所以磁盘操作是**顺序写**，而写入数据需要先找到写入位置，然后才写到磁盘，所以磁盘操作是**随机写**。\n\n可以说这是 WAL 技术的另外一个优点：MySQL 的写操作从磁盘的「随机写」变成了「顺序写」，提升语句的执行性能。"
+                            "id": "cv3uoc1pyrk0",
+                            "created": 1693192577881,
+                            "text": "为什么需要 redo log",
+                            "note": "至此，针对为什么需要 redo log 这个问题我们有两个答案：\n\n- 实现事务的持久性，让 MySQL 有 **crash-safe** 的能力，能够保证 MySQL 在任何时间段突然崩溃，重启后之前已提交的记录都不会丢失；\n- 将写操作从「随机写」变成了「顺序写」，提升 MySQL 写入磁盘的性能。\n\n写入 redo log 的方式使用了追加操作，所以磁盘操作是**顺序写**，而写入数据需要先找到写入位置，然后才写到磁盘，所以磁盘操作是**随机写**。\n\n可以说这是 WAL 技术的另外一个优点：MySQL 的写操作从磁盘的「随机写」变成了「顺序写」，提升语句的执行性能。"
                         },
                         "children": []
                     },
                     {
                         "data": {
-                            "id": "cv3uoc1pyrk0",
-                            "created": 1693192577881,
-                            "text": "为什么需要 redo log",
-                            "note": "至此，针对为什么需要 redo log 这个问题我们有两个答案：\n\n实现事务的持久性，让 MySQL 有 crash-safe 的能力，能够保证 MySQL 在任何时间段突然崩溃，重启后之前已提交的记录都不会丢失；\n将写操作从「随机写」变成了「顺序写」，提升 MySQL 写入磁盘的性能。"
+                            "id": "cv3v0ecpm6g0",
+                            "created": 1693193523269,
+                            "text": "redo log 文件写满了怎么办",
+                            "note": "默认情况下，InnoDB 存储引擎有 1 个`重做日志文件组` ( redo log Group），「重做日志文件组」由 2 个 redo log 文件组成，这两个 redo 日志的文件名叫：`ib_logfile0` 和 `ib_logfile1` 。\n\n在重做日志组中，每个 redo log File 的大小是固定且一致的，假设每个 redo log File 设置的上限是 1 GB，那么总共就可以记录 2GB 的操作。\n\n重做日志文件组是以**循环写**的方式工作的，从头开始写，写到末尾就又回到开头，相当于一个环形。\nInnoDB 用 `write pos` 表示 redo log 当前记录写到的位置，用 `check point` 表示当前要擦除的位置，如下图：\n\n![checkpoint](img/checkpoint.webp)\n\n- write pos 和 check point 的移动都是顺时针方向；\n- write pos ～ check point 之间的部分（图中的红色部分），用来记录新的更新操作；\n- check point ～ write pos 之间的部分（图中蓝色部分）：待落盘的脏数据页记录；\n\n**如果 write pos 追上了 check point，就意味着 redo log 文件满了，这时 MySQL 不能再执行新的更新操作，也就是说 MySQL 会被阻塞（因此所以针对并发量大的系统，适当设置 redo log 的文件大小非常重要），此时会停下来将 Buffer Pool 中的脏页刷新到磁盘中，然后标记 redo log 哪些记录可以被擦除，接着对旧的 redo log 记录进行擦除，等擦除完旧记录腾出了空间，check point 就会往后移动（图中顺时针），然后 MySQL 恢复正常运行，继续执行新的更新操作**。\n"
                         },
                         "children": []
                     },
@@ -104,17 +104,8 @@
                         "data": {
                             "id": "cv3uqe2xbww0",
                             "created": 1693192739036,
-                            "text": "redo log 什么时候刷盘",
+                            "text": "redo log buffer 什么时候刷盘",
                             "note": "缓存在 redo log buffer 里的 redo log 还是在内存中，它会在以下几个时机刷新到磁盘中：\n\n- MySQL 正常关闭时\n- 当 `redo log buffer` 中记录的写入量大于 `redo log buffer` 内存空间的一半时，会触发落盘\n- InnoDB 的后台线程每隔 1 秒，将 redo log buffer 持久化到磁盘。\n- 每次事务提交时都将缓存在 redo log buffer 里的 redo log 直接持久化到磁盘（这个策略可由 innodb_flush_log_at_trx_commit 参数控制）\n\n在执行更新语句的过程中，生成的 redo log 先写入到 redo log buffer 中，然后等事务提交的时候，再将缓存在 redo log buffer 中的 redo log 按组的方式「顺序写」到磁盘。 这个是默认的行为。\n\n这种刷盘策略是由  `innodb_flush_log_at_trx_commit` 参数控制的：\n\n- 当设置该参数为 `0` 时，表示每次事务提交时，还是**将 redo log 留在 redo log buffer 中** ，该模式下在事务提交时不会主动触发写入磁盘的操作。\n- 当设置该参数为 `1` 时，表示每次事务提交时，都**将缓存在 redo log buffer 里的 redo log 直接持久化到磁盘**，这样可以保证 MySQL 异常重启之后数据不会丢失。\n- 当设置该参数为 `2` 时，表示每次事务提交时，都只是**将缓存在 redo log buffer 里的 redo log 写到 redo log 文件**，注意写入到「redo log 文件」并不意味着写入到了磁盘，因为操作系统的文件系统中有个 [`Page Cache`](https://xiaolincoding.com/os/6_file_system/pagecache.html)，Page Cache 是专门用来缓存文件数据的，所以写入「redo log 文件」意味着写入到了**操作系统的文件缓存**。\n\nInnoDB 的后台线程每隔 1 秒：\n\n- 针对参数 0：会把缓存在 redo log buffer 中的 redo log，通过调用 `write() `写到操作系统的 Page Cache，然后调用 `fsync()` 持久化到磁盘。**所以参数为 0 的策略，MySQL 进程的崩溃会导致上一秒钟所有事务数据的丢失**;\n- 针对参数 2：调用 `fsync`，将缓存在操作系统中 Page Cache 里的 redo log 持久化到磁盘。所以**参数为 2 的策略，较取值为 0 情况下更安全，因为 MySQL 进程的崩溃并不会丢失数据，只有在操作系统崩溃或者系统断电的情况下，上一秒钟所有事务数据才可能丢失**。\n\n![innodb_flush_log_at_trx_commit](img/innodb_flush_log_at_trx_commit.drawio.webp)\n\n三个参数的数据安全性和写入性能的比较如下：\n\n- 数据安全性：参数 1 > 参数 2 > 参数 0\n- 写入性能：参数 0 > 参数 2> 参数 1"
-                        },
-                        "children": []
-                    },
-                    {
-                        "data": {
-                            "id": "cv3v0ecpm6g0",
-                            "created": 1693193523269,
-                            "text": "redo log 文件写满了怎么办",
-                            "note": "默认情况下，InnoDB 存储引擎有 1 个`重做日志文件组` ( redo log Group），「重做日志文件组」由 2 个 redo log 文件组成，这两个 redo 日志的文件名叫：`ib_logfile0` 和 `ib_logfile1` 。\n\n在重做日志组中，每个 redo log File 的大小是固定且一致的，假设每个 redo log File 设置的上限是 1 GB，那么总共就可以记录 2GB 的操作。\n\n重做日志文件组是以**循环写**的方式工作的，从头开始写，写到末尾就又回到开头，相当于一个环形。\nInnoDB 用 `write pos` 表示 redo log 当前记录写到的位置，用 `check point` 表示当前要擦除的位置，如下图：\n\n![checkpoint](img/checkpoint.webp)\n\n- write pos 和 check point 的移动都是顺时针方向；\n- write pos ～ check point 之间的部分（图中的红色部分），用来记录新的更新操作；\n- check point ～ write pos 之间的部分（图中蓝色部分）：待落盘的脏数据页记录；\n\n**如果 write pos 追上了 check point，就意味着 redo log 文件满了，这时 MySQL 不能再执行新的更新操作，也就是说 MySQL 会被阻塞（因此所以针对并发量大的系统，适当设置 redo log 的文件大小非常重要），此时会停下来将 Buffer Pool 中的脏页刷新到磁盘中，然后标记 redo log 哪些记录可以被擦除，接着对旧的 redo log 记录进行擦除，等擦除完旧记录腾出了空间，check point 就会往后移动（图中顺时针），然后 MySQL 恢复正常运行，继续执行新的更新操作**。\n"
                         },
                         "children": []
                     }
