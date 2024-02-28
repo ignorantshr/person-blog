@@ -397,7 +397,7 @@ nav:
                 - interview/mysql/索引/从数据页的角度看 B+ 树.md
                 - interview/mysql/索引/为什么 MySQL 采用 B+ 树作为索引.md
                 - interview/mysql/索引/MySQL 单表不要超过 2000W 行？.md
-                - interview/mysql/索引/count(*) 和 count(1).md
+                - interview/mysql/索引/count.md
                 - interview/mysql/索引/正确回收表空间.md
             - 事务:
                 - interview/mysql/事务/MySQL 事务.md
@@ -481,7 +481,7 @@ markdown_extensions:
     - admonition
     - footnotes
     - toc:
-        permalink: true
+        permalink: ⚓
 
 plugins: 
     - search:
