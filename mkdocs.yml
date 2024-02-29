@@ -441,6 +441,8 @@ nav:
             - 读书笔记/数据库系统概论/第5章 数据库完整性.md
             - 读书笔记/数据库系统概论/第6章 关系数据理论.md
             - 读书笔记/数据库系统概论/第7章 数据库设计.md
+            - 读书笔记/数据库系统概论/第8章 数据库编程.md
+            - 读书笔记/数据库系统概论/第9章 关系查询处理和查询优化.md
         - 线性代数:
             - 1.1线性方程组: 读书笔记/线性代数/1.1线性方程组.md
             - 1.2行约减: 读书笔记/线性代数/1.2行约减.md
@@ -485,9 +487,6 @@ markdown_extensions:
 
 plugins: 
     - search:
-        lang:
-            - en
-            - zh
     - mkdocs-add-number-plugin:
         strict_mode: False # 模式选项
         increment_pages: false
