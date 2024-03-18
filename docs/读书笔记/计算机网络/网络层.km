@@ -1,0 +1,1575 @@
+{
+    "root": {
+        "data": {
+            "id": "czwqom2viyw0",
+            "created": 1710751187783,
+            "text": "网络层",
+            "note": "原文链接：https://blog.csdn.net/weixin_48024605/article/details/132426862",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "czwqq0v9s280",
+                    "created": 1710751298339,
+                    "text": "网络层功能",
+                    "note": "主要任务是把分组从源端传到目的端，位分组交换网上的不同主机提供通信服务。传输单位是数据报。\n\n互联网在网络层的设计思路是，向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。也就是说，所传送的分组可能出错、丢失、重复、失序或超时，这就使得网络中的路由器比较简单，而且价格低廉。"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwqqa4nyfs0",
+                            "created": 1710751318499,
+                            "text": "异构网络互联"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwqs6md3g80",
+                                    "created": 1710751467589,
+                                    "text": "中继系统"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwqsazm1qw0",
+                                            "created": 1710751477098,
+                                            "text": "物理层中继系统：中继器、集线器"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqsebhdmg0",
+                                            "created": 1710751484346,
+                                            "text": "数据链路层中继系统：网桥、交换机"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqsiicpeo0",
+                                            "created": 1710751493468,
+                                            "text": "物理层中继系统：路由器"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqslwcwv40",
+                                            "created": 1710751500846,
+                                            "text": "网络层以上的中继系统：网关"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqw3lh7w00",
+                                            "created": 1710751774462,
+                                            "text": "区别",
+                                            "note": "使用物理层或数据链路层的中继系统时，只是把一个网络扩大了，而从网络层的角度看，它仍然是同一个网络，一般并不称为网络互连。因此网络互连通常是指用路由器进行网络互连和路由选择。路由器是一台专用计算机，用于在互联网中进行路由选择。\n"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwqqh7qaj40",
+                            "created": 1710751333921,
+                            "text": "路由选择与分组转发"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwqx1fw7280",
+                                    "created": 1710751848135,
+                                    "text": "软件定义网络（SDN）"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwqxig96c00",
+                                            "created": 1710751885162,
+                                            "text": "数据平面"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqxjkxyl40",
+                                            "created": 1710751887623,
+                                            "text": "控制平面"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqy0e0zi00",
+                                            "created": 1710751924210,
+                                            "text": "北向接口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqy13zfpk0",
+                                            "created": 1710751925779,
+                                            "text": "南向接口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqy3h2qvs0",
+                                            "created": 1710751930924,
+                                            "text": "东西向接口"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwqwqn0u8w0",
+                                    "created": 1710751824623,
+                                    "text": "路由选择"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwqwrkqf9c0",
+                                    "created": 1710751826660,
+                                    "text": "分组转发"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwqqll6tbs0",
+                            "created": 1710751343442,
+                            "text": "拥塞控制"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwqzadnhf40",
+                                    "created": 1710752024319,
+                                    "text": "判断网络是否拥塞方法"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwqzf0sb6o0",
+                                            "created": 1710752034425,
+                                            "text": "轻度拥塞状态"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqzgzhlds0",
+                                            "created": 1710752038700,
+                                            "text": "拥塞状态"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwqzhn2zkw0",
+                                            "created": 1710752040127,
+                                            "text": "死锁状态"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwr08nvyxs0",
+                                    "created": 1710752098948,
+                                    "text": "作用",
+                                    "note": "拥塞控制的作用是确保子网能够承载所达到的流量，这是一个全局性的过程，涉及各方面的 行为：主机、路由器及路由器内部的转发处理过程等。单一地增加资源并不能解决拥塞。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwr0f47vvs0",
+                                    "created": 1710752112997,
+                                    "text": "流量控制和拥塞控制的区别",
+                                    "note": "- 流量控制往往是指在发送端和接收端之间的点对点通信量的控制。流量控制所要做的是抑制发送端发送数据的速率，以便使接收端来得及接收。\n\n- 而拥塞控制必须确保通信子网能够传送待传送的数据，是一个全局性的问题，涉及网络中所有的主机、路由器及导致网络传输能力下降的所有因素。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwr0ttzm7c0",
+                                    "created": 1710752145030,
+                                    "text": "方法"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwr0vuw2340",
+                                            "created": 1710752149438,
+                                            "text": "开环控制"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr0yk24oo0",
+                                            "created": 1710752155313,
+                                            "text": "闭环控制"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czwr1b8etd40",
+                    "created": 1710752182907,
+                    "text": "路由算法和路由协议"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwr1nkbpf40",
+                            "created": 1710752209749,
+                            "text": "路由算法"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwr1r3d3ow0",
+                                    "created": 1710752217430,
+                                    "text": "静态路由算法（非自适应路由算法）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwr1wcy4680",
+                                    "created": 1710752228894,
+                                    "text": "动态路由算法（自适应路由算法）"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwr2h5ncq80",
+                                            "created": 1710752274165,
+                                            "text": "分散性 距离向量算法 RIP"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr4ymqng80",
+                                            "created": 1710752468933,
+                                            "text": "全局性 链路状态路由算法 OSPF"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwr3gz9y7c0",
+                            "created": 1710752352144,
+                            "text": "路由协议",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwr2i4jbgo0",
+                                    "created": 1710752276275,
+                                    "text": "RIP（路由信息协议）",
+                                    "note": "应用层 基于UDP "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwr4d6c7080",
+                                            "created": 1710752422228,
+                                            "text": "内容"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr4fhs9js0",
+                                            "created": 1710752427274,
+                                            "text": "特点"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr4bggt6w0",
+                                            "created": 1710752418487,
+                                            "text": "距离向量算法：<目的网络N，距离d，下一跳路由器地址X>"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr4h63ig00",
+                                            "created": 1710752430920,
+                                            "text": "优缺点"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwr5fgk04o0",
+                                    "created": 1710752505563,
+                                    "text": "OSPF（开放最短路径优先）协议",
+                                    "note": "网络层 基于IP"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwr6kozhy00",
+                                            "created": 1710752595321,
+                                            "text": "工作原理"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czwr7zy3ka80",
+                                                    "created": 1710752706888,
+                                                    "text": "洪泛法"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwr8dgg87c0",
+                                                    "created": 1710752736296,
+                                                    "text": "链路数据库"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr70yt5w00",
+                                            "created": 1710752630744,
+                                            "text": "分组类型"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwr73en1i00",
+                                            "created": 1710752636055,
+                                            "text": "OSPF 链路状态路由算法"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwrdkpg3gg0",
+                                            "created": 1710753143898,
+                                            "text": "OSPF与RIP的区别"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwrbtjj0jc0",
+                            "created": 1710753006403,
+                            "text": "层次路由",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwrc6p144o0",
+                                    "created": 1710753035034,
+                                    "text": "自治系统（AS）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrcgp3jq80",
+                                    "created": 1710753056806,
+                                    "text": "内部网关协议（IGP）"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwre369nu00",
+                                            "created": 1710753184097,
+                                            "text": "OSPF"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwre4fydgo0",
+                                            "created": 1710753186860,
+                                            "text": "RIP"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrcm5ngo00",
+                                    "created": 1710753068691,
+                                    "text": "外部网关协议（EGP）",
+                                    "note": "应用层 TCP封装"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwre6uqf4w0",
+                                            "created": 1710753192107,
+                                            "text": "BGP"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czwrfayxtbc0",
+                                                    "created": 1710753279433,
+                                                    "text": "工作原理"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwrfc2xwl40",
+                                                    "created": 1710753281852,
+                                                    "text": "四种报文"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrfp8oggw0",
+                                    "created": 1710753310497,
+                                    "text": "RIP、OSPF与BGP的比较",
+                                    "note": "| 协议   | RIP       | OSPF         | BGP                  |\n|--------|-----------|--------------|----------------------|\n| 类型   | 内部      | 内部         | 外部                 |\n| 路由算法 | 距离-向量  | 链路状态       | 路径-向量              |\n| 传递协议 | 应用层 UDP | 网络层 IP    | 应用层 TCP           |\n| 路径选择 | 跳数最少   | 代价最低       | 较好，非最佳            |\n| 交换结点 | 和本结点相邻的路由器 | 网络中的所有路由器 | 和本结点相邻的路由器 |\n| 交换内容 | 自己的整个路由表  | 与本路由器相邻的所有路由器的链路状态 | 首次：整个路由表，非首次：有变化的部分 |"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czwrip0w4u80",
+                    "created": 1710753545118,
+                    "text": "IPv4"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwriswuu5k0",
+                            "created": 1710753553581,
+                            "text": "IPv4分组"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwrj6yh1lk0",
+                                    "created": 1710753584154,
+                                    "text": "IPv4分组格式"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrj8hz8tc0",
+                                    "created": 1710753587510,
+                                    "text": "IP数据报分片"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwrjot93xk0",
+                                            "created": 1710753623021,
+                                            "text": "最大传送单元（MTU）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwrjwch1g80",
+                            "created": 1710753639420,
+                            "text": "IPv4地址与NAT"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwrk296rqw0",
+                                    "created": 1710753652282,
+                                    "text": "IPv4地址"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwrle4ry280",
+                                            "created": 1710753756501,
+                                            "text": "分类"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwrk9kytj40",
+                                            "created": 1710753668232,
+                                            "text": "特殊的IP地址",
+                                            "note": "某些IP地址有着特殊用途，不能做主机IP地址。\n\n- 主机号全为0表示本网络本身，如202.98.174.0。\n- 主机号全为1表示本网络的广播地址，又称直接广播地址，如202.98.174.255。\n- 127.×.×.×保留为环回自检（Loopback Test）地址，此地址表示任意主机本身，目的地址为环回地址的P数据报永远不会出现在任何网络上。\n- 32位全为0，即0.0.0.0表示本网络上的本主机。\n- 32位全为1，即255.255.255.255表示整个TCP/P网络的广播地址，又称受限广播地址。实际使用时，由于路由器对广播域的隔离，255.255.255.255等效为本网络的广播地址。\n"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrmfr7o6g0",
+                                    "created": 1710753838399,
+                                    "text": "网络地址转换（NAT）"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwrn1bqd0g0",
+                                            "created": 1710753885352,
+                                            "text": "工作原理",
+                                            "note": "普通路由器仅工作在网络层，而NAT路由器转发数据报时需要查看和转换**传输层**的端口号。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwrmoir2tc0",
+                                            "created": 1710753857478,
+                                            "text": "私有IP地址网段",
+                                            "note": "- A类：1个A类网段，即10.0.0.0~10.255.255.255。\n- B类：16个B类网段，即172.16.0.0~172.31.255.255。\n- C类：256个C类网段，即192.168.0.0~192.168.255.255。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwrnpisbs80",
+                            "created": 1710753938021,
+                            "text": "子网划分与子网掩码、CIDR"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwrntgr6sg0",
+                                    "created": 1710753946605,
+                                    "text": "子网划分"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwrnyw5v140",
+                                            "created": 1710753958421,
+                                            "text": "两级 IP 地址的缺点"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwro6k7faw0",
+                                            "created": 1710753975112,
+                                            "text": "三级 IP 地址"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czwrogs8fs00",
+                                                    "created": 1710753997365,
+                                                    "text": "网络号"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwrommvsiw0",
+                                                    "created": 1710754010103,
+                                                    "text": "子网号"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwrorjb8w00",
+                                                    "created": 1710754020771,
+                                                    "text": "主机号"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrp35giko0",
+                                    "created": 1710754046054,
+                                    "text": "子网掩码"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrp648ixs0",
+                                    "created": 1710754052511,
+                                    "text": "无分类编址 CIDR",
+                                    "note": "无分类域间路由选择CIDR"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwrppmdthc0",
+                                            "created": 1710754094967,
+                                            "text": " IP地址结构"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czwrpr2o8j40",
+                                                    "created": 1710754098129,
+                                                    "text": "网络前缀"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwrptdeeqg0",
+                                                    "created": 1710754103131,
+                                                    "text": "主机号"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwrqcp5rw80",
+                                            "created": 1710754145201,
+                                            "text": "构成超网/路由聚合"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwrqeaf2ww0",
+                                            "created": 1710754148663,
+                                            "text": "最长前缀匹配"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwrqlhe7yw0",
+                                            "created": 1710754164322,
+                                            "text": "查找路由表的方法"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwrr2ocqsg0",
+                            "created": 1710754201748,
+                            "text": "网络层转发分组的过程"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwrvhoonlc0",
+                                    "created": 1710754547877,
+                                    "text": "主机路由"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrviqcbm00",
+                                    "created": 1710754550154,
+                                    "text": "（目的地址，下一跳地址）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwrvoyt6000",
+                                    "created": 1710754563727,
+                                    "text": "默认路由"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwtojt88uw0",
+                            "created": 1710759646176,
+                            "text": "地址解析协议（ARP）",
+                            "note": "完成IP地址到MAC地址的映射。\n\nARP由于“看到了”IP地址，所以它工作在网络层，而NAT路由器由于“看到了”端口，所以它工作在传输层。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwtpbw6l600",
+                                    "created": 1710759707304,
+                                    "text": "IP地址与硬件地址",
+                                    "note": "​ 在网络层及网络层之上使用IP地址，IP地址放在IP数据报的首部，而MAC地址放在MAC帧的首部。通过数据封装，把IP数据报分组封装为MAC帧后，数据链路层看不见数据报分组中的IP地址。\n\n​ 1）在IP层抽象的互联网上只能看到IP数据报。\n\n​ 2）虽然在IP数据报首部中有源IP地址，但路由器只根据目的IP地址进行转发。\n\n​ 3）在局域网的链路层，只能看见MAC帧。IP数据报被封装在MAC帧中，通过路由器转发IP分组时，IP分组在每个网络中都被路由器解封装和重新封装，其MAC帧首部中的源地址和目的地址会不断改变。这也决定了无法使用MAC地址跨网络通信。\n\n​ 4）尽管互连在一起的网络的硬件地址体系各不相同，但IP层抽象的互联网却屏蔽了下层这些复杂的细节。只要我们在网络层上讨论问题，就能够使用统一的、抽象的IP地址研究主机与主机或路由器之间的通信。\n\n无论网络层使用什么协议，在实际网络的链路上传送数据帧时，最终必须使用硬件地址。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwtrpw5xm80",
+                                    "created": 1710759894506,
+                                    "text": "工作原理"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwttnc1g4o0",
+                                            "created": 1710760045664,
+                                            "text": " ARP表"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwtrw4380g0",
+                                    "created": 1710759908046,
+                                    "text": "4 种典型情况"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwtsowivmo0",
+                            "created": 1710759970716,
+                            "text": "动态主机配置协议（DHCP）",
+                            "note": "常用于给主机动态分配IP地址。\n"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwtsxwuyq00",
+                                    "created": 1710759990327,
+                                    "text": "工作原理"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwtv3mmyc80",
+                                    "created": 1710760159498,
+                                    "text": "特点",
+                                    "note": "DHCP是应用层协议，因为它是通过客户/服务器模式工作的，DHCP客户端向DHCP服务器请求服务，而其他层次的协议是没有这两种工作方式的。\n\n采用UDP而不采用TCP的原因也很明显：TCP需要建立连接，如果连对方的IP地址都不知道，那么更不可能通过双方的套接字建立连接。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwtvqpki0o0",
+                            "created": 1710760209741,
+                            "text": "网际控制报文协议（ICMP）",
+                            "note": "提高IP数据报交付成功的机会。\n\nICMP是网络层协议。ICMP报文作为IP层数据报的数据，加上数据报的首部，组成IP数据报发送出去。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwtw85or6g0",
+                                    "created": 1710760247721,
+                                    "text": "ICMP 差错报文"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwu3uv8w7c0",
+                                            "created": 1710760845705,
+                                            "text": "报文格式",
+                                            "note": "把收到的需要进行差错报告的IP数据报的首部和数据字段的前8个字节提取出来，作为ICMP报文的数据字段。再加上相应的ICMP差错报告报文的前8个字节，就构成了ICMP差错报告报文。\n\n提取收到的数据报的数据字段前8个字节是为了得到运输层的端口号（对于TCP和UDP）以及运输层报文的发送序号（对于TCP）。\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwu3y2ct0w0",
+                                            "created": 1710760852665,
+                                            "text": "分类",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czwtx8b5qt40",
+                                                    "created": 1710760326416,
+                                                    "text": "时间超时：TTL"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwtwx98qgw0",
+                                                    "created": 1710760302356,
+                                                    "text": "终点不可达"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwtx0cz7k80",
+                                                    "created": 1710760309112,
+                                                    "text": "源点抑制：拥塞"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwtx5tkbs00",
+                                                    "created": 1710760320999,
+                                                    "text": "参数错误",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwtxa2ff7c0",
+                                                    "created": 1710760330242,
+                                                    "text": "改变路由（重定向）：更好的路由"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwu0i3b9zs0",
+                                    "created": 1710760582802,
+                                    "text": "不应发送ICMP差错报文的几种情况",
+                                    "note": "1. 对ICMP差错报告报文不再发送ICMP差错报告报文。\n1. 对第一个分片的数据报片的所有后续数据报片都不发送ICMP差错报告报文。\n1. 对具有组播地址的数据报都不发送ICMP差错报告报文。\n1. 对具有特殊地址（如127.0.0.0或0.0.0.0）的数据报不发送ICMP差错报告报文。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwtwjgx3ds0",
+                                    "created": 1710760272345,
+                                    "text": "ICMP 询问报文"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwty9zx3ds0",
+                                            "created": 1710760408454,
+                                            "text": "回送请求和回答报文：ping"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwtyhjy41s0",
+                                            "created": 1710760424903,
+                                            "text": "时间戳请求和回答报文：时钟同步"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwtyrjaul40",
+                                            "created": 1710760446631,
+                                            "text": "掩码地址请求和回答报文",
+                                            "priority": null
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwtyvgusyo0",
+                                            "created": 1710760455191,
+                                            "text": "路由器询问和通告报文"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwu5zc72hs0",
+                            "created": 1710761012165,
+                            "text": "ARP、DHCP 、ICMP",
+                            "note": "| 协议  | 工作层次                                     | 功能                       |\n|-------|-------------------------------------------|--------------------------|\n| ARP   | 网络层                                      | IP到MAC地址的映射            |\n| DHCP  | 应用层；基于UDP；客户/服务器模式                | 动态分配IP地址                |\n| ICMP  | 网络层；基于IP                              | 检测网络连通性和故障诊断        |"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czwu90lnhmg0",
+                    "created": 1710761250006,
+                    "text": "IPv6"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwu99kihaw0",
+                            "created": 1710761269528,
+                            "text": "解决 IP 地址耗尽的三种措施"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwu9fw0t4o0",
+                                    "created": 1710761283285,
+                                    "text": "CIDR"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwu9hq0ya00",
+                                    "created": 1710761287276,
+                                    "text": "NAT"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwu9keocog0",
+                                    "created": 1710761293120,
+                                    "text": "IPv6"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwu9pdbi000",
+                            "created": 1710761303922,
+                            "text": "特点"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwu9tq6wt40",
+                                    "created": 1710761313407,
+                                    "text": "地址空间从 4B 32 位 增大到了 16B 128 位"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuae0u2og0",
+                                    "created": 1710761357587,
+                                    "text": "改进的选项"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuak9rb3s0",
+                                    "created": 1710761371187,
+                                    "text": "支持自动配置"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuaqd9ogw0",
+                                    "created": 1710761384460,
+                                    "text": "不允许类似 IPv4 的路由分片"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwub99mjqw0",
+                                    "created": 1710761425598,
+                                    "text": "身份验证和保密功能"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwubxotcnk0",
+                            "created": 1710761478760,
+                            "text": "数据报格式",
+                            "note": "IPv6数据报由两大部分组成，即基本首部（base header）和后面的有效载荷（payload）。\n\n有效载荷允许有零个或多个扩展首部（extension header），再后面是数据部分。但所有的扩展首部并不属于IPv6数据报的首部。\n\n与IPv4的首部区别有：\n\n- 取消了首部长度字段，因为它的首部长度是固定的（40字节）。\n- 取消了服务类型字段，因为优先级和流标号字段实现了服务类型字段的功能。\n- 取消了总长度字段，改用有效载荷长度字段。\n- 取消了标识、标志和片偏移字段，因为这些功能已包含在分片扩展首部中。\n- 把TTL字段改称为跳数限制字段，但作用是一样的（名称与作用更加一致）。\n- 取消了协议字段，改用下一个首部字段。\n- 取消了检验和字段，这样就加快了路由器处理数据报的速度。我们知道，在数据链路层对检测出有差错的帧就丢弃。在运输层，当使用UDP时，若检测出有差错的用户数据报就丢弃。当使用TCP时，对检测出有差错的报文段就重传，直到正确传送到目的进程为止。因此在网络层的差错检测可以精简掉。\n- 取消了选项字段，而用扩展首部来实现选项功能。\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czwum9g0l080",
+                            "created": 1710762287991,
+                            "text": "IPv6 和 IPv4 的区别",
+                            "note": "1. IPv6将地址从32位（4B）扩大到128位（16B），更大的地址空间。\n2. IPv6将IPv4的校验和字段彻底移除，以減少每跳的处理时间。\n3. IPv6将IPv4的可选字段移出首部，变成了扩展首部，成为灵活的首部格式，路由器通常不对扩展首部进行检查，大大提高了路由器的处理效率。\n4. IPv6支持即插即用（即自动配置），不需要DHCP协议。\n5. IPv6首部长度必须是8B的整数倍，IPv4首部是4B的整数倍。\n6. IPv6只能在主机处分片，IPv4可以在路由器和主机处分片。\n7. ICMPv6：附加报文类型“分组过大”。\n8. IPv6支持资源的预分配，支持实时视像等要求，保证一定的带宽和时延的应用。\n9. IPv6取消了协议字段，改成下一个首部字段。\n10. IPv6取消了总长度字段，改用有效载荷长度字段。\n11. IPv6取消了服务类型字段。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czwuekhz5q80",
+                            "created": 1710761685140,
+                            "text": "IPv6地址"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwuem6348o0",
+                                    "created": 1710761688775,
+                                    "text": "IPv6数据报的目的地址"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwuerj1jjs0",
+                                            "created": 1710761700442,
+                                            "text": "单播"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuevqo3yo0",
+                                            "created": 1710761709611,
+                                            "text": "多播"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuex3zcm80",
+                                            "created": 1710761712592,
+                                            "text": "任播",
+                                            "note": "这是Pν6增加的一种类型。任播的目的站是一组计算机，但数据报在交付时只交付其中的一台计算机，通常是距离最近的一台计算机。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuf9aaj3k0",
+                                    "created": 1710761739095,
+                                    "text": "IPv6地址表示",
+                                    "note": "把地址中的每4位用一个十六进制数表示，并用冒号分隔成 8 个部分，每个部分两个十六进制数。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwugobduhs0",
+                                    "created": 1710761850177,
+                                    "text": "IPv6分级"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwugpfifaw0",
+                                            "created": 1710761852604,
+                                            "text": "第一级（顶级），指明全球都知道的公共拓扑"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuh2bexgo0",
+                                            "created": 1710761880654,
+                                            "text": "第二级（场点级），指明单个场点"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuhjiyp4o0",
+                                            "created": 1710761918116,
+                                            "text": "第三级，指明单个网络接口"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuhuonec00",
+                                    "created": 1710761942404,
+                                    "text": "IPv4向IPv6过渡"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwuhvpdvl40",
+                                            "created": 1710761944626,
+                                            "text": "双栈协议"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuhzndc680",
+                                            "created": 1710761953211,
+                                            "text": "隧道技术",
+                                            "note": "使用隧道传递的数据（或负载）可以是不同协议的数据顿或包。隧道协议将其它协议的数据顿或包重新封装然后通过隧道发送。\n\n即通过封装IPv6数据包在IPv4网络中进行转发。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czwuqqm1yh40",
+                    "created": 1710762638818,
+                    "text": "IP组播",
+                    "note": "IP组播使用D类地址格式。D类地址的前四位是1110，因此D类地址范围是224.0.0.0~239.255.255.255。每个D类IP地址标志一个组播组。",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwvc8tm6x40",
+                            "created": 1710764324104,
+                            "text": "IP 数据报的三种传输方式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwvccq81x40",
+                                    "created": 1710764332606,
+                                    "text": "单播"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwvcf909hk0",
+                                    "created": 1710764338096,
+                                    "text": "广播"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwvchlxigg0",
+                                    "created": 1710764343231,
+                                    "text": "组播（多播）",
+                                    "note": "组播：是让源计算机一次发送的单个分组可以抵达用一个组地址标识的若干目标主机，并被它们正确接收。\n\n组播需要路由器的支持才能实现，能够运行组播协议的路由器称为组播路由器。\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwur2icem00",
+                            "created": 1710762664715,
+                            "text": "特点",
+                            "note": "1）组播数据报也是“尽最大努力交付”，不提供可靠交付，应用于UDP。\n\n2）组播地址只能用于目的地址，不能用于源地址\n\n3）对组播数据报不产生ICMP差错报文。若在PING命令后面键入组播地址，将永远不会收到响应\n\n4）并非所有的D类地址都可作为组播地址"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czwurky9vf40",
+                            "created": 1710762704860,
+                            "text": "分类"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwurme4q280",
+                                    "created": 1710762707996,
+                                    "text": "硬件组播：只在本局域网进行",
+                                    "note": " 组播IP地址也需要相应的组播MAC地址在本地网络中实际传送帧。IANA拥有的以太网组播MAC地址的范围是从01-00-5E-00-00-00到01-00-5E-7F-FF-FF。不难看出，在每个地址中，只有23位可用作组播。这只能和D类IP地址中的23位有一一对应关系。\n\nD类IP地址可供分配的有28位，可见在这28位中，前5位不能用来构成以太网的硬件地址。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwus49omo80",
+                                    "created": 1710762746909,
+                                    "text": "因特网组播",
+                                    "note": "在因特网上进行组播的最后阶段，还是要把组播数据报在局域网上用硬件组播交付给组播组的所有成员。\n\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwuu7zjxwg0",
+                            "created": 1710762911732,
+                            "text": "IGMP与组播路由算法"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwuu9zcyw80",
+                                    "created": 1710762916074,
+                                    "text": "网际组管理协议（IGMP）",
+                                    "note": "网络层协议，基于IP。"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwuv6ut1n40",
+                                            "created": 1710762987632,
+                                            "text": "目的"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuv7ykwqg0",
+                                            "created": 1710762990037,
+                                            "text": "工作方式"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuveg0qq80",
+                                    "created": 1710763004152,
+                                    "text": "组播路由选择协议"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwuvkrbsm80",
+                                            "created": 1710763017897,
+                                            "text": "目的",
+                                            "note": "组播路由选择协议目的是找出以源主机为根节点的组播转发树。\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwuvpvgeco0",
+                                            "created": 1710763029030,
+                                            "text": "算法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czwuw58g6tk0",
+                                                    "created": 1710763062468,
+                                                    "text": "基于距离-向量的路由选择"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwuvrqqwrc0",
+                                                    "created": 1710763033099,
+                                                    "text": "基于链路状态的路由选择"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czwuvzkq01c0",
+                                                    "created": 1710763050149,
+                                                    "text": "协议无关的组播（PIM）"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czwux43688o0",
+                    "created": 1710763138336,
+                    "text": "移动IP"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwuxalv1oo0",
+                            "created": 1710763152527,
+                            "text": "概念",
+                            "note": "移动IP技术是指移动站以固定的网络IP地址实现跨越不同网段的漫游功能，并保证基于网络IP的网络权限在漫游过程中不发生任何改变。移动IP的目标是把分组自动地投递给移动站。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwuxey598o0",
+                                    "created": 1710763161977,
+                                    "text": "移动节点"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuxi317mw0",
+                                    "created": 1710763168802,
+                                    "text": "归属代理（本地代理）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuxlbzc5k0",
+                                    "created": 1710763175874,
+                                    "text": "永久地址（归属地址/主地址）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuxua8h080",
+                                    "created": 1710763195359,
+                                    "text": "外部代理（外地代理）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwuxys2d8o0",
+                                    "created": 1710763205145,
+                                    "text": "转交地址（辅地址）"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czwuzf49h6w0",
+                            "created": 1710763319075,
+                            "text": "移动IP通信过程"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czwuzlqdk880",
+                    "created": 1710763333473,
+                    "text": "网络层设备"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czwv010efqw0",
+                            "created": 1710763366730,
+                            "text": "冲突域",
+                            "note": "冲突域是指连接到同一物理介质上的所有结点的集合，这些结点之间存在介质争用现象。\n\n在OSI参考模型中，冲突域被视为第1层概念，像集线器、中继器等简单无脑复制转发信号的第1层设备所连接的结点都属于同一个冲突域，也就是说它们不能划分冲突域。而第2层（网桥、交换机）、第3层（路由器）设备都可以划分冲突域。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czwv01tasi80",
+                            "created": 1710763368478,
+                            "text": "广播域",
+                            "note": "广播域是指接收同样广播消息的结点集合。也就是说，在该集合中的任何一个结点发送一个广播帧，其他能收到这个帧的结点都被认为是该广播域的一部分。\n\n在OSI参考模型中，广播域被视为第2层概念，像第1层（集线器等）、第2层（交换机等）设备所连接的结点都属于同一个广播域。而路由器，作为第3层设备，则可以划分广播域，即可以连接不同的广播域。\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czwv2hw6jm00",
+                            "created": 1710763560209,
+                            "text": "路由器"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czwv2j6cefk0",
+                                    "created": 1710763563000,
+                                    "text": "定义",
+                                    "note": "路由器是一种具有多个输入输出端口的专用计算机，其任务是连接不同的网络（连接异构网络）并完成路由转发。在多个逻辑网络（即多个广播域）互连时必须使用路由器。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czwv2mf96hs0",
+                                    "created": 1710763570069,
+                                    "text": "路由器转发"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwv2ule6fc0",
+                                            "created": 1710763587855,
+                                            "text": "直接交付"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwv2wwxgjs0",
+                                            "created": 1710763592906,
+                                            "text": "间接交付"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwv39dgaxs0",
+                                    "created": 1710763620026,
+                                    "text": "路由器结构",
+                                    "note": "整个的路由器结构可划分为两大部分：路由选择部分和分组转发部分。\n\n![路由器结构](img/路由器结构.png)\n"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwv4ump2qo0",
+                                            "created": 1710763744662,
+                                            "text": "路由选择：构造路由表"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwv4bn2d600",
+                                            "created": 1710763703325,
+                                            "text": "交换结构：根据转发表对分组进行转发",
+                                            "layout_left_offset": {
+                                                "x": 18.749999720603228,
+                                                "y": 3.7499999441206455
+                                            }
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwv54kah140",
+                                            "created": 1710763766284,
+                                            "text": "分组转发",
+                                            "note": "RIP/OSPF 分组，送往路由选择处理机；数据分组，查找转发表并输出 "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwv6471iyg0",
+                                            "created": 1710763843847,
+                                            "text": "输入端口",
+                                            "note": "输入端口会对数据进行：物理层处理、数据链路层处理、网络层处理（分组排队、查表和转发）。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwv64z5tz40",
+                                            "created": 1710763845548,
+                                            "text": "输出端口",
+                                            "note": "路由器中的输入或输出队列产生溢出是造成分组丢失的重要原因。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czwv9129trc0",
+                                    "created": 1710764072121,
+                                    "text": "路由表与路由转发"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czwv940072o0",
+                                            "created": 1710764078514,
+                                            "text": "路由表",
+                                            "note": "目的网络IP地址、子网掩码、下一跳IP地址、接口。\n\n转发表由路由表得来，可以用软件实现，也可以用特殊的硬件来实现。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czwva0qdzeg0",
+                                            "created": 1710764149767,
+                                            "text": "转发和路由选择的区别",
+                                            "note": "- “转发”是路由器根据转发表把收到的P数据报从合适的端口转发出去，它仅涉及一个路由器。\n- “路由选择”则涉及很多路由器，路由表是许多路由器协同工作的结果。这些路由器按照复杂的路由算法，根据从各相邻路由器得到的网络拓扑的变化情况，动态改变所选择的路由，并由此构造出整个路由表。\n"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
