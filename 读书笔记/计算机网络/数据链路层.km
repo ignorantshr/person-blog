@@ -1,0 +1,1107 @@
+{
+    "root": {
+        "data": {
+            "id": "czvxay8pybc0",
+            "created": 1710668304972,
+            "text": "数据链路层",
+            "note": "原文链接：https://blog.csdn.net/weixin_48024605/article/details/132426862",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "czvxclpt9200",
+                    "created": 1710668434436,
+                    "text": "数据链路层的功能",
+                    "note": "数据链路层在物理层提供服务的基础上向网络层提供服务，将物理层提供的可能出错的物理连接改造为逻辑上无差错的数据链路。基本任务是将源机器中来自网络层的数据传输到目标机器的网络层。\n\n数据链路指网络中两个结点之间的逻辑通道，把实现控制数据传输协议的硬件和软件加到链路上就构成数据链路。数据链路层负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvxd459a3s0",
+                            "created": 1710668474552,
+                            "text": "为网络层提供服务"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxda2lxpc0",
+                                    "created": 1710668487452,
+                                    "text": "无确认的无连接服务"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxdbj78gw0",
+                                    "created": 1710668490632,
+                                    "text": "有确认的无连接服务"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxdg3c2h40",
+                                    "created": 1710668500557,
+                                    "text": "有确认的面向连接服务"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvxdtnznfk0",
+                                            "created": 1710668530105,
+                                            "text": "链路管理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvxdylxgso0",
+                            "created": 1710668540863,
+                            "text": "封装成帧与透明传输"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxei0cuyw0",
+                                    "created": 1710668583095,
+                                    "text": "帧构成"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxej2gblk0",
+                                    "created": 1710668585398,
+                                    "text": "帧定界"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxeqdgk9c0",
+                                    "created": 1710668601301,
+                                    "text": "帧同步"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxf3imzjk0",
+                                    "created": 1710668629912,
+                                    "text": "最大传送单元（MTU）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxflnw7oo0",
+                                    "created": 1710668669412,
+                                    "text": "透明传输"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvxinzy6jc0",
+                    "created": 1710668909587,
+                    "text": "组帧"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvxiumups80",
+                            "created": 1710668924033,
+                            "text": "字符计数法"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvxj5paah40",
+                            "created": 1710668948125,
+                            "text": "字符填充的首尾定界符法"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvxjbl57ls0",
+                            "created": 1710668960935,
+                            "text": "零比特填充的首尾标志法"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxfgjkef40",
+                                    "created": 1710668658267,
+                                    "text": "HDLC协议"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvxjosu39c0",
+                            "created": 1710668989698,
+                            "text": "违规编码法"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvxghibzgo0",
+                    "created": 1710668738733,
+                    "text": "差错控制"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvxk2a2mk80",
+                            "created": 1710669019038,
+                            "text": "检错编码"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxk62fivc0",
+                                    "created": 1710669027284,
+                                    "text": "奇偶校验码",
+                                    "note": "奇偶校验码只能检测出奇数个位出错，但不能知道哪位出错，也不能发现偶数个位出错情况。"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvxk76vh4g0",
+                                            "created": 1710669029729,
+                                            "text": "奇校验码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvxkdvpyrk0",
+                                            "created": 1710669044292,
+                                            "text": "偶校验码"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxkq4si2w0",
+                                    "created": 1710669070962,
+                                    "text": "循环冗余码（CRC）",
+                                    "note": "循环冗余码（CRC）是具有纠错功能的，只是数据链路层仅使用了它的检错功能，检测到帧出错则直接丢弃，是为了方便协议的实现"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvxloap7yw0",
+                            "created": 1710669145330,
+                            "text": "纠错编码"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxlp8mms80",
+                                    "created": 1710669147381,
+                                    "text": "海明码"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvxftzw1pk0",
+                    "created": 1710668687552,
+                    "text": "流量控制与可靠传输机制",
+                    "note": "流量控制在不同层，控制的对象不同。对于数据链路层来说，控制的是相邻两结点之间数据链路上的流量，而对于传输层来说，控制的则是从源端到目的端之间的流量。\n\n在OSI体系结构中，数据链路层具有流量控制的功能。而在TCP/IP体系结构中，流量控制功能被移到了传输层。\n",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvxmk2yjw80",
+                            "created": 1710669214520,
+                            "text": "滑动窗口机制",
+                            "note": "在数据链路层中流量控制机制和可靠传输机制是交织在一起的，都由滑动窗口机制解决。\n"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxmxu9moo0",
+                                    "created": 1710669244468,
+                                    "text": "发送窗口"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxmykq7fs0",
+                                    "created": 1710669246068,
+                                    "text": "接收窗口"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxnhd73tc0",
+                                    "created": 1710669286972,
+                                    "text": "滑动窗口特性"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvxni1pqhs0",
+                            "created": 1710669288454,
+                            "text": "可靠传输机制"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxnxlzykg0",
+                                    "created": 1710669322332,
+                                    "text": "确认"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxnznaon40",
+                                    "created": 1710669326764,
+                                    "text": "超时重传"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvxo23m7qg0",
+                                    "created": 1710669332105,
+                                    "text": "自动重传请求（Automatic Repeat reQuest, ARQ）",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvxoriw4so0",
+                                            "created": 1710669387448,
+                                            "text": "单帧滑动窗口与 停止-等待协议"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvxrhumxcg0",
+                                                    "created": 1710669601483,
+                                                    "text": "有差错情况"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "czvxroliy740",
+                                                            "created": 1710669616169,
+                                                            "text": "超时计时器"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "czvxrvjiqzk0",
+                                                            "created": 1710669631286,
+                                                            "text": "发送失败的三种情况"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "czvxrx3qtq00",
+                                                                    "created": 1710669634685,
+                                                                    "text": "数据帧丢失或检测到帧出错"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "czvxs25v5eg0",
+                                                                    "created": 1710669645697,
+                                                                    "text": "ACK 丢失"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "czvxs4i5g080",
+                                                                    "created": 1710669650794,
+                                                                    "text": "ACK 迟到"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvxs7ya91s0",
+                                                    "created": 1710669658300,
+                                                    "text": "无差错情况"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvxsn96eq80",
+                                            "created": 1710669691610,
+                                            "text": "多帧滑动窗口与后退N帧协议（GBN）",
+                                            "note": "发送窗口大小>1，接收窗口大小=1。接收窗口为1，可以保证按序接收数据帧。\n"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvxtlkkkgw0",
+                                                    "created": 1710669766310,
+                                                    "text": "累积确认"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvxty1wjw00",
+                                            "created": 1710669793479,
+                                            "text": "多帧滑动窗口与选择重传协议（SR）",
+                                            "note": "为解决GBN会重传正确传送的帧，设法只重传出现差错和超时的数据帧，这需要加大接收窗口，因此提出了选择重传协议。\n\n发送窗口大小>1，接收窗口大小>1。"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvxufui0fk0",
+                                                    "created": 1710669832213,
+                                                    "text": "超时事件",
+                                                    "note": "每个帧都有自己的定时器，一个超时事件发生后只重传一个帧。\n\n"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvxvj5pc5k0",
+                    "created": 1710669917785,
+                    "text": "介质访问控制（MAC）",
+                    "note": "介质访问控制的内容就是，采取一定的措施，使得两对节点之间的通信不会发生互相干扰的情况。用来决定广播信道中信道分配的协议属于数据链路层的一个子层，称为介质访问控制(Medium Access Control, MAC)子层。\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvyaggc0dc0",
+                            "created": 1710671087360,
+                            "text": "静态划分信道"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvxxxvan2g0",
+                                    "created": 1710670106536,
+                                    "text": "信道划分介质访问控制"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvxybsslbc0",
+                                            "created": 1710670136860,
+                                            "text": "频分多路复用（FDM）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvxyh98y0w0",
+                                            "created": 1710670148739,
+                                            "text": "时分多路复用（TDM）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvxzplsz140",
+                                                    "created": 1710670245276,
+                                                    "text": "统计时分多路复用（STDM）",
+                                                    "note": "每一个STDM帧中的时隙数小于连接在集中器上的用户数。各用户有了数据就随时发往集中器的输入缓存，然后集中器按顺序依次扫描输入缓存，把缓存中的输入数据放入STDM帧中，一个STDM帧满了就发出。STDM帧不是固定分配时隙，而是按需动态分配时隙。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvxylspy7s0",
+                                            "created": 1710670158623,
+                                            "text": "波分多路复用（WDM）",
+                                            "note": "其实就是光的频分多路复用，在一根光纤中传输多种不同波长（频率）的光信号，由于波长（频率）不同，所以各路光信号互不干扰，最后再用波长分解复用器将各路波长分解出来。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvxyppqak80",
+                                            "created": 1710670167150,
+                                            "text": "码分多路复用（CDM）",
+                                            "note": "码分多路复用是靠不同的编码来区分各路原始信号的一种复用方式。既共享信道的频率，又共享时间。\n"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvyajjmflc0",
+                            "created": 1710671094090,
+                            "text": "动态划分信道",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvy18irzi00",
+                                    "created": 1710670364816,
+                                    "text": "随机访问介质访问控制"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvy1cbggco0",
+                                            "created": 1710670373081,
+                                            "text": "ALOHA协议"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvy23ttly80",
+                                                    "created": 1710670432964,
+                                                    "text": "纯ALOHA协议"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvy277asxs0",
+                                                    "created": 1710670440310,
+                                                    "text": "时隙ALOHA协议"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvy1e3n1fc0",
+                                            "created": 1710670376962,
+                                            "text": "载波监听多路访问（CSMA）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvy2j2a1q00",
+                                                    "created": 1710670466127,
+                                                    "text": "1-坚持 CSMA"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvy2nn5now0",
+                                                    "created": 1710670476097,
+                                                    "text": "非坚持CSMA"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvy2rx7bpc0",
+                                                    "created": 1710670485412,
+                                                    "text": "p-坚持 CSMA",
+                                                    "note": "思想：如果一个主机要发送消息，那么它先监听信道。空闲则以p概率直接传输，不必等待；概率1-p等待到下一个时间槽再传输。忙则持续监听直到信道空闲再以p概率发送。若冲突则等到下一个时间槽开始再监听并重复上述过程。\n\n优点：既能像非坚持算法那样减少冲突，又能像1-坚持算法那样减少媒体空闲时间的这种方案。\n\n缺点：发生冲突后还是要坚持把数据帧发送完，造成了浪费。\n"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvy49zvb080",
+                                            "created": 1710670603119,
+                                            "text": "载波监听多路访问/碰撞检测（CSMA/CD）协议",
+                                            "note": "CSMA/CD协议无法用于无线局域网，因为其无法做到360°全面检测碰撞。会出现隐蔽站问题。\n\n隐蔽站：当A和C都检测不到信号，认为信道空闲时，同时向终端B发送数据帧，就会导致冲突。\n",
+                                            "priority": "1"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvy4ldky540",
+                                                    "created": 1710670627893,
+                                                    "text": "工作流程",
+                                                    "note": "先听后发，边听边发，冲突停发，随机重发。"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvykcqs9w80",
+                                                    "created": 1710671862927,
+                                                    "text": "最小帧长问题",
+                                                    "note": "[csma cd最短有效帧长的意义](https://blog.csdn.net/mariofei/article/details/32316957)"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvy4zq136o0",
+                                                    "created": 1710670659120,
+                                                    "text": "总线形网络或半双工网络"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvy5g6k1k00",
+                                            "created": 1710670694948,
+                                            "text": "载波监听多路访问/碰撞避免（CSMA/CA）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvy5z9em2o0",
+                                                    "created": 1710670736479,
+                                                    "text": "工作原理",
+                                                    "note": "1. 发送数据前，先检测信道是否空闲。\n1. 空闲则发出RTS（request to send），RTS包括发射端的地址、接收端的地址、下一份数据将持续发送的时间等信息；信道忙则等待。\n1. 接收端收到RTS后，将响应CTS（clear to send）。CTS帧 ①给源站明确的发送许可；②指示其他站点在预约期内不要发送。\n1. 发送端收到CTS后，开始发送数据帧（同时预约信道：发送方告知其他站点自己要传多久数据）。\n1. 接收端收到数据帧后，将用循环冗余码CRC来检验数据是否正确，正确则响应ACK帧。\n1. 发送方收到ACK就可以进行下一个数据帧的发送，若没有则一直重传至规定重发次数为止（采用二进制指数退避:算法来确定随机的推迟时间）。\n"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvy6pyv62o0",
+                                                    "created": 1710670794615,
+                                                    "text": "帧间间隔（IFS）",
+                                                    "note": "为了尽量避免碰撞，802.11规定，所有的站完成发送后，必须再等待一段很短的时间（继续监听）才能发送下一帧。\n\n1. SIFS（短IFS）：最短的IFS，用来分隔属于一次对话的各帧，使用SIFS的帧类型有ACK帧、CTS帧、分片后的数据帧，以及所有回答AP探询的帧等。\n1. PIFS（点协调IFS）：中等长度的IFS，在PCF操作中使用。\n1. DIFS（分布式协调IFS）：最长的IFS，用于异步帧竞争访问的时延。\n"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvy88wmy000",
+                                                    "created": 1710670914204,
+                                                    "text": "CSMA/CD与CSMA/CA主要区别",
+                                                    "note": "1.传输介质不同：CSMA/CD用于总线式以太网【有线】，而CSMA/CA用于无线局域网【无线】。\n\n2.载波检测方式不同：因传输介质不同，CSMA/CD与CSMA/CA的检测方式也不同。\n\n\tCSMA/CD通过电缆中电压的变化来检测，当数据发生碰撞时，电缆中的电压就会随着发生变化；\n\n\t而CSMA/CA采用能量检测（ED）、载波检测（CS）和能量载波混合检测三种检测信道空闲的方式。\n\n3.CSMA/CD检测冲突，CSMA/CA避免冲突，二者出现冲突后都会进行有上限的重传。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvyayl7v4g0",
+                                    "created": 1710671126838,
+                                    "text": "轮询访问介质访问控制"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvyb9prcag0",
+                                            "created": 1710671151057,
+                                            "text": "令牌传递协议"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvybv6moko0",
+                                                    "created": 1710671197789,
+                                                    "text": "令牌环局域网（物理星型拓扑，逻辑环形拓扑）"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvyc0bi7kw0",
+                                                    "created": 1710671208968,
+                                                    "text": "传递过程",
+                                                    "note": "1. 网络空闲时，环路中只有令牌帧在循环传递\n1. 令牌传递到有数据要发送的站点时，该站点就修改令牌中的一个标志位，并在令牌中附加自己需要传输的数据，将令牌变成一个数据帧，然后将这个数据帧发送出去\n1. 数据帧沿着环路传输，接收到的站点一边转发数据，一边查看帧的目的地址。如果目的地址和自己的地址相同，那么接收站就复制该数据帧以便进一步处理。\n1. 数据帧沿着环路传输，直到到达该帧的源站点，源站点收到自己发出去的帧后便不再转发。同时，通过检验返回的帧来查看数据传输过程中是否出错，若有错则重传。\n1. 源站点传送完数据后，重新产生一个令牌，并传递给下一站点，以交出信道控制权。"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvyc4imd5c0",
+                                                    "created": 1710671218106,
+                                                    "text": "应用",
+                                                    "note": "常用于负载较重、通信量较大的网络中。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvydk1n2vc0",
+                    "created": 1710671330271,
+                    "text": "局域网（LAN）"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvydpd5tcg0",
+                            "created": 1710671341852,
+                            "text": "基本概念和体系结构",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvydwt3glk0",
+                                    "created": 1710671358053,
+                                    "text": "使用广播信道"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvye0b1krk0",
+                                    "created": 1710671365669,
+                                    "text": "特点"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvye11ghn40",
+                                    "created": 1710671367266,
+                                    "text": "拓扑结构",
+                                    "note": "①星形结构；②环形结构；③总线形结构；④星形和总线形结合的复合型结构。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvyf3wjpa80",
+                                    "created": 1710671451863,
+                                    "text": "局域网拓扑",
+                                    "note": "- 以太网（目前使用范围最广的局域网）。逻辑拓扑是总线形结构，物理拓扑是星形或拓展星形结构。\n- 令牌环（Token Ring，IEEE802.5）。逻辑拓扑是环形结构，物理拓扑是星形结构。\n- FDDI（光纤分布数字接口，EEE802.8）。逻辑拓扑是环形结构，物理拓扑是双环结构。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvyme7zi680",
+                                    "created": 1710672022872,
+                                    "text": "传输介质",
+                                    "note": "双绞线、铜缆、光纤、电磁波等多种传输介质，其中双绞线为主流传输介质。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvyefqka3c0",
+                                    "created": 1710671399259,
+                                    "text": "介质访问控制方法",
+                                    "note": "主要有CSMA/CD、令牌总线和令牌环，其中前两种方法主要用于总线形局域网，令牌环主要用于环形局域网。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvyfs6kr8o0",
+                                    "created": 1710671504713,
+                                    "text": "MAC子层和LLC子层"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvyfwn9oeo0",
+                                            "created": 1710671514429,
+                                            "text": "LLC子层",
+                                            "note": "逻辑链路控制子层，负责识别网络层协议，然后对它们进行封装（给帧加序号）。LLC报头告诉数据链路层一旦帧被接收到时，应当对数据包做何处理。\n\n主要功能：建立和释放数据链路层的逻辑连接、提供与高层的接口、差错控制、给帧加序号。与传输媒体无关。\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvyg085xbk0",
+                                            "created": 1710671522223,
+                                            "text": "MAC子层",
+                                            "note": "介质访问控制子层，向上层屏蔽对物理层访问的各种差异，提供对物理层的统一访问接口。\n\n主要功能包括：组帧和拆卸帧、比特传输差错检测、透明传输。\n"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvyibbksvc0",
+                            "created": 1710671703102,
+                            "text": "以太网与 IEEE 802.3",
+                            "note": " IEEE 802.3标准是一种基带总线形的局域网标准，它描述物理层和数据链路层的MAC子层的实现方法。\n\n​ 以太网逻辑上采用总线形拓扑结构，物理星型结构，以太网中的所有计算机共享同一条总线，信息以广播方式发送。为了保证数据通信的方便性和可靠性，以太网简化了通信流程并使用了 CSMA/CD方式对总线进行访问控制。\n\n​ ①采用**无连接的工作方式，不对发送的数据帧编号，也不要求接收方发送确认，即以太网尽最大努力交付数据，提供的是不可靠服务**，对于差错的纠正则由高层完成；\n\n​ ②发送的数据都使用曼彻斯特编码的信号，每个码元的中间出现一次电压转换，接收端利用这种电压转换方便地把位同步信号提取出来。\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvyoi59z1s0",
+                            "created": 1710672188144,
+                            "text": "IEEE 802.11无线局域网"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvyqve8nag0",
+                                    "created": 1710672373712,
+                                    "text": "有固定基础设施无线局域网",
+                                    "note": "802.11使用星形拓扑，其中心称为接入点(Access Point, AP)，在MAC层使用CSMA/CA协议。使用802.11系列协议的局域网又称Wi-Fi。\n\n无线局域网的最小构件是基本服务集BSS (Basic Service Set, BSS)。一个基本服务集包括一个接入点和若干移动站。各站在本BSS内之间的通信，或与本BSS外部站的通 信，都必须通过本BSS的AP。\n\nAP就是基本服务集中的基站(base station)。安装AP时，必须为该AP分配一个不超过32字节的服务集标识符(Service Set IDentifier, SSID)和一个信道。SSID是指使用该AP的无线局域网的名字。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvyrtent400",
+                                    "created": 1710672447748,
+                                    "text": "无固定基础设施移动自组织网络",
+                                    "note": "另一种无线局域网是无固定基础设施的无线局域网，又称自组网络（ad hoc network）。自组网络没有上述基本服务集中的AP，而是由一些平等状态的移动站相互通信组成的临时网络。各结点之间地位平等，中间结点都为转发结点，因此都具有路由器的功能。\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvysw3dcjk0",
+                            "created": 1710672531960,
+                            "text": "VLAN基本概念与基本原理",
+                            "note": "虚拟局域网（VLAN）可以把一个较大的局域网分割成一些较小的与地理位置无关，逻辑上的VLAN，而每个VLAN是一个较小的广播域。VLAN分割了广播域。\n\n802.3ac标准定义了支持VLAN的以太网帧格式的扩展，称为802.1Q帧。它在以太网帧中插入一个4字节的标识符（插入在源地址字段和类型字段之间），称为VLAN标签，用来指明发送该帧的计算机属于哪个虚拟局域网。\n"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvytmp7jjc0",
+                    "created": 1710672589877,
+                    "text": "广域网（WAN）",
+                    "note": "广域网由一些结点交换机（不是路由器）及连接这些交换机的链路组成。结点之间都是点到点连接，但为了提高网络的可靠性，通常一个结点交换机往往与多个结点交换机相连。\n\n结点交换机只能在单个网络中进行网络交换的\n路由器可以在多个网络中进行。\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvywza44rs0",
+                            "created": 1710672852355,
+                            "text": "基本概念",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvyv3x5o0w0",
+                                    "created": 1710672705727,
+                                    "text": "和局域网的区别",
+                                    "note": "- 连接方式\t\n\t广域网结点之间都是点到点连接，但为了提高网络的可靠性，一个结点交换机往往与多个结点交换机相连；局域网普遍采用多点接入技术\n- OSI参考模型层次\t\n\t广域网 三层：物理层，数据链路层，网络层；局域网 两层：物理层，数据链路层\n- 着重点\t\n\t广域网强调资源共享；局域网强调数据传输\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvyx938ty80",
+                            "created": 1710672873707,
+                            "text": "PPP 协议",
+                            "note": "点对点协议（Point–to-Point Protocol，PPP）是使用串行线路通信的**面向字节**的协议，该协议应用在直接**连接两个结点**的链路上。**不可靠**。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czw3ya471c00",
+                                    "created": 1710687059855,
+                                    "text": "组成部分"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czw3ydwts080",
+                                            "created": 1710687068117,
+                                            "text": "链路控制协议（LCP）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czw3yhsvxio0",
+                                            "created": 1710687076586,
+                                            "text": "网络控制协议（NCP）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czw3ylwkq880",
+                                            "created": 1710687085516,
+                                            "text": "一个将IP数据报封装到串行链路的方法"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czw3z8isomw0",
+                                    "created": 1710687134749,
+                                    "text": "PPP链路",
+                                    "note": "1. 静止：当线路处于静止状态时，不存在物理层连接。\n1. 建立：当线路检测到载波信号时，建立物理连接，线路变为建立状态。\n1. LCP开始选项商定，商定成功后就进入身份验证状态。身份验证通过后，进入网络层协议状态。\n1. 采用NCP配置网络层，配置成功后，进入打开状态，然后就可进行数据传输。\n1. 撤销：当数据传输完成后，线路转为终止状态。载波停止后则回到静止状态。\n\n![PPP链路](img/PPP链路.png)"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czw40n0hyp40",
+                                    "created": 1710687244658,
+                                    "text": "特点",
+                                    "note": "- PPP提供**差错检测**但不提供纠错功能，只保证无差错接收（通过硬件进行CRC校验）。它是**不可靠**的传输协议，因此也不使用序号和确认机制。\n- 它仅支持点对点的链路通信，不支持多点线路。\n- PPP只支持**全双工链路**。\n- PPP的两端可以运行**不同的网络层协议**，但仍然可使用同一个PPP进行通信。\n- PPP是**面向字节**的，当信息字段出现和标志字段一致的比特组合时，PPP有两种不同的处理方法：若PPP用在异步线路（默认），则采用**字符填充法**；若PPP用在SONET/SDH等同步线路，则协议规定采用硬件来完成**比特填充**（和HDLC的做法一样）。\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvyxie49m00",
+                            "created": 1710672893956,
+                            "text": "HDLC协议",
+                            "note": "高级数据链路控制（HDLC）协议是**面向比特**的数据链路层协议。实现**可靠传输**。\n\n数据报文可透明传输，用于实现透明传输的“0 比特插入法”易于硬件实现。\n\n所有帧采用 CRC 校验，对信息帧进行顺序编号，可以防止漏收或重发，传输可靠性高。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czw44j97kkg0",
+                                    "created": 1710687549934,
+                                    "text": "特点",
+                                    "note": "- 该协议不依赖于任何一种字符编码集\n- 数据报文可透明传输，用于实现透明传输的“0比特插入法”易于硬件实现\n- 全双工通信，有较高的数据链路传输效率\n- 所有帧采用CRC检验，对信息帧进行顺序编号，可防止漏收或重发，传输可靠性高\n- 传输控制功能与处理功能分离，具有较大的灵活性。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czw4ij55lfk0",
+                                    "created": 1710688646787,
+                                    "text": "HDLC的站",
+                                    "note": "主站、从站、复合站"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czw4imnem5c0",
+                                    "created": 1710688654421,
+                                    "text": "三种数据操作方式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czw4ipfhqt40",
+                                            "created": 1710688660473,
+                                            "text": "正常响应方式"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czw4ix3xj8o0",
+                                            "created": 1710688677188,
+                                            "text": "异步平衡方式"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czw4j29x6i80",
+                                            "created": 1710688688435,
+                                            "text": "异步响应方式"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czw45f0pjs80",
+                                    "created": 1710687619077,
+                                    "text": "PPP与HDLC的异同",
+                                    "note": "相同：\n\n1. 都只支持全双工链路\n1. 都可以实现透明传输\n1. 都可以实现差错控制，但不纠正差错\n\n不同：\n\n1. PPP协议是面向字节的，HDLC协议是面向比特的。\n1. PPP帧比HDLC帧多一个2字节的协议字段。当协议字段值为0x0021时，表示信息字段是IP数据报。\n1. PPP协议不使用序号和确认机制，只保证无差错接收（CRC检验），而端到端差错检测由高层协议负责。HDLC协议的信息帧使用了编号和确认机制，能够提供可靠传输。\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czw477146080",
+                    "created": 1710687758416,
+                    "text": "数据链路层设备",
+                    "note": "在链路层去扩展以太网。"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czw4g4dr6zk0",
+                            "created": 1710688457927,
+                            "text": "冲突域和广播域",
+                            "note": "https://www.cnblogs.com/bakari/archive/2012/09/08/2677086.html\n\n冲突域：在同一个冲突域中的每一个节点都能收到所有被发送的帧。简单的说就是同一时间只能有一台设备发送信息的范围。\n\n广播域：网络中能接收任一设备发出的广播帧的所有设备的集合。简单的说如果站点发出一个广播信号，所有能接收到这个信号的设备范围称为一个广播域。\n\n| 层次 |\t设备\t|隔离冲突域\t|隔离广播域|\n|:---:|:---:|:---:|:---:|\n|网络层 |\t路由器\t|能\t|能|\n|数据链路层 |\t网桥、交换机\t|能\t|不能|\n|物理层 |\t中继器、集线器\t|不能\t|不能|\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czw4g0cwggo0",
+                            "created": 1710688449169,
+                            "text": "网桥",
+                            "note": "网桥工作在链路层的MAC子层，可以使以太网各网段成为隔离开的碰撞域。\n\n网桥根据MAC帧的目的地址对帧进行转发和过滤。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czw4um7z4000",
+                                    "created": 1710689593858,
+                                    "text": "优点",
+                                    "note": "1. 过滤通信量，增大吞吐量\n1. 扩大了物理范围\n1. 提高了可靠性\n1. 可互连不同物理层、不同 MAC 子层和不同速率的以太网"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czw4vk7zd7k0",
+                                    "created": 1710689667869,
+                                    "text": "分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czw4vl4t0ug0",
+                                            "created": 1710689669854,
+                                            "text": "透明网桥"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czw4vs82pmo0",
+                                            "created": 1710689685289,
+                                            "text": "源路由网桥"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czw4opq2upc0",
+                            "created": 1710689131298,
+                            "text": "局域网交换机/以太网交换机",
+                            "note": "以太网交换机实质上就是一个多端口的网桥，工作在数据链路层。\n\n以太网交换机的每个端口都直接与单台主机或另一个交换机相连，通常都工作在**全双工方式**。\n\n原理：它检测从以太端口来的数据帧的源和目的地的MAC地址，然后与系统内部的*动态查找表*进行比较，若数据帧的MAC地址不在查找表中，则将该地址加入查找表中，并将数据帧发送给相应的目的端口。\n\n交换机能经济地将网络分成小的冲突域，为每个工作站提供更高的带宽。\n\n对于传统10Mb/s的共享式以太网，若共有N个用户，则每个用户占有的平均带宽只有总带宽的1/N。\n\n使用交换机时，每个端口到主机的带宽还是10Mb/s，用户在通信时是独占而不是和其他网络用户共享传输媒体的带宽，因此拥有N个端口的交换机的总容量为N×10Mb/s。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czw4xets3fc0",
+                                    "created": 1710689812855,
+                                    "text": "特点",
+                                    "note": "- 以太网交换机的每个端口都直接与单台主机相连（网桥的端口往往连接到一个网段），并且一般都工作在全双工方式。\n- 以太网交换机同时连通多对端口，使每对相互通信的主机都能像独占通信媒体那样，无碰撞地传输数据。\n- 以太网交换机是一种即插即用设备，其内部的帧的转发表是通过自学习算法自动地逐渐建立起来的。\n- 以太网交换机由于使用专用的交换结构芯片，交换速率较高。\n- 以太网交换机独占传输媒体的带宽。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czw4xn3brpk0",
+                                    "created": 1710689830847,
+                                    "text": "交换模式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czw4xsd9w6o0",
+                                            "created": 1710689842332,
+                                            "text": "直通式交换机"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czw4xvtf62w0",
+                                            "created": 1710689849839,
+                                            "text": "存储转发式交换机"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czw4y6dr74w0",
+                                    "created": 1710689872836,
+                                    "text": "自学习功能",
+                                    "note": "交换机的过滤和转发借助于交换表（switch table）完成。\n\n过滤：决定一个帧是应该转发到某个端口还是应该将其丢弃称。\n\n转发：决定一个帧应该被移动到哪个接口。\n\n交换表：包含多个表项，每个表项包含①一个MAC地址；②连通该MAC地址的交换机端口。\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

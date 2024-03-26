@@ -1,0 +1,28 @@
+---
+- name: "Get Containerd"
+  unarchive:
+    src: cri-containerd-{{ containerd_release_version }}.linux-amd64.tar.gz
+    dest: "/"
+    remote_src: false
+
+- name: add image-endpoint config to /etc/crictl.yaml 
+  blockinfile:
+    block: |
+      image-endpoint: unix:///var/run/containerd/containerd.sock
+      timeout: 10
+    insertafter: ^runtime
+    path: /etc/crictl.yaml
+
+#- name: add timeout config to /etc/crictl.yaml
+#  shell: echo "timeout\: 10" >> /etc/crictl.yaml
+
+- name: "Create a directory for cni binary"
+  file: path={{ cni_bin_dir }} state=directory
+
+- name: "Create a directory for cni config files"
+  file: path={{ cni_conf_dir }} state=directory
+
+- name: Add config file for cni
+  copy:
+    src: 10-mynet.conf
+    dest: /etc/cni/net.d/

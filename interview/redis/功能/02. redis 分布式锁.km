@@ -1,0 +1,16 @@
+{
+    "root": {
+        "data": {
+            "id": "cw5ati5hfy00",
+            "created": 1696995839146,
+            "text": "Redis分布式锁 todo",
+            "hyperlink": "https://cloud.tencent.com/developer/article/2332108",
+            "hyperlinkTitle": "一文讲透Redis分布式锁安全问题",
+            "note": "看链接吧哈哈。\n\n关键点：\n\n- 死锁：给锁设置租期（过期时间）\n- 过期时间评估不好，锁提前过期：守护线程，定时续期\n- 锁被别人释放：锁写入唯一标识，释放锁先检查标识，再释放\n\n- 租期\n- 续租\n- 锁释放时使用 lua 脚本保证原子性\n"
+        },
+        "children": []
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}

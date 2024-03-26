@@ -1,0 +1,80 @@
+{
+    "root": {
+        "data": {
+            "id": "cvgrudyk07c0",
+            "created": 1694504868335,
+            "text": "深入理解 Linux 物理内存管理",
+            "hyperlink": "https://xiaolincoding.com/os/3_memory/linux_mem2.html",
+            "hyperlinkTitle": "小林coding"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cvgqr2ty5dc0",
+                    "created": 1694501787910,
+                    "text": "什么是物理内存地址",
+                    "note": "我们平时所称的内存也叫`随机访问存储器（ random-access memory ）`也叫 RAM 。而 RAM 分为两类：\n\n- `静态 RAM（ SRAM` ），这类 SRAM 用于 CPU 高速缓存 L1Cache，L2Cache，L3Cache。其特点是访问速度快，访问速度为 1 - 30 个时钟周期，但是容量小，造价高。\n- `动态 RAM ( DRAM` )，这类 DRAM 用于我们常说的主存上，其特点的是访问速度慢（相对高速缓存），访问速度为 50 - 200 个时钟周期，但是容量大，造价便宜些（相对高速缓存）。\n\n内存由一个一个的存储器模块（memory module）组成，它们插在主板的扩展槽上。常见的存储器模块通常以 64 位为单位（ 8 个字节）传输数据到存储控制器上或者从存储控制器传出数据。\n\nDRAM 芯片包装在存储器模块中，每个存储器模块中包含 8 个 DRAM 芯片，依次编号为 0 - 7 。\n\n![](https://cdn.xiaolincoding.com//mysql/other/a2112f84eed5dc53dd760cf6a5fdb538.png)\n\n而每一个 DRAM 芯片的存储结构是一个二维矩阵，二维矩阵中存储的元素我们称为`超单元（supercell）`，每个 supercell 大小为一个字节（8 bit）。每个 supercell 都由一个坐标地址`（i，j）`：\n\n- `i` 表示二维矩阵中的行地址，在计算机中行地址称为 `RAS (row access strobe，行访问选通脉冲)`。 \n- `j` 表示二维矩阵中的列地址，在计算机中列地址称为 `CAS (column access strobe,列访问选通脉冲)`。\n\n![](https://cdn.xiaolincoding.com//mysql/other/27a06c2b3f831d24e57c40b839bfc9e2.png)\n\n图中 DRAM 芯片包含了两个`地址引脚( addr )`，因为我们要通过 RAS，CAS 来定位要获取的 supercell 。还有 8 个`数据引脚（data）`，因为 **DRAM 芯片的 IO 单位为一个字节（8 bit）**，所以需要 8 个 data 引脚从 DRAM 芯片传入传出数据。\n\n注意这里只是为了解释地址引脚和数据引脚的概念，实际硬件中的引脚数量是不一定的。"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cvgr0svu7a80",
+                            "created": 1694502549898,
+                            "text": "DRAM 芯片的访问",
+                            "note": "![](https://cdn.xiaolincoding.com//mysql/other/fefc8d348414d2cd0ec09fdfa20daf9c.png)\n\n1. 首先存储控制器将行地址 RAS = 2 通过地址引脚发送给 DRAM 芯片。\n1. DRAM 芯片根据 RAS = 2 将二维矩阵中的第二行的全部内容拷贝到内部行缓冲区中。\n1. 接下来存储控制器会通过地址引脚发送 CAS = 2 到 DRAM 芯片中。\n1. DRAM芯片从内部行缓冲区中根据 CAS = 2 拷贝出第二列的 supercell 并通过数据引脚发送给存储控制器。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cvgr2y6b5xk0",
+                            "created": 1694502718143,
+                            "text": "CPU 如何读写主存",
+                            "note": "CPU 与内存之间的数据交互是通过总线（bus）完成的，而数据在总线上的传送是通过一系列的步骤完成的，这些步骤称为`总线事务（bus transaction）`。\n\n其中数据从内存传送到 CPU 称之为`读事务（read transaction）`，数据从 CPU 传送到内存称之为`写事务（write transaction）`。\n\n总线上传输的信号包括：**地址信号，数据信号，控制信号**。其中控制总线上传输的控制信号可以同步事务，并能够标识出当前正在被执行的事务信息：\n\n- 当前这个事务是到内存的？还是到磁盘的？或者是到其他 IO 设备的？\n- 这个事务是读还是写？\n- 总线上传输的地址信号（物理内存地址），还是数据信号（数据）？\n\n![](https://cdn.xiaolincoding.com//mysql/other/efa862811f305ab0aa15c0422d8933e8.png)\n\n如上图所示，其中系统总线是连接 CPU 与 IO bridge 的，存储总线是来连接 IO bridge 和主存的。\n\n`IO bridge` 负责系统总线上的电子信号和存储总线上的电子信号的互相转换。IO bridge 也会将系统总线和存储总线连接到IO总线（磁盘等IO设备）上。\n\n!!! warning\n\t**CPU 只会访问虚拟内存，在操作总线之前，需要把虚拟内存地址转换为物理内存地址，总线上传输的都是物理内存地址**。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cvgrclime0g0",
+                                    "created": 1694503474231,
+                                    "text": "CPU 读内存",
+                                    "note": "![](https://cdn.xiaolincoding.com//mysql/other/b4c3dc16dbfab2682d46772b787ae962.png)\n\n首先 CPU 芯片中的总线接口会在总线上发起读事务（read transaction）。 该读事务分为以下步骤进行：\n\n1. CPU 将`物理内存地址` A 放到`系统总线`上。随后 `IO bridge` 将信号传递到`存储总线`上。\n1. 主存感受到存储总线上的地址信号并通过`存储控制器`将存储总线上的物理内存地址 A 读取出来。\n1. 存储控制器通过物理内存地址 A 定位到具体的`存储器模块`，从 `DRAM 芯片`中取出物理内存地址 A 对应的`数据` X。\n1. 存储控制器将读取到的数据 X 放到存储总线上，随后 IO bridge 将存储总线上的数据信号转换为系统总线上的数据信号，然后继续沿着系统总线传递。\n1. CPU 芯片感受到系统总线上的数据信号，将数据从系统总线上读取出来并拷贝到`寄存器`中。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cvgrg6giue80",
+                                    "created": 1694503754909,
+                                    "text": "如何从主存中读取数据",
+                                    "note": "当主存中的存储控制器感受到了存储总线上的地址信号时，会将内存地址从存储总线上读取出来。随后会通过内存地址定位到具体的存储器模块。\n\n存储控制器会将**物理内存**地址转换为 DRAM 芯片中 supercell 在二维矩阵中的坐标地址(RAS，CAS)。并将这个坐标地址发送给对应的存储器模块。随后存储器模块会将 RAS 和 CAS **广播**到存储器模块中的所有 DRAM 芯片。依次通过 (RAS，CAS) 从 DRAM0 到 DRAM7 读取到相应的 supercell 。\n\n![](https://cdn.xiaolincoding.com//mysql/other/9b841647ee906862636d257ce7064487.png)\n\n一个 supercell 存储了一个字节（ 8 bit ） 数据，这里我们从 DRAM0 到 DRAM7 依次读取到了 8 个 supercell 也就是 8 个字节，然后将这 8 个字节返回给存储控制器，由存储控制器将数据放到存储总线上。\n\n**CPU 总是以 word size 为单位从内存中读取数据，在 64 位处理器中的 word size 为 8 个字节。64 位的内存每次只能吞吐 8 个字节。**\n\n!!! note\n\tCPU 每次会向内存读写一个 cache line 大小的数据（ 64 个字节），但是内存一次只能吞吐 8 个字节。\n\n在物理内存地址对应的存储器模块中，DRAM0 芯片存储第一个低位字节（ supercell ），DRAM1 芯片存储第二个字节，......依次类推 DRAM7 芯片存储最后一个高位字节。\n\n![](https://cdn.xiaolincoding.com//mysql/other/78f3571fcb65ba401737e27d1fde89b9.png)\n\n由于存储器模块中这种由 8 个 DRAM 芯片组成的物理存储结构的限制，内存读取数据只能是按照物理内存地址，8 个字节 8 个字节地顺序读取数据。所以说内存一次读取和写入的单位是 8 个字节。\n\n所以在连续的物理内存地址实际上在物理上是不连续的。因为这连续的 8 个字节其实是存储于不同的 DRAM 芯片上的。每个 DRAM 芯片存储一个字节（supercell）。\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cvgrpsszgyo0",
+                                    "created": 1694504508829,
+                                    "text": "CPU 写内存",
+                                    "note": "CPU 芯片中的总线接口会向总线发起写事务（write transaction）。写事务步骤如下：\n\n1. CPU 将要写入的物理内存地址 A 放入系统总线上。\n1. 通过 IO bridge 的信号转换，将物理内存地址 A 传递到存储总线上。\n1. 存储控制器感受到存储总线上的地址信号，将物理内存地址 A 从存储总线上读取出来，并等待数据的到达。\n1. CPU 将寄存器中的数据拷贝到系统总线上，通过 IO bridge 的信号转换，将数据传递到存储总线上。\n1. 存储控制器感受到存储总线上的数据信号，将数据从存储总线上读取出来。\n1. 存储控制器通过内存地址 A 定位到具体的存储器模块，最后将数据写入存储器模块中的 8 个 DRAM 芯片中。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cvhh2nv9jqo0",
+                    "created": 1694576044565,
+                    "text": "TODO"
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}

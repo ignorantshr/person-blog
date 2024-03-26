@@ -1,0 +1,9 @@
+[kata_k8s:children]
+kata_k8s_managers
+kata_k8s_nodes
+
+[kata_k8s_managers]
+192.168.75.41
+
+[kata_k8s_nodes]
+192.168.75.42

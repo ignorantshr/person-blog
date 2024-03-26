@@ -1,0 +1,542 @@
+{
+    "root": {
+        "data": {
+            "id": "czvx7cf96q00",
+            "created": 1710668022386,
+            "text": "物理层",
+            "note": "原文链接：https://blog.csdn.net/weixin_48024605/article/details/132426862"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "czvx86o1jds0",
+                    "created": 1710668088220,
+                    "text": "通信基础"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvx86o22740",
+                            "created": 1710668088221,
+                            "text": "数据、信号与码元"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o1njs0",
+                                    "created": 1710668088221,
+                                    "text": "模拟数据（信号）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o1t2g0",
+                                    "created": 1710668088221,
+                                    "text": "数字数据（信号）"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o1mso0",
+                            "created": 1710668088221,
+                            "text": "信源、信道与信宿"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o21co0",
+                                    "created": 1710668088221,
+                                    "text": "信道分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o1v1k0",
+                                            "created": 1710668088221,
+                                            "text": "按传输信号形式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvx86o2r6g0",
+                                                    "created": 1710668088222,
+                                                    "text": "模拟信道"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvx86o2a000",
+                                                    "created": 1710668088222,
+                                                    "text": "数字信道"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o2t8g0",
+                                            "created": 1710668088222,
+                                            "text": "按传输介质的不同"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o2lo00",
+                                    "created": 1710668088222,
+                                    "text": "信道传输信号分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o2cyg0",
+                                            "created": 1710668088222,
+                                            "text": "基带传输"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o2skg0",
+                                            "created": 1710668088222,
+                                            "text": "宽带传输"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o2li80",
+                                    "created": 1710668088222,
+                                    "text": "通信方式分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o2wrk0",
+                                            "created": 1710668088223,
+                                            "text": "单工通信"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o2vq80",
+                                            "created": 1710668088223,
+                                            "text": "半双工通信"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o35tk0",
+                                            "created": 1710668088223,
+                                            "text": "全双工通信"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o2y9k0",
+                            "created": 1710668088223,
+                            "text": "速率、波特与带宽"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o3dqo0",
+                                    "created": 1710668088223,
+                                    "text": "码元传输速率"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o2wxc0",
+                                            "created": 1710668088223,
+                                            "text": "奈奎斯特定理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o316w0",
+                                    "created": 1710668088223,
+                                    "text": "信息传输速率"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o31j40",
+                                            "created": 1710668088223,
+                                            "text": "香农定理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o3hjs0",
+                            "created": 1710668088224,
+                            "text": "编码与调制"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o3ykg0",
+                                    "created": 1710668088224,
+                                    "text": "数字数据编码为数字信号"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3mlc0",
+                                            "created": 1710668088224,
+                                            "text": "归零编码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3pao0",
+                                            "created": 1710668088224,
+                                            "text": "非归零编码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3xvk0",
+                                            "created": 1710668088224,
+                                            "text": "反向非归零编码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3txs0",
+                                            "created": 1710668088224,
+                                            "text": "曼彻斯特编码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3mx40",
+                                            "created": 1710668088224,
+                                            "text": "差分曼彻斯特编码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3fgw0",
+                                            "created": 1710668088224,
+                                            "text": "4B/5B编码"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o3iu80",
+                                    "created": 1710668088224,
+                                    "text": "数字数据调制为模拟信号"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o3tsg0",
+                                            "created": 1710668088224,
+                                            "text": "幅移键控（ASK）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o44dc0",
+                                            "created": 1710668088225,
+                                            "text": "频移键控（FSK）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o4ajk0",
+                                            "created": 1710668088225,
+                                            "text": "相移键控（PSK）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czvx86o45wo0",
+                                            "created": 1710668088225,
+                                            "text": "正交振幅调制（QAM）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o4kfc0",
+                                    "created": 1710668088225,
+                                    "text": "模拟数据编码为数字信号"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o44dk0",
+                                            "created": 1710668088225,
+                                            "text": "脉码调制（PCM）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czvx86o4bqo0",
+                                                    "created": 1710668088225,
+                                                    "text": "采样"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvx86o48ts0",
+                                                    "created": 1710668088225,
+                                                    "text": "量化"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czvx86o4gd40",
+                                                    "created": 1710668088225,
+                                                    "text": "编码"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o444g0",
+                                    "created": 1710668088225,
+                                    "text": "模拟数据调制为模拟信号"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czvx86o4ha80",
+                                            "created": 1710668088225,
+                                            "text": "频分复用（FDM）技术"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o4uts0",
+                            "created": 1710668088226,
+                            "text": "电路交换、报文交换与分组交换"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o53eg0",
+                            "created": 1710668088226,
+                            "text": "数据报与虚电路"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvx86o4zvs0",
+                    "created": 1710668088226,
+                    "text": "传输介质"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvx86o515s0",
+                            "created": 1710668088226,
+                            "text": "双绞线"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o56g00",
+                                    "created": 1710668088226,
+                                    "text": "模拟传输和数字传输"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o540g0",
+                            "created": 1710668088226,
+                            "text": "同轴电缆"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o516w0",
+                                    "created": 1710668088226,
+                                    "text": "基带同轴电缆和宽带同轴电缆"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o4lww0",
+                            "created": 1710668088226,
+                            "text": "光纤"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o4xxk0",
+                                    "created": 1710668088226,
+                                    "text": "多模光纤和单模光纤"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o5m6o0",
+                                    "created": 1710668088227,
+                                    "text": "模拟信号和数字信号"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o5rhc0",
+                            "created": 1710668088227,
+                            "text": "无线介质"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o5ruw0",
+                                    "created": 1710668088227,
+                                    "text": "无线电波"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o57ao0",
+                                    "created": 1710668088227,
+                                    "text": "微波、红外线和激光"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o597c0",
+                            "created": 1710668088227,
+                            "text": "物理层接口的特性"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvx86o5fyo0",
+                                    "created": 1710668088227,
+                                    "text": "机械特性"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o5du00",
+                                    "created": 1710668088227,
+                                    "text": "电器特性"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o59400",
+                                    "created": 1710668088227,
+                                    "text": "功能特性"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvx86o5aq80",
+                                    "created": 1710668088227,
+                                    "text": "过程特性"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvx86o6dlc0",
+                    "created": 1710668088228,
+                    "text": "物理层设备"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvx86o6b880",
+                            "created": 1710668088228,
+                            "text": "中继器"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvx86o64sg0",
+                            "created": 1710668088228,
+                            "text": "集线器（Hub）"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "filetree",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

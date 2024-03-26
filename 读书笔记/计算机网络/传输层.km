@@ -1,0 +1,796 @@
+{
+    "root": {
+        "data": {
+            "id": "czxe5vu83qo0",
+            "created": 1710817426746,
+            "text": "传输层",
+            "note": "原文链接：https://blog.csdn.net/weixin_48024605/article/details/132426862"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "czxiv0t5apc0",
+                    "created": 1710830681109,
+                    "text": "传输层提供的服务"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxivaknbc00",
+                            "created": 1710830702363,
+                            "text": "传输层的功能"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxivdwgr9c0",
+                                    "created": 1710830709608,
+                                    "text": "端到端通信",
+                                    "note": "传输层提供进程和进程（端到端）之间的逻辑通信。与网络层的区别是，网络层提供的是主机之间的逻辑通信。应用进程之间的通信又称端到端的逻辑通信。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxivgnvnwo0",
+                                    "created": 1710830715619,
+                                    "text": "复用和分用",
+                                    "note": "复用是指发送方不同的应用进程都可以使用同一个传输层协议传送数据\n\n分用是指接收方的传输层在剥去报文的首部后能够把这些数据正确交付到目的应用进程\n\n网络层的复用是指发送方不同协议的数据都可以封装成IP数据报发送出去\n\n网络层的分用是指接收方的网络层在剥去首部后把数据交付给相应的协议\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxivk25z740",
+                                    "created": 1710830723013,
+                                    "text": "差错控制",
+                                    "note": "传输层检验首部与数据部分；网路层只检验首部。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxivqn1iw00",
+                                    "created": 1710830737336,
+                                    "text": "两种不同的传输协议"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxivvx2m280",
+                            "created": 1710830748826,
+                            "text": "传输层的寻址和端口"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxixt6jwzs0",
+                                    "created": 1710830899598,
+                                    "text": "端口的作用",
+                                    "note": "端口是传输层服务访问点（TSAP），它在传输层的作用类似于IP地址在网络层的作用或MAC地址在数据链路层的作用，只不过IP地址和MAC地址标识的是主机，而端口标识的是主机中的应用进程。\n\n数据链路层的SAP是MAC地址，网络层的SAP是IP地址，传输层的SAP是端口。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxixvlag080",
+                                    "created": 1710830904842,
+                                    "text": "端口号"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxiykgtgtc0",
+                                            "created": 1710830958992,
+                                            "text": "服务器端使用的端口号"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czxiylj4mvs0",
+                                                    "created": 1710830961308,
+                                                    "text": "熟知端口号",
+                                                    "note": "0~1023"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxiyqdumuw0",
+                                                    "created": 1710830971873,
+                                                    "text": "登记端口号",
+                                                    "note": "1024~49151"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxiytg1aiw0",
+                                            "created": 1710830978535,
+                                            "text": "客户端使用的端口号",
+                                            "note": "49152~65535"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxizpzl8wo0",
+                                    "created": 1710831049375,
+                                    "text": "套接字"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czxj00s92qo0",
+                    "created": 1710831072876,
+                    "text": "UDP",
+                    "note": "UDP仅在IP的数据报服务之上增加了两个最基本的服务：复用和分用以及差错检测。"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxj0bp61c00",
+                            "created": 1710831096634,
+                            "text": "UDP 数据报"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxj0f53iwg0",
+                                    "created": 1710831104127,
+                                    "text": "特点"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxj0glzhc80",
+                                            "created": 1710831107325,
+                                            "text": "无连接"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj0necewo0",
+                                            "created": 1710831122101,
+                                            "text": "不可靠"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj0qohao80",
+                                            "created": 1710831129244,
+                                            "text": "面向报文"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj0ujabw00",
+                                            "created": 1710831137637,
+                                            "text": "无拥塞控制"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxj1pahh480",
+                            "created": 1710831204585,
+                            "text": "格式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxj1qj574w0",
+                                    "created": 1710831207285,
+                                    "text": "源端口"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj1rr6zdk0",
+                                    "created": 1710831209949,
+                                    "text": "目的端口"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj1twso0w0",
+                                    "created": 1710831214641,
+                                    "text": "长度"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj1vt3uhs0",
+                                    "created": 1710831218772,
+                                    "text": "校验和"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxj24nvhds0",
+                            "created": 1710831238046,
+                            "text": "UDP 校验"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxj29gr3rc0",
+                                    "created": 1710831248500,
+                                    "text": "伪首部"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj2r8p0eo0",
+                                    "created": 1710831287194,
+                                    "text": "二进制反码运算求和",
+                                    "note": "将所有的字相加，如果相加过程中最高位产生了进位，就将进位加到最低位上，这叫做回卷。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czxj3dp1mwo0",
+                    "created": 1710831336072,
+                    "text": "TCP",
+                    "note": "TCP是在不可靠的IP层之上实现的可靠的数据传输协议，它主要解决传输的可靠、有序、无丢失和不重复问题。\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxj3f2c2sw0",
+                            "created": 1710831339053,
+                            "text": "特点"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxj3gzpkwo0",
+                                    "created": 1710831343248,
+                                    "text": "面向连接"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj3ja8x480",
+                                    "created": 1710831348238,
+                                    "text": "可靠交付"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjs43lfso0",
+                                            "created": 1710833274288,
+                                            "text": "无差错"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjs68v84g0",
+                                            "created": 1710833278961,
+                                            "text": "不丢失"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjs8dkdxs0",
+                                            "created": 1710833283598,
+                                            "text": "不重复"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjscfh35s0",
+                                            "created": 1710833292421,
+                                            "text": "按序到达"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj3khqeeg0",
+                                    "created": 1710831350868,
+                                    "text": "面向字节流"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj3se1r680",
+                                    "created": 1710831368059,
+                                    "text": "全双工通信"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxj3x9933c0",
+                                            "created": 1710831378653,
+                                            "text": "发送缓存"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj3z7mkq80",
+                                            "created": 1710831382908,
+                                            "text": "接收缓存"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxj4nhzj8g0",
+                            "created": 1710831435777,
+                            "text": "TCP 报文段"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxj4xib8mo0",
+                                    "created": 1710831457565,
+                                    "text": "功能"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxj50400bk0",
+                                            "created": 1710831463230,
+                                            "text": "运载数据"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj53b20g00",
+                                            "created": 1710831470187,
+                                            "text": "建立连接"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj58dgvj40",
+                                            "created": 1710831481217,
+                                            "text": "释放连接"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj5adl1k00",
+                                            "created": 1710831485577,
+                                            "text": "应答"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxj709u6io0",
+                                    "created": 1710831620311,
+                                    "text": "首部"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxj79bo0kg0",
+                                            "created": 1710831640013,
+                                            "text": "源端口和目的端口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj7fxiblk0",
+                                            "created": 1710831654394,
+                                            "text": "序号"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj7htsfkw0",
+                                            "created": 1710831658523,
+                                            "text": "确认号"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj7ksiea00",
+                                            "created": 1710831664976,
+                                            "text": "数据偏移（首部长度）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj7uchm5c0",
+                                            "created": 1710831685775,
+                                            "text": "控制位"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czxjao5t9io0",
+                                                    "created": 1710831907403,
+                                                    "text": "紧急位URG"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxjapapmrc0",
+                                                    "created": 1710831909876,
+                                                    "text": "确认位ACK "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxjayzptug0",
+                                                    "created": 1710831930979,
+                                                    "text": "推送位PSH"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxjb4nqj1s0",
+                                                    "created": 1710831943315,
+                                                    "text": "复位RST"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxjb80ky6o0",
+                                                    "created": 1710831950622,
+                                                    "text": "同步位SYN"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxjbby3rm80",
+                                                    "created": 1710831959180,
+                                                    "text": "终止位FIN"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj7ww9yh40",
+                                            "created": 1710831691325,
+                                            "text": "窗口：接收窗口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj82c0hrs0",
+                                            "created": 1710831703161,
+                                            "text": "校验和",
+                                            "note": "检验首部+数据，检验时要加上12B伪首部，第四个字段为6。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj843zhqo0",
+                                            "created": 1710831707029,
+                                            "text": "选项"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxj87hspm80",
+                                            "created": 1710831714394,
+                                            "text": "填充",
+                                            "note": "这是为了使整个首部长度是4B的整数倍。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxjcbazzlk0",
+                            "created": 1710832036147,
+                            "text": "TCP连接管理"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxjci1uohc0",
+                                    "created": 1710832050831,
+                                    "text": "建立连接：三次握手"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjd1qsgkg0",
+                                            "created": 1710832093698,
+                                            "text": "SYN 洪泛攻击",
+                                            "note": "SYN cookie 解决。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjclsftf40",
+                                    "created": 1710832058969,
+                                    "text": "释放连接：四次握手"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjdoklj000",
+                                            "created": 1710832143390,
+                                            "text": "2MSL",
+                                            "note": "- 第一，为了保证A发送的最后一个ACK报文段能够到达B。\n- 第二，防止“已失效的连接请求报文段”出现在本连接中。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjdr8q5go0",
+                                    "created": 1710832149202,
+                                    "text": "保活计时器"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxjeoplgk00",
+                            "created": 1710832222056,
+                            "text": "TCP可靠传输"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxjg2srzcg0",
+                                    "created": 1710832331087,
+                                    "text": "校验"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjt88ahww0",
+                                            "created": 1710833361644,
+                                            "text": "伪首部"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjg4dkl3k0",
+                                    "created": 1710832334522,
+                                    "text": "序号"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjg6e68xc0",
+                                    "created": 1710832338912,
+                                    "text": "确认"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjg9ug2js0",
+                                    "created": 1710832346426,
+                                    "text": "重传"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjgnpi97c0",
+                                            "created": 1710832376602,
+                                            "text": "超时重传"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjgr6pgbs0",
+                                            "created": 1710832384173,
+                                            "text": "冗余 ACK（冗余确认）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxjn1aduh40",
+                            "created": 1710832876348,
+                            "text": "TCP流量控制",
+                            "note": "TCP提供流量控制服务来消除发送方（发送速率太快）使接收方缓存区溢出的可能性。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxjn2zy54g0",
+                                    "created": 1710832880070,
+                                    "text": "滑动窗口",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxji589y8w0",
+                                            "created": 1710832493107,
+                                            "text": "发送窗口",
+                                            "note": "发送窗口的上限值=min[rwnd，cwnd]\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjihkouk80",
+                                            "created": 1710832519979,
+                                            "text": "接收窗口 rwnd"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjmdtkwwg0",
+                                            "created": 1710832825266,
+                                            "text": "拥塞窗口 cwnd",
+                                            "note": "发送端维护，发送端根据当前网络的拥塞程度而确定的窗口值。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjnvhagzk0",
+                                    "created": 1710832942069,
+                                    "text": "​ 传输层和数据链路层的流量控制的区别",
+                                    "note": "- 传输层定义端到端用户之间的流量控制，数据链路层定义两个中间的相邻结点的流量控制。\n- 数据链路层的滑动窗口协议的窗口大小不能动态变化，传输层的则可以动态变化。\n"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxjh4fl2m80",
+                            "created": 1710832413008,
+                            "text": "TCP拥塞控制",
+                            "note": "拥塞控制是指防止过多的数据注入网络，保证网络中的路由器或链路不致过载，是全局性过程。出现拥塞时，端点并不了解拥塞发生的细节，对通信连接的端点来说，拥塞往往表现为通信时延的增加。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxjhr79rkw0",
+                                    "created": 1710832462571,
+                                    "text": "概念"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjirnucw80",
+                                            "created": 1710832541937,
+                                            "text": "最大报文段长度 MSS"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjj52diug0",
+                                            "created": 1710832571115,
+                                            "text": "慢开始门限 ssthresh"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxjhsqqlio0",
+                                    "created": 1710832465925,
+                                    "text": "算法",
+                                    "expandState": "expand",
+                                    "note": "![TCP拥塞控制算法](img/TCP拥塞控制算法.png)\n"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxjh5cc1r40",
+                                            "created": 1710832414988,
+                                            "text": "慢开始和拥塞避免"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjh9tre3k0",
+                                            "created": 1710832424749,
+                                            "text": "快重传和快恢复",
+                                            "note": "快重传和快恢复算法是对慢开始和拥塞避免算法的改进。\n\n- 快重传：收到3个重复的确认执行快重传算法。\n- 快恢复：\n\t当发送端收到连续三个冗余ACK时，就执行“乘法减小\"算法，把慢开始门限ssthresh设置为出现拥塞时发送方cwnd的一半。与慢开始（将拥塞窗口cwnd设置为1）不同之处是它把cwnd的值设置为慢开始门限ssthresh改变后的数值，然后开始执行拥塞避免算法（加法增大），使拥塞窗口缓慢地线性增大。\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxjkff29800",
+                                            "created": 1710832672013,
+                                            "text": "总结",
+                                            "note": "在流量控制中，发送方发送数据的量由接收方决定，而在拥塞控制中，则由发送方自己通过检测网络状况来决定。实际上，慢开始、拥塞避免、快重传和快恢复几种算法是同时应用在拥塞控制机制中。\n\n- 在TCP连接建立和网络出现超时时，采用慢开始和拥塞避免算法；\n- 当发送方接收到冗余ACK时，采用快重传和快恢复算法。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
