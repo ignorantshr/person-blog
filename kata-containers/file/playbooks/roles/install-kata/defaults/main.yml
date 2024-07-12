@@ -1,0 +1,4 @@
+---
+# defaults file for install-kata
+baseurl: http://172.16.2.237/
+use_local_repo: false
