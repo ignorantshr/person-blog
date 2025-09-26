@@ -118,6 +118,8 @@ nav:
         - python/上下文管理器.md
         - python/网络编程.md
         - python/造轮子.md
+    - JS:
+        - js/promise.md
     - Go:
         - go/00 备忘.md
         - go/字符串、字符、字节.md
