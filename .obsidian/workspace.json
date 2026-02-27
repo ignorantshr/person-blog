@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "0c765b3fe7f909d6",
+    "type": "split",
+    "children": [
+      {
+        "id": "14a57109d3ec5f60",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f646435af9a859b4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/go/sync_Map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sync_Map"
+            }
+          },
+          {
+            "id": "463ba3b1ddd8bbf0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/go/Interface 与 Nil.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Interface 与 Nil"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b6ebcb7d25c21523",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3604bb1c3161e84",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5bad4347e7e8ec67",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "dc190d27f0b0702e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "三次握手",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "0c4e57dce2908e94",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "28bc491e94cf1647",
+    "type": "split",
+    "children": [
+      {
+        "id": "74c8f630ef9e426b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eb03669dc1b0c274",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/js/You-Dont-Know-JS/1. 开始.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "1. 开始 的反向链接列表"
+            }
+          },
+          {
+            "id": "347be984690fd050",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/奇技淫巧/平方根.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "平方根 的出链列表"
+            }
+          },
+          {
+            "id": "eace70e4ce0e7f62",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "dad9f8ed67942c56",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "b3650819521aa564",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/go/Interface 与 Nil.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Interface 与 Nil 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "5bad4347e7e8ec67",
+  "lastOpenFiles": [
+    "docs/go/sync_Map.md",
+    "docs/go/00 备忘.md",
+    "docs/go/字符串、字符、字节.md",
+    "docs/go/Interface 与 Nil.md",
+    "docs/go/trick.md",
+    "docs/js/You-Dont-Know-JS/1. 开始.md",
+    "docs/js/You-Dont-Know-JS/4. 类型和语法.md",
+    "docs/js/You-Dont-Know-JS/3. 对象和类.md",
+    "docs/interview/网络/tcp/TCP连接.md",
+    "docs/interview/网络/tcp/TCP FAQ.md",
+    "docs/interview/网络/http/HTTP面试.md",
+    "docs/interview/网络/http/HTTP和其他协议的区别.md",
+    "docs/http协议/简介.md",
+    "docs/鸟哥的linux私房菜-服务器篇/04 常用网络命令.md",
+    "docs/js/You-Dont-Know-JS/2. 作用域和闭包.md",
+    "docs/奇技淫巧/平方根.md"
+  ]
+}
