@@ -1,0 +1,628 @@
+{
+    "root": {
+        "data": {
+            "id": "czxmpi2zqu80",
+            "created": 1710841532964,
+            "text": "应用层"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "czxmpkcj3200",
+                    "created": 1710841537894,
+                    "text": "网络应用模型"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxmpply7b40",
+                            "created": 1710841549348,
+                            "text": "客户/服务器模型"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czxmq9uxtxs0",
+                            "created": 1710841593427,
+                            "text": "P2P 模型"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czxmqi4arkw0",
+                    "created": 1710841611407,
+                    "text": "域名系统 DNS",
+                    "note": "DNS系统采用客户/服务器模型，其协议运行在UDP之上，使用53号端口。\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxmqnvisqw0",
+                            "created": 1710841623938,
+                            "text": "层次域名空间"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxmrhcipi00",
+                                    "created": 1710841688092,
+                                    "text": "标号"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmrjaol680",
+                                    "created": 1710841692334,
+                                    "text": "域名树"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxmrtl4soo0",
+                                            "created": 1710841714734,
+                                            "text": "根"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxmrwdiirk0",
+                                            "created": 1710841720804,
+                                            "text": "顶级域名"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czxms9r76rs0",
+                                                    "created": 1710841749929,
+                                                    "text": "国家顶级域名"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxmshp6wxc0",
+                                                    "created": 1710841767222,
+                                                    "text": "通用顶级域名"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxmsl5ctjk0",
+                                                    "created": 1710841774730,
+                                                    "text": "基础结构域名/反向域名"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxmrzqrfww0",
+                                            "created": 1710841728135,
+                                            "text": "二级域名"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxms3rrcm00",
+                                            "created": 1710841736902,
+                                            "text": "三级域名"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxms61rwjk0",
+                                            "created": 1710841741862,
+                                            "text": "..."
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxmt3u0lc80",
+                            "created": 1710841815403,
+                            "text": "域名服务器"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxmtarmpxs0",
+                                    "created": 1710841830496,
+                                    "text": "根域名服务器"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmtdnb9940",
+                                    "created": 1710841836765,
+                                    "text": "顶级域名服务器"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmth6cilk0",
+                                    "created": 1710841844447,
+                                    "text": "授权域名服务器/权限域名服务器"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmtnezwuw0",
+                                    "created": 1710841858031,
+                                    "text": "本地域名服务器"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxmttmwyc80",
+                            "created": 1710841871570,
+                            "text": "域名解析过程"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxmtwjh34g0",
+                                    "created": 1710841877892,
+                                    "text": "正向解析"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmu0v3rg80",
+                                    "created": 1710841887303,
+                                    "text": "反向解析"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmu3li9p40",
+                                    "created": 1710841893253,
+                                    "text": "递归查询"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxmu6dfq2w0",
+                                    "created": 1710841899295,
+                                    "text": "递归与迭代相结合的查询"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czxoctz5dko0",
+                    "created": 1710846182339,
+                    "text": "文件传输协议（FTP）"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxod4o2si80",
+                            "created": 1710846205614,
+                            "text": "工作原理",
+                            "note": "文件传输协议（File Transfer Protocol，FTP），基于TCP，可靠传输。基于客户/服务器（C/S）的协议。\n\n它屏蔽了各计算机系统的细节，因而适合于在异构网络中的任意计算机之间传送文件。\n"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxoe8lulvk0",
+                                    "created": 1710846292551,
+                                    "text": "服务器进程"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxoed8943c0",
+                                            "created": 1710846302612,
+                                            "text": "主进程"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxoegwyba80",
+                                            "created": 1710846310636,
+                                            "text": "从属进程"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxoe9ktdfc0",
+                                    "created": 1710846294665,
+                                    "text": "工作步骤"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxoepsk89s0",
+                            "created": 1710846329962,
+                            "text": "控制连接与数据连接"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxog82hxls0",
+                                    "created": 1710846448109,
+                                    "text": "控制连接"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxog99qu5c0",
+                                    "created": 1710846450724,
+                                    "text": "数据连接",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxogc9spfk0",
+                                            "created": 1710846457257,
+                                            "text": "主动模式 PORT"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxoghu3uco0",
+                                            "created": 1710846469369,
+                                            "text": "被动模式 PASV"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxoiia5lf40",
+                            "created": 1710846627068,
+                            "text": "FTP传输模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxoinp6e8w0",
+                                    "created": 1710846638860,
+                                    "text": "二进制模式"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxoiq91x4w0",
+                                    "created": 1710846644415,
+                                    "text": "文本模式"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czxok2ty7ww0",
+                    "created": 1710846750165,
+                    "text": "电子邮件"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxolfr344o0",
+                            "created": 1710846856654,
+                            "text": "电子邮件系统的组成结构"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxoligt9qo0",
+                                    "created": 1710846862563,
+                                    "text": "组成构件"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxolmfl4200",
+                                            "created": 1710846871196,
+                                            "text": "用户代理（UA）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxolpvvp080",
+                                            "created": 1710846878711,
+                                            "text": "邮件服务器"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxolrtbxgg0",
+                                            "created": 1710846882911,
+                                            "text": "邮件发送协议和读取协议"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxom9js4v40",
+                                    "created": 1710846921516,
+                                    "text": "收发过程"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxomnzc53c0",
+                            "created": 1710846952931,
+                            "text": "SMTP（简单邮件传输协议）",
+                            "note": "采用客户/服务器方式，发送方为客户，接收方为服务器；TCP连接，端口号为25。\n"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxon2wqauo0",
+                                    "created": 1710846985425,
+                                    "text": "建立连接"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxon5uva2w0",
+                                    "created": 1710846991843,
+                                    "text": "邮件传输"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxon824y2w0",
+                                    "created": 1710846996636,
+                                    "text": "释放连接"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxoo4munb40",
+                                    "created": 1710847067546,
+                                    "text": "缺点"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxoohmjsw80",
+                            "created": 1710847095826,
+                            "text": "POP3（邮局协议）",
+                            "note": " POP3采用的是“拉”（Pull）的通信方式，当用户读取邮件时，用户代理向邮件服务器发出请求，“拉”取用户邮箱中的邮件。\n\n使用客户/服务器，TCP连接，端口110。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxopouzopk0",
+                                    "created": 1710847189938,
+                                    "text": "下载并保留"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxops21bts0",
+                                    "created": 1710847196894,
+                                    "text": "下载并删除"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxopezedd40",
+                            "created": 1710847168436,
+                            "text": "IMAP（因特网报文存取协议）",
+                            "note": "客户/服务器，TCP连接，端口号993。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxopvsuscw0",
+                                    "created": 1710847205046,
+                                    "text": "部分获取"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czxoqennlxc0",
+                            "created": 1710847246090,
+                            "text": "多用途网际邮件扩充（MIME）"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxoqzwr4sg0",
+                                    "created": 1710847292353,
+                                    "text": "在 SMTP 的基础上"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxoqljdyi00",
+                                    "created": 1710847261070,
+                                    "text": "新增邮件首部字段"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxoqowlrrk0",
+                                    "created": 1710847268399,
+                                    "text": "增加了邮件内容的格式"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxoqtwknqg0",
+                                    "created": 1710847279281,
+                                    "text": "定义了传送编码"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czxorg09icg0",
+                    "created": 1710847327394,
+                    "text": "万维网（WWW）"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czxorlytd8g0",
+                            "created": 1710847340367,
+                            "text": "WWW的概念与组成结构"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czxorx9dxbc0",
+                                    "created": 1710847364951,
+                                    "text": "统一资源定位符（URL）"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czxos14l0uo0",
+                                    "created": 1710847373367,
+                                    "text": "超文本传输协议（HTTP）"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "czxosk4zyvc0",
+                                            "created": 1710847414751,
+                                            "text": "无连接"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxotuxptnc0",
+                                            "created": 1710847516620,
+                                            "text": "无状态"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxoumqvnbk0",
+                                            "created": 1710847577156,
+                                            "text": "面向文本"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxotxf6m340",
+                                            "created": 1710847522029,
+                                            "text": "非持久连接"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "czxou1wu9a00",
+                                            "created": 1710847531804,
+                                            "text": "持久连接"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "czxou8fruq00",
+                                                    "created": 1710847546010,
+                                                    "text": "非流水线方式"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "czxoucfvnxc0",
+                                                    "created": 1710847554723,
+                                                    "text": "流水线方式"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "czxos4ds9k80",
+                                    "created": 1710847380454,
+                                    "text": "超文本标记语言（HTML）"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

@@ -1,0 +1,52 @@
+{
+    "root": {
+        "data": {
+            "id": "cvnp887f0800",
+            "created": 1695208409276,
+            "text": "FAQ"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cvnp218u3v40",
+                    "created": 1695207923939,
+                    "text": "一个进程可以创建多少个线程",
+                    "note": "两个因素会影响可创建的线程上限：\n\n- **进程的虚拟内存空间上限**，因为创建一个线程，操作系统需要为其分配一个栈空间，如果线程数量越多，所需的栈空间就要越大，那么虚拟内存就会占用的越多。\n- **系统参数限制**，虽然 Linux 并没有内核参数来控制单个进程创建的最大线程个数，但是有系统级别的参数来控制整个系统的最大线程个数。\n\n`ulimit -a` 命令查看进程创建线程时默认分配的栈空间大小，下面是 macOS 的输出，`-s: stack size (kbytes)`那一项就是了：\n\n```\n$ ulimit -a\n……\n-s: stack size (kbytes)             8192\n-c: core file size (blocks)         0\n-v: address space (kbytes)          unlimited\n-l: locked-in-memory size (kbytes)  unlimited\n-u: processes                       2784\n-n: file descriptors                256\n```\n\n调整创建线程时分配的栈空间大小，比如调整为 512k：\n\n```\n$ ulimit -s 512\n```\n\n有三个内核参数的大小，都会影响创建线程的上限：\n\n- `/proc/sys/kernel/threads`-max，表示系统支持的最大线程数，默认值是 14553；\n- `/proc/sys/kernel/pid_max`，表示系统全局的 PID 号数值的限制，每一个进程或线程都有 ID，ID 的值超过这个数，进程或线程就会创建失败，默认值是 32768；\n- `/proc/sys/vm/max_map_count`，用于限制一个进程能够拥有的虚拟内存映射区域（mmap）的数量。具体什么意思我也没搞清楚，反正如果它的值很小，也会导致创建线程失败，默认值是 65530。"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cvnp8lxawls0",
+                    "created": 1695208439139,
+                    "text": "线程崩溃，进程一定会崩溃吗",
+                    "hyperlink": "https://xiaolincoding.com/os/4_process/thread_crash.html",
+                    "hyperlinkTitle": "小林coding"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cvnpdeg8fk00",
+                            "created": 1695208814690,
+                            "text": "会崩溃吗",
+                            "note": "一般来说如果线程是因为非法访问内存引起的崩溃，那么进程肯定会崩溃，为什么系统要让进程崩溃呢，这主要是因为在进程中，**各个线程的地址空间是共享的**，既然是共享，那么某个线程对地址的非法访问就会导致内存的不确定性，进而可能会影响到其他线程，这种操作是危险的，操作系统会认为这很可能导致一系列严重的后果，于是干脆让整个进程崩溃"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cvnpekxbjiw0",
+                            "created": 1695208907148,
+                            "text": "进程是如何崩溃的-信号机制简介",
+                            "note": "发 kill 信号必须具有一定的权限，否则任意进程都可以通过发信号来终止其他进程，那显然是不合理的，实际上 kill 执行的是系统调用，将控制权转移给了内核（操作系统），由内核来给指定的进程发送信号。其背后的机制如下\n\n1. CPU 执行正常的进程指令\n1. 调用 kill 系统调用向进程发送信号\n1. 进程收到操作系统发的信号，CPU 暂停当前程序运行，并将控制权转交给操作系统\n1. 调用 kill 系统调用向进程发送信号（假设为 11，即 SIGSEGV，一般非法访问内存报的都是这个错误）\n1. 操作系统根据情况执行相应的信号处理程序（函数），一般执行完信号处理程序逻辑后会让进程退出\n\n如果进程没有注册自己的信号处理函数，那么操作系统会执行默认的信号处理程序（一般最后会让进程退出），但如果注册了，则会执行自己的信号处理函数，它收到 kill 信号后，可以调用 exit() 来退出，但也可以使用 sigsetjmp，siglongjmp 这两个函数来恢复进程的执行。\n\n在 Java 中，StackoverflowError 或者 NPE 都属于非法访问内存， JVM 之所以不会崩溃，其实就是因为 JVM 自定义了自己的信号处理函数，拦截了 SIGSEGV 信号，针对这两者不让它们崩溃。\n"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}

@@ -1,0 +1,7 @@
+- hosts: kata_k8s
+  gather_facts: false
+  tasks:
+  - include_role:
+      name: install-kata
+    vars:
+      use_local_repo: false

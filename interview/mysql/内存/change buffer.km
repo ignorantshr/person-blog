@@ -1,0 +1,62 @@
+{
+    "root": {
+        "data": {
+            "id": "cyx1erj4g0g0",
+            "created": 1707125289777,
+            "text": "change buffer",
+            "note": "补充文章：\n- [写缓冲(change buffer)，这次彻底懂了！！！](https://juejin.cn/post/6844903875271475213)\n\nchange buffer 也叫写缓冲。\n\n当需要更新一个数据页时，\n\n- 如果数据页就在内存中就直接更新（脏页）\n- 而如果这个数据页还没有在内存中的话，**在不影响数据一致性的前提下，innoDB 会将这些更新操作缓存在 `change buffer` 中**。在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 change buffer 中与这个页有关的操作。通过这种方式保证数据逻辑的正确性。\n\nchange buffer 实际上它是可以持久化的数据。也就是说，change buffer在内存中有拷贝，也会被写入到磁盘上。\n\n将 change buffer 中的操作应用到原数据页，得到最新结果的过程称为 `merge`。何时触发 merge：\n\n- 访问这个数据页\n- 后台线程定期 merge\n- 数据库正常关闭时\n\nmerge的执行流程是这样的：\n\n1. 从磁盘读入数据页到内存（老版本的数据页）；\n1. 从change buffer里找出这个数据页的change buffer 记录(可能有多个），依次应用，得到新版数据页；\n1. 写redo log。这个redo log包含了数据的变更和change buffer的变更。\n\n到这里merge过程就结束了。这时候，数据页和内存中change buffer对应的磁盘位置都还没有修改，属于脏页，之后各自刷回自己的物理数据，就是另外一个过程了。\n\nchange buffer 的优点：\n\n1. 减少读磁盘，语句的执行速度会得到明显的提升。\n1. 而且，数据读入内存是需要占用buffer pool的，所以这种方式还能够避免占用内存，提高内存利用率。\n",
+            "hyperlink": "https://funnylog.gitee.io/mysql45/09%E8%AE%B2%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%EF%BC%8C%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9.html",
+            "hyperlinkTitle": "09讲普通索引和唯一索引，应该怎么选择"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cyx3menghh40",
+                    "created": 1707131530874,
+                    "text": "普通索引和唯一索引的更新语句",
+                    "note": "如果要在这张表中插入一个新记录(4,400)的话，InnoDB的处理流程是怎样的。\n\n第一种情况是，这个记录要更新的目标页在内存中。这时，InnoDB的处理流程如下：\n\n- 对于唯一索引来说，找到3和5之间的位置，判断到没有冲突，插入这个值，语句执行结束；\n- 对于普通索引来说，找到3和5之间的位置，插入这个值，语句执行结束。\n\n这样看来，普通索引和唯一索引对更新语句性能影响的差别，只是一个判断，只会耗费微小的CPU时间。\n\n第二种情况是，这个记录要更新的目标页不在内存中。这时，InnoDB的处理流程如下：\n\n- 对于唯一索引来说，需要将数据页读入内存，判断到没有冲突，插入这个值，语句执行结束；\n- 对于普通索引来说，则是将更新记录在change buffer，语句执行就结束了。\n\n将数据从磁盘读入内存涉及随机IO的访问，是数据库里面成本最高的操作之一。change buffer因为减少了随机磁盘访问，所以对更新性能的提升是会很明显的。\n\n所以\n\n- 对于唯一索引来说，所有的更新操作都要先判断这个操作是否违反唯一性约束。而这必须要将数据页读入内存才能判断。如果都已经读入到内存了，那直接更新内存会更快，就没必要使用change buffer了。\n- 只有非唯一普通索引才会使用 change buffer。\n\n`change buffer`用的是`buffer pool`里的内存，因此不能无限增大。change buffer的大小，可以通过参数`innodb_change_buffer_max_size`来动态设置。这个参数设置为 50 的时候，表示 change buffer 的大小最多只能占用 buffer pool 的 50%。\n"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cyx20pc7u4w0",
+                    "created": 1707127009017,
+                    "text": "使用场景",
+                    "note": "因为merge的时候是真正进行数据更新的时刻，而change buffer的主要目的就是将记录的变更动作缓存下来，所以在一个数据页做merge之前，change buffer记录的变更越多（也就是这个页面上要更新的次数越多），收益就越大。\n\n反过来，假设一个业务的更新模式是写入之后马上会做查询，那么即使满足了条件，将更新先记录在change buffer，但之后由于马上要访问这个数据页，会立即触发merge过程。这样随机访问IO的次数不会减少，反而增加了change buffer的维护代价。所以，对于这种业务模式来说，change buffer反而起到了副作用。\n\n因此，对于**写多读少**的业务来说，页面在写完以后马上被访问到的概率比较小，此时change buffer的使用效果最好。这种业务模型常见的就是账单类、日志类的系统。\n"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cyx3sk66i2g0",
+                    "created": 1707132013075,
+                    "text": "索引选择和实践",
+                    "note": "普通索引和唯一索引应该怎么选择。其实，这两类索引在查询能力上是没差别的，主要考虑的是对更新性能的影响。所以，我建议你尽量选择普通索引。\n\n如果所有的更新后面，都马上伴随着对这个记录的查询，那么你应该关闭change buffer。而在其他情况下，change buffer都能提升更新性能。\n\n在实际使用中，你会发现，普通索引和change buffer的配合使用，对于数据量大的表的更新优化还是很明显的。\n\n特别地，在使用机械硬盘时，change buffer这个机制的收效是非常显著的。"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cyx3xfjezc80",
+                    "created": 1707132394812,
+                    "text": "change buffer 和 redo log",
+                    "note": "现在，我们要在表上执行这个插入语句：\n\n```sql\nmysql> insert into t(id,k) values(id1,k1),(id2,k2);\n```\n\n假设当前k索引树的状态，查找到位置后，k1所在的数据页在内存 (InnoDB buffer pool) 中，k2所在的数据页不在内存中。如下图所示是带 change buffer 的更新状态图。\n\n![带change buffer的更新过程](img/带change buffer的更新过程.webp)\n\n它涉及了四个部分：内存、redo log（ib_log_fileX）、 数据表空间（t.ibd）、系统表空间（ibdata1）。\n\n这条更新语句做了如下的操作（按照图中的数字顺序）：\n\n1. Page 1在内存中，直接更新内存；\n1. Page 2没有在内存中，就在内存的 change buffer 区域，记录下“我要往Page 2插入一行”这个信息\n1. 将上述两个动作记入 redo log 中（图中3和4）。\n\n做完上面这些，事务就可以完成了。执行这条更新语句的成本很低，就是写了两处内存，然后写了一处磁盘（两次操作合在一起写了一次磁盘），而且还是顺序写的。\n\n同时，图中的两个虚线箭头，是后台操作，不影响更新的响应时间。\n\n这里，我画了这两个读请求的流程图。\n\n如果读语句发生在更新语句后不久，内存中的数据都还在，那么此时的这两个读操作就与系统表空间（ibdata1）和 redo log（ib_log_fileX）无关了。假设现在要执行 `select * from t where k in (k1, k2)`。\n\n![带change buffer的读过程](img/带change buffer的读过程.webp)\n\n- 读Page 1的时候，直接从内存返回。\n- 要读Page 2的时候，需要把Page 2从磁盘读入内存中，然后应用change buffer里面的操作日志，生成一个正确的版本并返回结果。\n\n**redo log 主要节省的是随机写磁盘的IO消耗（转成顺序写），而change buffer主要节省的则是随机读磁盘的IO消耗。**\n"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cyx4mtzewkw0",
+                    "created": 1707134385358,
+                    "text": "如何得到 affected rows",
+                    "note": "[MySQL：change buffer 何时生效](https://blog.csdn.net/ActionTech/article/details/122666069)\n\n- 如果 delete、update 是以主键、唯一索引做为筛选条件，则读取磁盘或者 innodb buffer pool 中的主键、唯一索引来确定 affected rows。对于普通索引页上记录的删除或者修改，还是直接使用 change buffer，不需要单独将普通索引页从磁盘上读取到内存。\n- 如果 delete、update 是以普通二级索引做为筛选条件，以 delete 为例（update 内部实现是先 delete 再 insert）：delete from t where a=100; 如果索引页不在内存中，则需要先从磁盘读取 a 索引，找到 a = 100 的记录对应的 id（主键值），再从磁盘扫描主键索引（回表）将 id 满足条件的记录读取到内存。然后在 innodb buffer pool 中把对应的主键索引页、二级索引页中的记录删除。这里不使用 change buffer。\n"
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}

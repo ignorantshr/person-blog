@@ -1,0 +1,263 @@
+{
+    "root": {
+        "data": {
+            "id": "czvwbevrakw0",
+            "created": 1710665520084,
+            "text": "计算机网络基础",
+            "note": "原文链接：https://blog.csdn.net/weixin_48024605/article/details/132426862\n"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "czvwch3dn7c0",
+                    "created": 1710665603262,
+                    "text": "概述",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvwck6i5ao0",
+                            "created": 1710665609982,
+                            "text": "概念"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwcwhjgeo0",
+                            "created": 1710665636770,
+                            "text": "组成"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwczuc4l40",
+                            "created": 1710665644074,
+                            "text": "功能"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwd13ms800",
+                            "created": 1710665646813,
+                            "text": "分类"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvwdl1zk7s0",
+                                    "created": 1710665690249,
+                                    "text": "按范围分类"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwdnup6ts0",
+                                    "created": 1710665696339,
+                                    "text": "按传输技术分类"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwdorwuy80",
+                                    "created": 1710665698347,
+                                    "text": "按拓扑结构分类"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwde031u00",
+                                    "created": 1710665674897,
+                                    "text": "按交换技术分类"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwei0teds0",
+                                    "created": 1710665762012,
+                                    "text": "按传输介质分类"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvweouwwdc0",
+                            "created": 1710665776893,
+                            "text": "性能指标"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvweuwblls0",
+                                    "created": 1710665790039,
+                                    "text": "带宽"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwey1h26o0",
+                                    "created": 1710665796881,
+                                    "text": "时延"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwf0so3hc0",
+                                    "created": 1710665802879,
+                                    "text": "时延带宽积"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwf54o1ds0",
+                                    "created": 1710665812311,
+                                    "text": "往返时延"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwfc58qrs0",
+                                    "created": 1710665827584,
+                                    "text": "速率"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwfe0c0io0",
+                                    "created": 1710665831640,
+                                    "text": "信道利用率"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "czvwj184m400",
+                    "created": 1710666117270,
+                    "text": "体系结构与参考模型",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "czvwhnddnk00",
+                            "created": 1710666008748,
+                            "text": "分层结构"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvwgdpb4f40",
+                                    "created": 1710665909338,
+                                    "text": "服务数据单元(SDU)"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwghv9lz40",
+                                    "created": 1710665918405,
+                                    "text": "协议控制信息(PCI)"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwglzbp2w0",
+                                    "created": 1710665927358,
+                                    "text": "协议数据单元(PDU)"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvwj7atslk0",
+                            "created": 1710666130494,
+                            "text": "协议"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwjak9j3c0",
+                            "created": 1710666137595,
+                            "text": "接口"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwj94180g0",
+                            "created": 1710666134437,
+                            "text": "服务"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "czvwjqzwqkg0",
+                                    "created": 1710666173369,
+                                    "text": "服务原语分类"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "czvwk0n6a600",
+                                    "created": 1710666194367,
+                                    "text": "服务类型"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "czvwka138yo0",
+                            "created": 1710666214800,
+                            "text": "OSI参考模型"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwkevji400",
+                            "created": 1710666225348,
+                            "text": "TCP/IP模型"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "czvwlguiyu00",
+                            "created": 1710666308004,
+                            "text": "5层协议体系结构"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

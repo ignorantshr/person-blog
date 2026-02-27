@@ -1,0 +1,27 @@
+---
+# tasks file for install-kata
+- name: copy install script to host
+  copy:
+    src: kata-install.sh
+    dest: /tmp/
+    mode: 0644
+  when: use_local_repo == false
+- name: create local kata repo
+  yum_repository:
+    name: local_kata_repo
+    description: local kata repository
+    baseurl: "{{ baseurl }}"
+    gpgcheck: no
+    enabled: yes
+  when: use_local_repo == true
+- name: execute kata install script
+  command: sh /tmp/kata-install.sh
+  when: use_local_repo == false
+- name: execute kata local install
+  yum:
+    name:
+      - kata-runtime
+      - kata-proxy
+      - kata-shim
+    state: present
+  when: use_local_repo == true

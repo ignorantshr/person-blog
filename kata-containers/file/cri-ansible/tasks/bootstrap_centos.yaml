@@ -1,0 +1,32 @@
+---
+#- name: install kubernetes repo
+#  copy:
+#    src: kubernetes.repo
+#    dest: /etc/yum.repos.d/
+- name: "Add Kubernetes repository and install gpg key (CentOS)"
+  yum_repository:
+    name: kubernetes
+    description: Kubernetes repository
+    #baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    baseurl: http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+    gpgcheck: yes
+    enabled: yes
+    repo_gpgcheck: yes
+    gpgkey:
+     #- https://packages.cloud.google.com/yum/doc/yum-key.gpg
+     #- https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+      - http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+      - http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+  when: ansible_distribution == "CentOS"
+
+- name: "Install required packages on CentOS "
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - unzip
+    - tar
+    - btrfs-progs
+    - libseccomp
+    - util-linux
+    - libselinux-python
